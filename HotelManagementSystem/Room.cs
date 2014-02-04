@@ -8,7 +8,6 @@ namespace HotelManagementSystem
 {
     public class Room
     {
-        //YOLO
         string roomNo;
         int maxPersons;
         double pricePerDay;
