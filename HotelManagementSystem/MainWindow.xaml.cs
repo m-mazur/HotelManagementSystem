@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace HotelManagementSystem
 {
     /// <summary>
@@ -20,9 +21,49 @@ namespace HotelManagementSystem
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();
         }
+
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            BookingTab.SelectedIndex = 1;
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            BookingTab.SelectedIndex = 0;
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            BookingTab.SelectedIndex = 2;
+        }
+
+        private void BackReciept_Click(object sender, RoutedEventArgs e)
+        {
+            BookingTab.SelectedIndex = 0;
+        }
+
+
+
+
+
     }
 }
