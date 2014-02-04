@@ -70,7 +70,9 @@
     </ApplicationDefinition>
     <Compile Include="CustomersRepository.cs" />
     <Compile Include="Reservation.cs" />
+    <Compile Include="ReservationsRepository.cs" />
     <Compile Include="Room.cs" />
+    <Compile Include="RoomsRepository.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
