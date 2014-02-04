@@ -17,7 +17,7 @@ namespace HotelManagementSystem
             dataSetHotel = new DataSetHotel();
         }
 
-        public void AddRoom(Rooms room)
+        public void AddRoom(Room room)
         {
             roomsTableAdapter = new DataSetHotelTableAdapters.roomsTableAdapter();
             try
@@ -30,7 +30,7 @@ namespace HotelManagementSystem
             }
         }
 
-        public void DeleteRoom(Rooms room)
+        public void DeleteRoom(Room room)
         {
             roomsTableAdapter = new DataSetHotelTableAdapters.roomsTableAdapter();
             try
@@ -43,7 +43,7 @@ namespace HotelManagementSystem
             }
         }
 
-        public void UpdateRoom(Rooms room)
+        public void UpdateRoom(Room room)
         {
             roomsTableAdapter = new DataSetHotelTableAdapters.roomsTableAdapter();
             roomsTableAdapter.Fill(dataSetHotel.rooms);

@@ -17,7 +17,7 @@ namespace HotelManagementSystem
             dataSetHotel = new DataSetHotel();
         }
 
-        public void AddCustomer(Customers customer)
+        public void AddCustomer(Customer customer)
         {
             customersTableAdapter = new DataSetHotelTableAdapters.customersTableAdapter();
             try
@@ -30,7 +30,7 @@ namespace HotelManagementSystem
             }
         }
 
-        public void DeleteCustomer(Customers customer)
+        public void DeleteCustomer(Customer customer)
         {
             customersTableAdapter = new DataSetHotelTableAdapters.customersTableAdapter();
             try
@@ -43,7 +43,7 @@ namespace HotelManagementSystem
             }
         }
 
-        public void UpdateCustomer(Customers customer)
+        public void UpdateCustomer(Customer customer)
         {
             customersTableAdapter = new DataSetHotelTableAdapters.customersTableAdapter();
             customersTableAdapter.Fill(dataSetHotel.customers);
