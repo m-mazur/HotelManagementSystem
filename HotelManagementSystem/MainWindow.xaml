@@ -8,10 +8,10 @@
         Title="MainWindow" Height="450" Width="600">
     <Grid Margin="0,0,-8,0">
         <TabControl HorizontalAlignment="Left" Height="409" VerticalAlignment="Top" Width="590" SelectionChanged="TabControl_SelectionChanged">
-            <TabItem x:Name="CustomerTab1" Header="Customer" Width="130">
+            <TabItem x:Name="CustomerTab1" Header="Reservation" Width="130">
                 <Grid x:Name="CustomerTab" Background="#FFE5E5E5" Margin="0,5,0,-5">
                     <TabControl x:Name="BookingTab" HorizontalAlignment="Left" Width="584">
-                        <TabItem x:Name="RegistrationTab" Header="Registration" Width="150" IsEnabled="False">
+                        <TabItem x:Name="RegistrationTab" Header="Search customer" Width="150" IsEnabled="False">
                             <Grid Background="#FFE5E5E5">
                                 <TextBox x:Name="PhoneNoTextBox" HorizontalAlignment="Left" Height="23" Margin="162,155,0,0" TextWrapping="Wrap" Text="0705268299" VerticalAlignment="Top" Width="85"/>
                                 <TextBox x:Name="PhoneCountryCodeTextBox" HorizontalAlignment="Left" Height="23" Margin="127,155,0,0" TextWrapping="Wrap" Text="+46" VerticalAlignment="Top" Width="30" RenderTransformOrigin="1.552,1.937"/>

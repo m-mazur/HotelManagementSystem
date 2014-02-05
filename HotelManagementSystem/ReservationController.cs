@@ -25,6 +25,6 @@ namespace HotelManagementSystem
                 customerRepository.GetCustomerByEmail(email).first_name,
                 customerRepository.GetCustomerByEmail(email).last_name);
             return customer;
-        }
+        } 
     }
 }
