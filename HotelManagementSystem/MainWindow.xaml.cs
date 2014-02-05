@@ -21,10 +21,11 @@ namespace HotelManagementSystem
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        private CustomerController customerController;
         public MainWindow()
         {
             InitializeComponent();
+            customerController = new CustomerController();
         }
 
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -43,7 +44,8 @@ namespace HotelManagementSystem
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-
+            EmailTextbox.Text = customerController.GetCustomer(EmailTextbox.Text).EMail;
+            FirstNameTextBox.Text = customerController.GetCustomer(EmailTextbox.Text).FirstName;
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
