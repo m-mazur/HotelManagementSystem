@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace HotelManagementSystem
 {
-    public class CustomerController
+    public class ReservationController
     {
         private Customer customer;
         private CustomersRepository customerRepository;
 
-        public CustomerController()
+        public ReservationController()
         {
             customerRepository = new CustomersRepository();
         }

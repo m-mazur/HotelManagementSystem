@@ -68,7 +68,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="CustomerController.cs" />
+    <Compile Include="ReservationController.cs" />
     <Compile Include="CustomersRepository.cs" />
     <Compile Include="Reservation.cs" />
     <Compile Include="ReservationsRepository.cs" />
