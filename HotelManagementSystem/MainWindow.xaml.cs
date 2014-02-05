@@ -46,6 +46,10 @@ namespace HotelManagementSystem
         {
             EmailTextbox.Text = customerController.GetCustomer(EmailTextbox.Text).EMail;
             FirstNameTextBox.Text = customerController.GetCustomer(EmailTextbox.Text).FirstName;
+            LastnameTextbox.Text = customerController.GetCustomer(EmailTextbox.Text).LastName;
+            CreditCardNoTextBox.Text = customerController.GetCustomer(EmailTextbox.Text).CreditCardNo;
+            CountryCodeTextBox.Text = customerController.GetCustomer(EmailTextbox.Text).PhoneCountryCode;
+            PhonenumberTextBox.Text = customerController.GetCustomer(EmailTextbox.Text).PhoneNo;
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
