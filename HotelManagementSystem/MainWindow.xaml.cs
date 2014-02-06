@@ -41,11 +41,13 @@ namespace HotelManagementSystem
         {
             BookingTab.SelectedIndex = 1;
             ReservationFirstnametextbox.Text = FirstNameTextBox.Text;
+            ReservationLastNameTextbox.Text = LastnameTextbox.Text;
+            ReservationEmailTextBox.Text = EmailTextbox.Text;
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine(EmailTextbox.Text);
+            
             EmailTextbox.Text = reservationController.GetCustomer(EmailTextbox.Text).EMail;
             FirstNameTextBox.Text = reservationController.GetCustomer(EmailTextbox.Text).FirstName;
             LastnameTextbox.Text = reservationController.GetCustomer(EmailTextbox.Text).LastName;
