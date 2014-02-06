@@ -10,7 +10,11 @@
         <TabControl HorizontalAlignment="Left" Height="409" VerticalAlignment="Top" Width="590" SelectionChanged="TabControl_SelectionChanged">
             <TabItem x:Name="CustomerTab1" Header="Reservation" Width="130">
                 <Grid x:Name="CustomerTab" Background="#FFE5E5E5" Margin="0,5,0,-5">
-                    <TabControl x:Name="BookingTab" HorizontalAlignment="Left" Width="584">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="493*"/>
+                        <ColumnDefinition Width="91*"/>
+                    </Grid.ColumnDefinitions>
+                    <TabControl x:Name="BookingTab" HorizontalAlignment="Left" Width="584" Grid.ColumnSpan="2">
                         <TabItem x:Name="AvailabilityTab" Header="Availability" Width="150" IsEnabled="False">
                             <Grid Background="#FFE5E5E5">
                                 <Button x:Name="NextRegistrationButton" Content="Next" HorizontalAlignment="Left" Height ="23" Margin="493,320,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>

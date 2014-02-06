@@ -34,7 +34,8 @@ namespace HotelManagementSystem
         public void AddReservation(string reservationNo, string eMail, string roomNo,
             DateTime checkInDate, DateTime checkOutDate, Boolean checkIn, Boolean checkOut)
         {
-            reservationRepository.AddReservation(new Reservation(reservationNo, eMail, roomNo, checkInDate, checkOutDate, checkIn, checkOut));
+            reservationRepository.AddReservation(new Reservation(reservationNo, eMail, roomNo, 
+                checkInDate, checkOutDate, checkIn, checkOut));
         }
 
         public DataView GetAvailableRooms(string roomType, DateTime startDate, DateTime endDate)

@@ -65,7 +65,7 @@ namespace HotelManagementSystem
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             BookingTab.SelectedIndex = 2;
-            reservationController.AddReservation("929898", EmailTextbox.Text, "102",
+            reservationController.AddReservation("000113", EmailTextbox.Text, selectedRoom[0].ToString(),
                 FromDateDatepicker.SelectedDate.Value, ToDateDatepicker.SelectedDate.Value, false, false);
         }
 
@@ -82,6 +82,7 @@ namespace HotelManagementSystem
         private void CheckAvailabilityButton_Click(object sender, RoutedEventArgs e)
         {
             RoomInfoGrid.ItemsSource = reservationController.GetAvailableRooms("single room", FromDateDatepicker.SelectedDate.Value, ToDateDatepicker.SelectedDate.Value);
+            Console.WriteLine(FromDateDatepicker.SelectedDate.Value.ToString());
         }
 
         private void checkBoxRegister_Checked(object sender, RoutedEventArgs e)
