@@ -69,6 +69,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="CustomerRegistryController.cs" />
+    <Compile Include="DataSetHotel.cs">
+      <DependentUpon>DataSetHotel.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ReservationController.cs" />
     <Compile Include="CustomersRepository.cs" />
     <Compile Include="Reservation.cs" />
