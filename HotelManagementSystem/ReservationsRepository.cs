@@ -20,7 +20,6 @@ namespace HotelManagementSystem
         public void AddReservation(Reservation reservation)
         {
             reservationsTableAdapter = new DataSetHotelTableAdapters.reservationsTableAdapter();
-            Console.WriteLine(reservation.ReservationNo);
             try
             {
                 reservationsTableAdapter.Insert(reservation.ReservationNo, reservation.EMail, reservation.RoomNo,

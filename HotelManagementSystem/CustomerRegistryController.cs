@@ -15,7 +15,6 @@ namespace HotelManagementSystem
         public CustomerRegistryController()
         {
             customerRepository = new CustomersRepository();
-            //Lars
         }
 
         public DataView GetCustomerDataView()

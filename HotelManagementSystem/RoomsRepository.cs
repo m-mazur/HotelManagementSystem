@@ -92,5 +92,20 @@ namespace HotelManagementSystem
                 return null;
             }
         }
+        public DataView GetAvailableRooms()
+        {
+            try
+            {
+                roomsTableAdapter = new DataSetHotelTableAdapters.roomsTableAdapter();
+                roomsTableAdapter.Fill(dataSetHotel.rooms);
+                DataView roomDataView = new DataView(dataSetHotel.Tables["Room"]);
+                return roomDataView;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return null;
+            }
+        }
     }
 }
