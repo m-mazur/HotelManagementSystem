@@ -10,10 +10,12 @@ namespace HotelManagementSystem
     {
         private Customer customer;
         private CustomersRepository customerRepository;
+        private ReservationsRepository reservationRepository;
 
         public ReservationController()
         {
             customerRepository = new CustomersRepository();
+            reservationRepository = new ReservationsRepository();
         }
 
         public Customer GetCustomer(string email)
@@ -25,6 +27,12 @@ namespace HotelManagementSystem
                 customerRepository.GetCustomerByEmail(email).first_name,
                 customerRepository.GetCustomerByEmail(email).last_name);
             return customer;
-        } 
+        }
+
+        public void AddReservation(string reservationNo, string eMail, string roomNo,
+            DateTime checkInDate, DateTime checkOutDate, Boolean checkIn, Boolean checkOut)
+        {
+            reservationRepository.AddReservation(new Reservation(reservationNo, eMail, roomNo, checkInDate, checkOutDate, checkIn, checkOut));
+        }
     }
 }
