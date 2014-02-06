@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,6 +35,11 @@ namespace HotelManagementSystem
             DateTime checkInDate, DateTime checkOutDate, Boolean checkIn, Boolean checkOut)
         {
             reservationRepository.AddReservation(new Reservation(reservationNo, eMail, roomNo, checkInDate, checkOutDate, checkIn, checkOut));
+        }
+
+        public DataView GetAvailableRooms(string roomType, DateTime startDate, DateTime endDate)
+        {
+            return new RoomsRepository().GetAvailableRooms(roomType, startDate, endDate);
         }
     }
 }

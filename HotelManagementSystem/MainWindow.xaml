@@ -25,7 +25,7 @@
                                 <DatePicker x:Name="ToDateDatepicker" HorizontalAlignment="Right" Margin="0,144,383,0" VerticalAlignment="Top" FirstDayOfWeek="Monday" Width="120"/>
                                 <Label x:Name="AvalibleRoomsLabel" Content="Avalible Rooms" HorizontalAlignment="Left" Margin="200,14,0,0" VerticalAlignment="Top" Width="146"/>
                                 <DataGrid x:Name="RoomInfoGrid" HorizontalAlignment="Left" Margin="200,45,0,0" VerticalAlignment="Top" Height="224" Width="245"/>
-                                <Button x:Name="CheckAvailabilityButton" Content="Check Availability" HorizontalAlignment="Left" Margin="95,173,0,0" VerticalAlignment="Top" Width="100"/>
+                                <Button x:Name="CheckAvailabilityButton" Content="Check Availability" HorizontalAlignment="Left" Margin="95,173,0,0" VerticalAlignment="Top" Width="100" Click="CheckAvailabilityButton_Click"/>
                             </Grid>
                         </TabItem>
                         <TabItem x:Name="ReservationTab" Header="Reservation" Width="150" IsEnabled="False" HorizontalAlignment="Left" Margin="0,-2,0,0">

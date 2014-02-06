@@ -78,5 +78,10 @@ namespace HotelManagementSystem
         {
             
         }
+
+        private void CheckAvailabilityButton_Click(object sender, RoutedEventArgs e)
+        {
+            RoomInfoGrid.ItemsSource = reservationController.GetAvailableRooms(ComboBoxReservation.SelectedValue.ToString(), FromDateDatepicker.SelectedDate.Value, ToDateDatepicker.SelectedDate.Value);
+        }
     }
 }

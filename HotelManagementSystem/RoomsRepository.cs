@@ -92,12 +92,12 @@ namespace HotelManagementSystem
                 return null;
             }
         }
-        public DataView GetAvailableRooms(DateTime startDate, DateTime endDate)
+        public DataView GetAvailableRooms(string roomType, DateTime startDate, DateTime endDate)
         {
             try
             {
                 roomsTableAdapter = new DataSetHotelTableAdapters.roomsTableAdapter();
-                roomsTableAdapter.FillByAvailableRooms(dataSetHotel.rooms, startDate, endDate, startDate, endDate);
+                roomsTableAdapter.FillByAvailableRooms(dataSetHotel.rooms, roomType, startDate, endDate, startDate, endDate);
                 DataView roomDataView = new DataView(dataSetHotel.Tables["Rooms"]);
                 return roomDataView;
             }
