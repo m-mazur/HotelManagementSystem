@@ -73,5 +73,10 @@ namespace HotelManagementSystem
         {
             BookingTab.SelectedIndex = 0;
         }
+
+        private void RoomTypeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+        }
     }
 }
