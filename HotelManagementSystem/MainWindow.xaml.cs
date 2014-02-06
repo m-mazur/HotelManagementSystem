@@ -22,10 +22,14 @@ namespace HotelManagementSystem
     public partial class MainWindow : Window
     {
         private ReservationController reservationController;
+        private RoomsRepository r;
+
         public MainWindow()
         {
             InitializeComponent();
             reservationController = new ReservationController();
+            r = new RoomsRepository();
+            RoomInfoGrid.ItemsSource = r.GetAvailableRooms();
         }
 
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -72,10 +76,5 @@ namespace HotelManagementSystem
         {
             BookingTab.SelectedIndex = 0;
         }
-
-
-
-
-
     }
 }
