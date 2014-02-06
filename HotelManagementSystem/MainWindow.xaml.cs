@@ -64,6 +64,8 @@ namespace HotelManagementSystem
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             BookingTab.SelectedIndex = 2;
+            reservationController.AddReservation("989898", ReservationEmailTextBox.Text, "102",
+                FromDateDatepicker.SelectedDate.Value, ToDateDatepicker.SelectedDate.Value, false, false);
         }
 
         private void BackReciept_Click(object sender, RoutedEventArgs e)

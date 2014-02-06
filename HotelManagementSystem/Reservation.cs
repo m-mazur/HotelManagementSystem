@@ -19,6 +19,13 @@ namespace HotelManagementSystem
         public Reservation(string reservationNo, string eMail, string roomNo,
             DateTime checkInDate, DateTime checkOutDate, Boolean checkIn, Boolean checkOut)
         {
+            this.reservationNo = reservationNo;
+            this.eMail = eMail;
+            this.roomNo = roomNo;
+            this.checkInDate = checkInDate;
+            this.checkOutDate = checkOutDate;
+            this.checkIn = checkIn;
+            this.CheckOut = checkOut;
         }
 
         public string ReservationNo
