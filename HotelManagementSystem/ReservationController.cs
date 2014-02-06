@@ -18,6 +18,7 @@ namespace HotelManagementSystem
 
         public Customer GetCustomer(string email)
         {
+            Console.Write(email);
             customer = new Customer(customerRepository.GetCustomerByEmail(email).e_mail,
                 customerRepository.GetCustomerByEmail(email).phone_no,
                 customerRepository.GetCustomerByEmail(email).phone_country_code,
