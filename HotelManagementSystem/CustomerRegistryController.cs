@@ -19,7 +19,7 @@ namespace HotelManagementSystem
 
         public DataView GetCustomerDataView()
         {
-            DataView customerDataView = customerRepository.GetCustomers();
+            customerDataView = customerRepository.GetCustomers();
             return customerDataView;
         }
     }
