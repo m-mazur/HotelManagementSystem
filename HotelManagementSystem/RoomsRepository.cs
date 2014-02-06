@@ -97,7 +97,7 @@ namespace HotelManagementSystem
             try
             {
                 roomsTableAdapter = new DataSetHotelTableAdapters.roomsTableAdapter();
-                roomsTableAdapter.FillByAvailableRooms(dataSetHotel.rooms, roomType, startDate, endDate, startDate, endDate);
+                roomsTableAdapter.FillByAvailableRooms(dataSetHotel.rooms, startDate, endDate, startDate, endDate);
                 DataView roomDataView = new DataView(dataSetHotel.Tables["Rooms"]);
                 return roomDataView;
             }

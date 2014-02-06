@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,7 @@ namespace HotelManagementSystem
     public partial class MainWindow : Window
     {
         private ReservationController reservationController;
+        private DataRowView selectedRoom;
 
         public MainWindow()
         {
@@ -41,9 +43,7 @@ namespace HotelManagementSystem
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             BookingTab.SelectedIndex = 1;
-            //ReservationFirstnametextbox.Text = FirstNameTextBox.Text;
-           // ReservationLastNameTextbox.Text = LastnameTextbox.Text;
-            //ReservationEmailTextBox.Text = EmailTextbox.Text;
+            selectedRoom = RoomInfoGrid.SelectedItem as DataRowView;
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -81,7 +81,38 @@ namespace HotelManagementSystem
 
         private void CheckAvailabilityButton_Click(object sender, RoutedEventArgs e)
         {
-            RoomInfoGrid.ItemsSource = reservationController.GetAvailableRooms(ComboBoxReservation.SelectedValue.ToString(), FromDateDatepicker.SelectedDate.Value, ToDateDatepicker.SelectedDate.Value);
+            RoomInfoGrid.ItemsSource = reservationController.GetAvailableRooms("single room", FromDateDatepicker.SelectedDate.Value, ToDateDatepicker.SelectedDate.Value);
+        }
+
+        private void checkBoxRegister_Checked(object sender, RoutedEventArgs e)
+        {
+            registerCustomerBtn.IsEnabled = true;
+            SearchCustomer.IsEnabled = false;
+
+            EmailTextbox.Text = "";
+            FirstNameTextBox.Text = "";
+            LastnameTextbox.Text = "";
+            CreditCardNoTextBox.Text = "";
+            PhoneCountryCodeTextBox.Text = "";
+            PhoneNoTextBox.Text = "";
+
+            EnableDisabletextBoxes(true);
+        }
+
+        private void checkBoxRegister_Unchecked(object sender, RoutedEventArgs e)
+        {
+            registerCustomerBtn.IsEnabled = false;
+            SearchCustomer.IsEnabled = true;
+            EnableDisabletextBoxes(false);
+        }
+
+        private void EnableDisabletextBoxes(bool enabled)
+        {
+            FirstNameTextBox.IsEnabled = enabled;
+            LastnameTextbox.IsEnabled = enabled;
+            CreditCardNoTextBox.IsEnabled = enabled;
+            PhoneCountryCodeTextBox.IsEnabled = enabled;
+            PhoneNoTextBox.IsEnabled = enabled;
         }
     }
 }

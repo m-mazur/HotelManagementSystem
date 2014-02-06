@@ -24,39 +24,28 @@
                                 <DatePicker x:Name="FromDateDatepicker" HorizontalAlignment="Left" Margin="75,115,0,0" VerticalAlignment="Top" FirstDayOfWeek="Monday" Width="120"/>
                                 <DatePicker x:Name="ToDateDatepicker" HorizontalAlignment="Right" Margin="0,144,383,0" VerticalAlignment="Top" FirstDayOfWeek="Monday" Width="120"/>
                                 <Label x:Name="AvalibleRoomsLabel" Content="Avalible Rooms" HorizontalAlignment="Left" Margin="200,14,0,0" VerticalAlignment="Top" Width="146"/>
-                                <DataGrid x:Name="RoomInfoGrid" HorizontalAlignment="Left" Margin="200,45,0,0" VerticalAlignment="Top" Height="224" Width="245"/>
-                                <Button x:Name="CheckAvailabilityButton" Content="Check Availability" HorizontalAlignment="Left" Margin="95,173,0,0" VerticalAlignment="Top" Width="100" Click="CheckAvailabilityButton_Click"/>
+                                <DataGrid x:Name="RoomInfoGrid" HorizontalAlignment="Left" Margin="200,45,0,0" VerticalAlignment="Top" Height="224" Width="368"/>
+                                <Button x:Name="CheckAvailabilityButton" Content="Check Availability" HorizontalAlignment="Left" Margin="75,173,0,0" VerticalAlignment="Top" Width="120" Click="CheckAvailabilityButton_Click" Height="21"/>
                             </Grid>
                         </TabItem>
                         <TabItem x:Name="ReservationTab" Header="Reservation" Width="150" IsEnabled="False" HorizontalAlignment="Left" Margin="0,-2,0,0">
-                            <Grid Background="#FFE5E5E5">
+                            <Grid Background="#FFE5E5E5" Margin="0,2,0,-1">
                                 <Button x:Name="BackReservation" Content="Back" HorizontalAlignment="Left" Margin="10,323,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
                                 <Button x:Name="NextReservationButton" Content="Confirm" HorizontalAlignment="Left" Margin="493,323,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_3"/>
-                                <Label x:Name="ReservationCustomerLabel" Content="Customer" HorizontalAlignment="Left" Margin="55,107,0,0" VerticalAlignment="Top" Width="100"/>
-                                <Label x:Name="RoomtypeLabelReservation_clone" Content="Roomtype" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top"/>
-                                <ComboBox x:Name="ComboBoxReservation_clone" HorizontalAlignment="Left" Margin="75,14,0,0" VerticalAlignment="Top" Width="120">
-                                    <ComboBoxItem Content="Double Room"/>
-                                    <ComboBoxItem Content="Single Room"/>
-                                </ComboBox>
-                                <Label x:Name="FromDateLabel_clone" Content="From Date:" HorizontalAlignment="Left" Margin="0,41,0,0" VerticalAlignment="Top" Width="70"/>
-                                <Label x:Name="ToDateLabel_clone" Content="To Date:" HorizontalAlignment="Left" Margin="5,72,0,0" VerticalAlignment="Top" Width="70"/>
-                                <DatePicker x:Name="FromDateDatepicker_clone" HorizontalAlignment="Left" Margin="75,41,0,0" VerticalAlignment="Top" FirstDayOfWeek="Monday" Width="120"/>
-                                <DatePicker x:Name="ToDateDatepicker_clone" HorizontalAlignment="Left" Margin="75,70,0,0" VerticalAlignment="Top" FirstDayOfWeek="Monday" Width="120"/>
-                                <Label x:Name="AvalibleRoomsLabel_clone" Content="Avalible Rooms" HorizontalAlignment="Left" Margin="292,10,0,0" VerticalAlignment="Top" Width="146"/>
-                                <DataGrid x:Name="RoomInfoGrid_clone" HorizontalAlignment="Left" Margin="292,41,0,0" VerticalAlignment="Top" Height="224" Width="245"/>
-                                <Label Content="Behöver vi ett roomNO?" HorizontalAlignment="Left" Margin="254,304,0,0" VerticalAlignment="Top" Width="144"/>
-                                <TextBox x:Name="EmailTextbox" HorizontalAlignment="Left" Height="23" Margin="95,133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                                <Label x:Name="EmailLabel_Copy" Content="Email" HorizontalAlignment="Left" Margin="0,130,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.55,2.188" Width="90"/>
-                                <Label x:Name="Firstnamelabel_Copy" Content="Firstname" HorizontalAlignment="Left" Margin="0,161,0,0" VerticalAlignment="Top" Width="90"/>
-                                <TextBox x:Name="FirstNameTextBox" HorizontalAlignment="Left" Height="23" Margin="95,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                                <Label x:Name="Lastnamelabel_Copy" Content="Lastname" HorizontalAlignment="Left" Margin="0,189,0,0" VerticalAlignment="Top" Width="90"/>
-                                <TextBox x:Name="LastnameTextbox" HorizontalAlignment="Left" Height="23" Margin="95,189,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                                <Label x:Name="CreditCardLabel_Copy" Content="CreditCard.No" HorizontalAlignment="Left" Margin="0,215,0,0" VerticalAlignment="Top" Width="90"/>
-                                <TextBox x:Name="CreditCardNoTextBox" HorizontalAlignment="Left" Height="23" Margin="95,218,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.534,0.106"/>
-                                <Label x:Name="PhonenumberLabel_Copy" Content="PhoneNumber" HorizontalAlignment="Left" Margin="0,246,0,0" VerticalAlignment="Top" Width="90" RenderTransformOrigin="0.442,-1.286"/>
-                                <TextBox x:Name="PhoneCountryCodeTextBox" HorizontalAlignment="Left" Height="23" Margin="95,249,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" RenderTransformOrigin="1.552,1.937"/>
-                                <TextBox x:Name="PhoneNoTextBox" HorizontalAlignment="Left" Height="23" Margin="130,249,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85"/>
-                                <Button x:Name="SearchCustomer" Content="Search" HorizontalAlignment="Left" Height="23" Margin="220,133,0,0" VerticalAlignment="Top" Width="50" Click="Button_Click_1"/>
+                                <TextBox x:Name="EmailTextbox" HorizontalAlignment="Left" Height="23" Margin="100,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238"/>
+                                <Label x:Name="EmailLabel_Copy" Content="Email" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.55,2.188" Width="90"/>
+                                <Label x:Name="Firstnamelabel_Copy" Content="Firstname" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="90"/>
+                                <TextBox x:Name="FirstNameTextBox" HorizontalAlignment="Left" Height="23" Margin="100,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238" IsEnabled="False"/>
+                                <Label x:Name="Lastnamelabel_Copy" Content="Lastname" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Width="90"/>
+                                <TextBox x:Name="LastnameTextbox" HorizontalAlignment="Left" Height="23" Margin="100,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238" IsEnabled="False"/>
+                                <Label x:Name="CreditCardLabel_Copy" Content="CreditCard.No" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top" Width="90"/>
+                                <TextBox x:Name="CreditCardNoTextBox" HorizontalAlignment="Left" Height="23" Margin="100,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238" RenderTransformOrigin="0.534,0.106" IsEnabled="False"/>
+                                <Label x:Name="PhonenumberLabel_Copy" Content="PhoneNumber" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top" Width="90" RenderTransformOrigin="0.442,-1.286"/>
+                                <TextBox x:Name="PhoneCountryCodeTextBox" HorizontalAlignment="Left" Height="23" Margin="100,133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" RenderTransformOrigin="1.552,1.937" IsEnabled="False"/>
+                                <TextBox x:Name="PhoneNoTextBox" HorizontalAlignment="Left" Height="23" Margin="135,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" IsEnabled="False"/>
+                                <Button x:Name="SearchCustomer" Content="Search" HorizontalAlignment="Left" Height="23" Margin="366,13,0,0" VerticalAlignment="Top" Width="202" Click="Button_Click_1" RenderTransformOrigin="0.958,0.391"/>
+                                <CheckBox x:Name="checkBoxRegister" Content="Register new customer" HorizontalAlignment="Left" Height="24" Margin="366,44,0,0" VerticalAlignment="Top" Width="202" Checked="checkBoxRegister_Checked" Unchecked="checkBoxRegister_Unchecked"/>
+                                <Button x:Name="registerCustomerBtn" Content="Register" HorizontalAlignment="Left" Height="23" Margin="366,72,0,0" VerticalAlignment="Top" Width="202" Click="Button_Click_1" RenderTransformOrigin="0.958,0.391" IsEnabled="False"/>
 
                             </Grid>
                         </TabItem>
