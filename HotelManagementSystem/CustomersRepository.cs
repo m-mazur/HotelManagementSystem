@@ -69,7 +69,7 @@ namespace HotelManagementSystem
             {
                 customersTableAdapter = new DataSetHotelTableAdapters.customersTableAdapter();
                 customersTableAdapter.Fill(dataSetHotel.customers);
-                DataView customerDataView = new DataView(dataSetHotel.Tables["Customer"]);
+                DataView customerDataView = new DataView(dataSetHotel.Tables["Customers"]);
                 return customerDataView;
             }
             catch (Exception e)

@@ -67,7 +67,7 @@ namespace HotelManagementSystem
             {
                 roomsTableAdapter = new DataSetHotelTableAdapters.roomsTableAdapter();
                 roomsTableAdapter.Fill(dataSetHotel.rooms);
-                DataView roomDataView = new DataView(dataSetHotel.Tables["Room"]);
+                DataView roomDataView = new DataView(dataSetHotel.Tables["Rooms"]);
                 return roomDataView;
             }
             catch (Exception e)
@@ -92,13 +92,13 @@ namespace HotelManagementSystem
                 return null;
             }
         }
-        public DataView GetAvailableRooms()
+        public DataView GetAvailableRooms(DateTime startDate, DateTime endDate)
         {
             try
             {
                 roomsTableAdapter = new DataSetHotelTableAdapters.roomsTableAdapter();
-                roomsTableAdapter.Fill(dataSetHotel.rooms);
-                DataView roomDataView = new DataView(dataSetHotel.Tables["Room"]);
+                roomsTableAdapter.FillByAvailableRooms(dataSetHotel.rooms, startDate, endDate, startDate, endDate);
+                DataView roomDataView = new DataView(dataSetHotel.Tables["Rooms"]);
                 return roomDataView;
             }
             catch (Exception e)
