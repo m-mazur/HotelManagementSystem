@@ -40,9 +40,9 @@ namespace HotelManagementSystem
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             BookingTab.SelectedIndex = 1;
-            ReservationFirstnametextbox.Text = FirstNameTextBox.Text;
-            ReservationLastNameTextbox.Text = LastnameTextbox.Text;
-            ReservationEmailTextBox.Text = EmailTextbox.Text;
+            //ReservationFirstnametextbox.Text = FirstNameTextBox.Text;
+           // ReservationLastNameTextbox.Text = LastnameTextbox.Text;
+            //ReservationEmailTextBox.Text = EmailTextbox.Text;
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -64,7 +64,7 @@ namespace HotelManagementSystem
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             BookingTab.SelectedIndex = 2;
-            reservationController.AddReservation("929898", ReservationEmailTextBox.Text, "102",
+            reservationController.AddReservation("929898", EmailTextbox.Text, "102",
                 FromDateDatepicker.SelectedDate.Value, ToDateDatepicker.SelectedDate.Value, false, false);
         }
 
