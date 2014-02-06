@@ -22,7 +22,6 @@ namespace HotelManagementSystem
     public partial class MainWindow : Window
     {
         private ReservationController reservationController;
-        private string customerFirstName;
         public MainWindow()
         {
             InitializeComponent();
@@ -41,14 +40,13 @@ namespace HotelManagementSystem
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             BookingTab.SelectedIndex = 1;
-
+            ReservationFirstnametextbox.Text = FirstNameTextBox.Text;
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             EmailTextbox.Text = reservationController.GetCustomer(EmailTextbox.Text).EMail;
             FirstNameTextBox.Text = reservationController.GetCustomer(EmailTextbox.Text).FirstName;
-            customerFirstName = reservationController.GetCustomer(EmailTextbox.Text).FirstName;
             LastnameTextbox.Text = reservationController.GetCustomer(EmailTextbox.Text).LastName;
             CreditCardNoTextBox.Text = reservationController.GetCustomer(EmailTextbox.Text).CreditCardNo;
             PhoneCountryCodeTextBox.Text = reservationController.GetCustomer(EmailTextbox.Text).PhoneCountryCode;
@@ -58,7 +56,6 @@ namespace HotelManagementSystem
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             BookingTab.SelectedIndex = 0;
-            ReservationFirstnametextbox.Text = customerFirstName;
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
