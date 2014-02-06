@@ -24,6 +24,7 @@ namespace HotelManagementSystem
     {
         private ReservationController reservationController;
         private DataRowView selectedRoom;
+        private Random random;
 
         public MainWindow()
         {
@@ -65,7 +66,10 @@ namespace HotelManagementSystem
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             BookingTab.SelectedIndex = 2;
-            reservationController.AddReservation("000113", EmailTextbox.Text, selectedRoom[0].ToString(),
+            random = new Random();
+            int randomNo = random.Next(000000, 999999);
+
+            reservationController.AddReservation(randomNo.ToString(), EmailTextbox.Text, selectedRoom[0].ToString(),
                 FromDateDatepicker.SelectedDate.Value, ToDateDatepicker.SelectedDate.Value, false, false);
         }
 
