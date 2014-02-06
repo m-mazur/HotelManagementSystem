@@ -40,6 +40,7 @@ namespace HotelManagementSystem
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             BookingTab.SelectedIndex = 1;
+            ReservationFirstnametextbox.Text = FirstNameTextBox.Text;
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

@@ -57,9 +57,9 @@
                                 <Label x:Name="AvalibleRoomsLabel" Content="Avalible Rooms" HorizontalAlignment="Left" Margin="292,10,0,0" VerticalAlignment="Top" Width="146"/>
                                 <DataGrid x:Name="RoomInfoGrid" HorizontalAlignment="Left" Margin="292,41,0,0" VerticalAlignment="Top" Height="224" Width="245"/>
                                 <Label Content="Behöver vi ett roomNO?" HorizontalAlignment="Left" Margin="254,304,0,0" VerticalAlignment="Top" Width="144"/>
-                                <TextBox x:Name="ReservationFirstnametextbox" HorizontalAlignment="Left" Height="23" Margin="10,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"/>
-                                <TextBox x:Name="ReservationLastNameTextbox" HorizontalAlignment="Left" Height="23" Margin="125,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="101"/>
-                                <TextBox x:Name="ReservationEmailTextBox" HorizontalAlignment="Left" Height="23" Margin="10,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
+                                <TextBox x:Name="ReservationFirstnametextbox" HorizontalAlignment="Left" Height="23" Margin="10,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" IsEnabled="False"/>
+                                <TextBox x:Name="ReservationLastNameTextbox" HorizontalAlignment="Left" Height="23" Margin="125,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="101" IsEnabled="False"/>
+                                <TextBox x:Name="ReservationEmailTextBox" HorizontalAlignment="Left" Height="23" Margin="10,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" IsEnabled="False"/>
                                 <Label x:Name="ReservationEmailLabel" Content="Email" HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top"/>
 
                             </Grid>
