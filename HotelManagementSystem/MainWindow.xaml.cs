@@ -47,7 +47,7 @@ namespace HotelManagementSystem
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            
+            Console.WriteLine(EmailTextbox.Text);
             EmailTextbox.Text = reservationController.GetCustomer(EmailTextbox.Text).EMail;
             FirstNameTextBox.Text = reservationController.GetCustomer(EmailTextbox.Text).FirstName;
             LastnameTextbox.Text = reservationController.GetCustomer(EmailTextbox.Text).LastName;
