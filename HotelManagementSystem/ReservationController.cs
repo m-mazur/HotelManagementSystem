@@ -49,5 +49,10 @@ namespace HotelManagementSystem
             customerRepository.AddCustomer(new Customer(eMail, phoneNo, phoneCountryCode,
                 creditCardNo, firstName, lastName));
         }
+
+        public Reservation GetSingleReservation(string reservationNo)
+        {
+            return reservationRepository.GetSingleReservation(reservationNo);
+        }
     }
 }
