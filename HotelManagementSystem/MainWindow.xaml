@@ -7,7 +7,7 @@
         xmlns:View="clr-namespace:HotelManagementSystem"
         Title="MainWindow" Height="450" Width="800">
     <Grid Margin="0,0,-8,0">
-        <TabControl HorizontalAlignment="Left" Height="409" VerticalAlignment="Top" Width="790" SelectionChanged="TabControl_SelectionChanged">
+        <TabControl HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="790" SelectionChanged="TabControl_SelectionChanged">
             <TabItem x:Name="CustomerTab1" Header="Reservation" Width="130">
                 <Grid x:Name="CustomerTab" Background="#FFE5E5E5" Margin="0,5,0,-5">
                     <Grid.ColumnDefinitions>
@@ -79,10 +79,10 @@
                                 <TextBox x:Name="checkOutDateRecieptTextBox" HorizontalAlignment="Left" Height="23" Margin="485,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237" IsEnabled="False"/>
                                 <TextBox x:Name="roomTypeRecieptTextBox" HorizontalAlignment="Left" Height="23" Margin="485,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237" IsEnabled="False"/>
                                 <Label x:Name="NightsRecieptLabel" Content="Nights" HorizontalAlignment="Left" Margin="380,201,0,0" VerticalAlignment="Top" Width="100"/>
-                                <Label x:Name="pricePerNightRecieptLabel" Content="Price / night" HorizontalAlignment="Left" Margin="380,232,0,0" VerticalAlignment="Top" Width="100"/>
+                                <Label x:Name="pricePerDayRecieptLabel" Content="Price / night" HorizontalAlignment="Left" Margin="380,232,0,0" VerticalAlignment="Top" Width="100"/>
                                 <Label x:Name="totalPriceRecieptLabel" Content="Total price" HorizontalAlignment="Left" Margin="380,263,0,0" VerticalAlignment="Top" Width="100"/>
                                 <TextBox x:Name="nightsRecieptTextBox" HorizontalAlignment="Left" Height="23" Margin="485,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237" IsEnabled="False"/>
-                                <TextBox x:Name="pricePerNightRecieptTextBox" HorizontalAlignment="Left" Height="23" Margin="485,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237" IsEnabled="False"/>
+                                <TextBox x:Name="pricePerDayRecieptTextBox" HorizontalAlignment="Left" Height="23" Margin="485,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237" IsEnabled="False"/>
                                 <TextBox x:Name="totalPriceRecieptTextBox" HorizontalAlignment="Left" Height="23" Margin="485,263,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237" IsEnabled="False"/>
                             </Grid>
                         </TabItem>
@@ -117,7 +117,12 @@
                 </Grid>
             </TabItem>
             <TabItem x:Name="CustomerRegistryTab" Header="CustomerRegistry" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="130">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="CustomerRegistryDataGrid" HorizontalAlignment="Left" Margin="45,90,0,0" VerticalAlignment="Top" Height="235" Width="680"/>
+                    <TextBox x:Name="emailCustomerRegistryTextBox" HorizontalAlignment="Left" Height="23" Margin="45,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <Button x:Name="searchCustomerRegistryButtton" Content="Search" HorizontalAlignment="Left" Margin="170,62,0,0" VerticalAlignment="Top" Width="75"/>
+                    <Label x:Name="emailCustomerRegistryLabel" Content="Email" HorizontalAlignment="Left" Margin="45,31,0,0" VerticalAlignment="Top" Width="120"/>
+                </Grid>
             </TabItem>
         </TabControl>
 

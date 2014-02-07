@@ -89,10 +89,22 @@ namespace HotelManagementSystem
                     FromDateDatepicker.SelectedDate.Value, ToDateDatepicker.SelectedDate.Value, false, false);
                 Console.WriteLine("Kan registrera bookning");
             }
+            emailRecieptTextBox.Text = reservationController.GetSingleReservation(randomNo.ToString()).EMail;
+            reservationNumberRecieptTextBox.Text = reservationController.GetSingleReservation(randomNo.ToString()).ReservationNo;
+            roomNumberRecieptTextBox.Text = reservationController.GetSingleReservation(randomNo.ToString()).RoomNo;
+            checkInDateRecieptTextBox.Text = reservationController.GetSingleReservation(randomNo.ToString()).CheckInDate.ToString();
+            checkOutDateRecieptTextBox.Text = reservationController.GetSingleReservation(randomNo.ToString()).CheckOutDate.ToString();
+            
+            string customerEmail = reservationController.GetSingleReservation(randomNo.ToString()).EMail;
+            firstNameRecieptTextBox.Text = reservationController.GetCustomer(customerEmail).FirstName;
+            lastNameRecieptTextBox.Text = reservationController.GetCustomer(customerEmail).LastName;
+            creditCardNoRecieptTextBox.Text = reservationController.GetCustomer(customerEmail).CreditCardNo;
+            PhoneNoRecieptTextBox.Text = reservationController.GetCustomer(customerEmail).PhoneNo;
+            PhoneCountryCodeRecieptTextBox.Text = reservationController.GetCustomer(customerEmail).PhoneCountryCode;
 
-        
-        
-        
+            string roomNo = reservationController.GetSingleReservation(randomNo.ToString()).RoomNo;
+            roomTypeRecieptTextBox.Text = reservationController.GetRoom(roomNo).RoomType;
+            pricePerDayRecieptTextBox.Text = reservationController.GetRoom(roomNo).PricePerDay.ToString();
         }
 
                 
