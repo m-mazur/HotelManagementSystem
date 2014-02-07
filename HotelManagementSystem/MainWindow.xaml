@@ -35,16 +35,16 @@
                         <TabItem x:Name="ReservationTab" Header="Reservation" Width="150" IsEnabled="False" HorizontalAlignment="Left" Margin="0,-2,0,0">
                             <Grid Background="#FFE5E5E5" Margin="0,2,0,-1">
                                 <Button x:Name="BackReservation" Content="Back" HorizontalAlignment="Left" Margin="10,323,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
-                                <Button x:Name="NextReservationButton" Content="Confirm" HorizontalAlignment="Left" Margin="493,323,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_3"/>
+                                <Button x:Name="NextReservationButton" Content="Confirm" HorizontalAlignment="Left" Margin="693,322,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_3"/>
                                 <TextBox x:Name="EmailTextbox" HorizontalAlignment="Left" Height="23" Margin="100,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238"/>
-                                <Label x:Name="EmailLabel_Copy" Content="Email" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.55,2.188" Width="90"/>
-                                <Label x:Name="Firstnamelabel_Copy" Content="Firstname" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="90"/>
+                                <Label x:Name="emailReservationLabel" Content="Email" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.55,2.188" Width="90"/>
+                                <Label x:Name="firstNameReservationLabel" Content="Firstname" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="90"/>
                                 <TextBox x:Name="FirstNameTextBox" HorizontalAlignment="Left" Height="23" Margin="100,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238" IsEnabled="False"/>
-                                <Label x:Name="Lastnamelabel_Copy" Content="Lastname" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Width="90"/>
+                                <Label x:Name="lastNameReservationLabel" Content="Lastname" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Width="90"/>
                                 <TextBox x:Name="LastnameTextbox" HorizontalAlignment="Left" Height="23" Margin="100,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238" IsEnabled="False"/>
-                                <Label x:Name="CreditCardLabel_Copy" Content="CreditCard.No" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top" Width="90"/>
+                                <Label x:Name="creditCardReservationLabel" Content="CreditCard.No" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top" Width="90"/>
                                 <TextBox x:Name="CreditCardNoTextBox" HorizontalAlignment="Left" Height="23" Margin="100,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238" RenderTransformOrigin="0.534,0.106" IsEnabled="False"/>
-                                <Label x:Name="PhonenumberLabel_Copy" Content="PhoneNumber" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top" Width="90" RenderTransformOrigin="0.442,-1.286"/>
+                                <Label x:Name="phoneNumberReservationLabel" Content="PhoneNumber" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top" Width="90" RenderTransformOrigin="0.442,-1.286"/>
                                 <TextBox x:Name="PhoneCountryCodeTextBox" HorizontalAlignment="Left" Height="23" Margin="100,133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" RenderTransformOrigin="1.552,1.937" IsEnabled="False"/>
                                 <TextBox x:Name="PhoneNoTextBox" HorizontalAlignment="Left" Height="23" Margin="135,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" IsEnabled="False"/>
                                 <Button x:Name="SearchCustomer" Content="Search" HorizontalAlignment="Left" Height="23" Margin="366,13,0,0" VerticalAlignment="Top" Width="202" Click="Button_Click_1" RenderTransformOrigin="0.958,0.391"/>
@@ -53,10 +53,37 @@
                             </Grid>
                         </TabItem>
                         <TabItem x:Name="RecieptTab" Header="Receipt" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="146" IsEnabled="False">
-                            <Grid Background="#FFE5E5E5">
-                                <Button x:Name="BackReciept" Content="Done" HorizontalAlignment="Left" Margin="10,323,0,0" VerticalAlignment="Top" Width="75" Click="BackReciept_Click"/>
-                                <DataGrid x:Name="RecieptDatagrid" HorizontalAlignment="Left" Height="200" Margin="80,61,0,0" Width ="400" VerticalAlignment="Top"/>
-                                <Label x:Name="CustomerRecieptLabel" Content="Customer reciept" HorizontalAlignment="Left" Margin="80,30,0,0" VerticalAlignment="Top" Width="151"/>
+                            <Grid x:Name="phoneNumberLabel" Background="#FFE5E5E5">
+                                <Button x:Name="BackReciept" Content="Confirm" HorizontalAlignment="Left" Margin="10,323,0,0" VerticalAlignment="Top" Width="75" Click="BackReciept_Click"/>
+                                <Label x:Name="CustomerRecieptLabel" Content="Customer reciept" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="151"/>
+                                <Grid HorizontalAlignment="Left" Height="100" Margin="270,162,0,0" VerticalAlignment="Top" Width="100"/>
+                                <Label x:Name="emailRecieptLabel" Content="Email" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="100"/>
+                                <Label x:Name="firstNameRecieptLabel" Content="Firstname" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Width="100"/>
+                                <Label x:Name="lastNameRecieptLabel" Content="Lastname" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top" Width="100"/>
+                                <Label x:Name="phoneNumberLabel1" Content="Phonenumber" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top" Width="100"/>
+                                <TextBox x:Name="PhoneCountryCodeRecieptTextBox" HorizontalAlignment="Left" Height="23" Margin="115,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" RenderTransformOrigin="1.552,1.937" IsEnabled="False"/>
+                                <TextBox x:Name="PhoneNoRecieptTextBox" HorizontalAlignment="Left" Height="23" Margin="150,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" IsEnabled="False"/>
+                                <TextBox x:Name="lastNameRecieptTextBox" HorizontalAlignment="Left" Height="23" Margin="115,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238" RenderTransformOrigin="0.501,0.433" IsEnabled="False"/>
+                                <Label x:Name="creditCardNoRecieptLabel" Content="Creditcard.No" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top" Width="101"/>
+                                <TextBox x:Name="firstNameRecieptTextBox" HorizontalAlignment="Left" Height="23" Margin="115,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238" IsEnabled="False"/>
+                                <TextBox x:Name="creditCardNoRecieptTextBox" HorizontalAlignment="Left" Height="23" Margin="116,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237" IsEnabled="False"/>
+                                <TextBox x:Name="emailRecieptTextBox" HorizontalAlignment="Left" Height="23" Margin="116,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237" IsEnabled="False"/>
+                                <Label x:Name="reservationNumberLabel" Content="Reservation.No" HorizontalAlignment="Left" Margin="380,49,0,0" VerticalAlignment="Top" Width="100"/>
+                                <TextBox x:Name="reservationNumberRecieptTextBox" HorizontalAlignment="Left" Height="23" Margin="485,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237" IsEnabled="False"/>
+                                <Label x:Name="roomNumberRecieptLabel" Content="Room number" HorizontalAlignment="Left" Margin="380,81,0,0" VerticalAlignment="Top" Width="100"/>
+                                <TextBox x:Name="roomNumberRecieptTextBox" HorizontalAlignment="Left" Height="23" Margin="485,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237" IsEnabled="False"/>
+                                <Label x:Name="checkInDateRecieptLabel" Content="Check in date" HorizontalAlignment="Left" Margin="380,112,0,0" VerticalAlignment="Top" Width="100"/>
+                                <TextBox x:Name="checkInDateRecieptTextBox" HorizontalAlignment="Left" Height="23" Margin="485,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237" IsEnabled="False"/>
+                                <Label x:Name="checkOutDateLabel" Content="Check out date" HorizontalAlignment="Left" Margin="380,139,0,0" VerticalAlignment="Top" Width="100"/>
+                                <Label x:Name="roomTypeRecieptLabel" Content="Roomtype" HorizontalAlignment="Left" Margin="380,170,0,0" VerticalAlignment="Top" Width="100"/>
+                                <TextBox x:Name="checkOutDateRecieptTextBox" HorizontalAlignment="Left" Height="23" Margin="485,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237" IsEnabled="False"/>
+                                <TextBox x:Name="roomTypeRecieptTextBox" HorizontalAlignment="Left" Height="23" Margin="485,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237" IsEnabled="False"/>
+                                <Label x:Name="NightsRecieptLabel" Content="Nights" HorizontalAlignment="Left" Margin="380,201,0,0" VerticalAlignment="Top" Width="100"/>
+                                <Label x:Name="pricePerNightRecieptLabel" Content="Price / night" HorizontalAlignment="Left" Margin="380,232,0,0" VerticalAlignment="Top" Width="100"/>
+                                <Label x:Name="totalPriceRecieptLabel" Content="Total price" HorizontalAlignment="Left" Margin="380,263,0,0" VerticalAlignment="Top" Width="100"/>
+                                <TextBox x:Name="nightsRecieptTextBox" HorizontalAlignment="Left" Height="23" Margin="485,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237" IsEnabled="False"/>
+                                <TextBox x:Name="pricePerNightRecieptTextBox" HorizontalAlignment="Left" Height="23" Margin="485,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237" IsEnabled="False"/>
+                                <TextBox x:Name="totalPriceRecieptTextBox" HorizontalAlignment="Left" Height="23" Margin="485,263,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237" IsEnabled="False"/>
                             </Grid>
                         </TabItem>
                     </TabControl>
