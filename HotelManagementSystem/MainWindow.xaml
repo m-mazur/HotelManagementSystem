@@ -122,6 +122,7 @@
                     <TextBox x:Name="emailCustomerRegistryTextBox" HorizontalAlignment="Left" Height="23" Margin="45,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                     <Button x:Name="searchCustomerRegistryButtton" Content="Search" HorizontalAlignment="Left" Margin="170,62,0,0" VerticalAlignment="Top" Width="75"/>
                     <Label x:Name="emailCustomerRegistryLabel" Content="Email" HorizontalAlignment="Left" Margin="45,31,0,0" VerticalAlignment="Top" Width="120"/>
+                    <Button x:Name="showAllCustomersCustomerRegistryButton" Content="Show all customers" HorizontalAlignment="Left" Margin="45,330,0,0" VerticalAlignment="Top" Width="105"/>
                 </Grid>
             </TabItem>
         </TabControl>
