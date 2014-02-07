@@ -25,6 +25,7 @@ namespace HotelManagementSystem
         private ReservationController reservationController;
         private CheckInCheckOutController checkInCheckOutController;
         private DataRowView selectedRoom;
+        private DataRowView selectedReservation;
         private Random random;
         private Boolean registerEnabled;
 
@@ -74,19 +75,18 @@ namespace HotelManagementSystem
 
             if (registerEnabled)
             {
-               reservationController.AddCustomer(EmailTextbox.Text, PhoneNoTextBox.Text, PhoneCountryCodeTextBox.Text,
-               CreditCardNoTextBox.Text, FirstNameTextBox.Text, LastnameTextbox.Text);
+               reservationController.AddCustomer(EmailTextbox.Text, PhoneNoTextBox.Text, PhoneCountryCodeTextBox.Text, 
+                   CreditCardNoTextBox.Text, FirstNameTextBox.Text, LastnameTextbox.Text);
                 Console.WriteLine("Kan registrer kund");
 
                 reservationController.AddReservation(randomNo.ToString(), EmailTextbox.Text, selectedRoom[0].ToString(),
-                FromDateDatepicker.SelectedDate.Value, ToDateDatepicker.SelectedDate.Value, false, false);
+                    FromDateDatepicker.SelectedDate.Value, ToDateDatepicker.SelectedDate.Value, false, false);
                 Console.WriteLine("ur code works u are great"); 
             }
             else
             {
-
                 reservationController.AddReservation(randomNo.ToString(), EmailTextbox.Text, selectedRoom[0].ToString(), 
-                FromDateDatepicker.SelectedDate.Value, ToDateDatepicker.SelectedDate.Value, false, false);
+                    FromDateDatepicker.SelectedDate.Value, ToDateDatepicker.SelectedDate.Value, false, false);
                 Console.WriteLine("Kan registrera bookning");
             }
         }
@@ -143,6 +143,12 @@ namespace HotelManagementSystem
         {
             Console.WriteLine(searchCheckInTextBox.Text);
             checkInDataGrid.ItemsSource = checkInCheckOutController.FindReservationByReservationNo(searchCheckInTextBox.Text);
+        }
+
+        private void checkInCheckInButton_Click(object sender, RoutedEventArgs e)
+        {
+            selectedReservation = checkInDataGrid.SelectedItem as DataRowView;
+            checkInCheckOutController.CheckInReservation(selectedReservation[0].ToString(), true);
         }
     }
 }

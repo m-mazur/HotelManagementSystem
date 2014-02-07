@@ -65,7 +65,7 @@
             <TabItem x:Name="ReservationTab1" Header="Check in / Check out" Width="130">
                 <Grid Background="#FFE5E5E5">
                     <Button x:Name="searchCheckInByReservationNoButton" Content="Search by Res.No" HorizontalAlignment="Left" Margin="20,100,0,0" VerticalAlignment="Top" Width="130" Click="searchCheckInByReservationNoButton_Click"/>
-                    <Button x:Name="checkInCheckInButton" Content="Check In" HorizontalAlignment="Left" Margin="20,180,0,0" VerticalAlignment="Top" Width="130"/>
+                    <Button x:Name="checkInCheckInButton" Content="Check In" HorizontalAlignment="Left" Margin="20,180,0,0" VerticalAlignment="Top" Width="130" Click="checkInCheckInButton_Click"/>
                     <Button x:Name="checkOutCheckInButton" Content="Check Out" HorizontalAlignment="Left" Margin="20,220,0,0" VerticalAlignment="Top" Width="130"/>
                     <DataGrid x:Name="checkInDataGrid" HorizontalAlignment="Left" Margin="170,60,0,0" VerticalAlignment="Top" Width="378" Height="213"/>
                     <TextBox x:Name="searchCheckInTextBox" HorizontalAlignment="Left" Height="23" Margin="20,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130"/>
