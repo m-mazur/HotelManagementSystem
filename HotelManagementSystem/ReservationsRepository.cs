@@ -72,7 +72,7 @@ namespace HotelManagementSystem
             {
                 reservationsTableAdapter = new DataSetHotelTableAdapters.reservationsTableAdapter();
                 reservationsTableAdapter.Fill(dataSetHotel.reservations);
-                DataView reservationDataView = new DataView(dataSetHotel.Tables["Reservation"]);
+                DataView reservationDataView = new DataView(dataSetHotel.Tables["Reservations"]);
                 return reservationDataView;
             }
             catch (Exception e)
@@ -82,14 +82,31 @@ namespace HotelManagementSystem
             }
         }
 
-        public DataSetHotel.reservationsRow GetReservationByReservationNo(string reservationNo)
+        public Reservation GetSingleReservation(string reservationNo)
         {
             try
             {
                 reservationsTableAdapter = new DataSetHotelTableAdapters.reservationsTableAdapter();
                 reservationsTableAdapter.Fill(dataSetHotel.reservations);
                 DataSetHotel.reservationsRow reservationRow = dataSetHotel.reservations.FindByreservation_no(reservationNo);
-                return reservationRow;
+                return new Reservation(reservationRow.reservation_no, reservationRow.e_mail, reservationRow.room_no, 
+                    reservationRow.check_in_date,reservationRow.check_out_date, reservationRow.check_in, reservationRow.check_out);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return null;
+            }
+        }
+
+        public DataView GetReservationByReservationNo(string reservationNo)
+        {
+            try
+            {
+                reservationsTableAdapter = new DataSetHotelTableAdapters.reservationsTableAdapter();
+                reservationsTableAdapter.FillByReservationNo(dataSetHotel.reservations, reservationNo);
+                DataView reservationDataView = new DataView(dataSetHotel.Tables["Reservations"]);
+                return reservationDataView;
             }
             catch (Exception e)
             {

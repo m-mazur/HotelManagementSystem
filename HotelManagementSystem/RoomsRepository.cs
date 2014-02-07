@@ -92,6 +92,7 @@ namespace HotelManagementSystem
                 return null;
             }
         }
+        
         public DataView GetAvailableRooms(string roomType, DateTime startDate, DateTime endDate)
         {
             try

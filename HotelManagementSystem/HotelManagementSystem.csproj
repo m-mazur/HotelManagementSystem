@@ -68,6 +68,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CheckInCheckOutController.cs" />
     <Compile Include="CustomerRegistryController.cs" />
     <Compile Include="DataSetHotel.cs">
       <DependentUpon>DataSetHotel.xsd</DependentUpon>

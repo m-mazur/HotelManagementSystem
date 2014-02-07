@@ -23,6 +23,7 @@ namespace HotelManagementSystem
     public partial class MainWindow : Window
     {
         private ReservationController reservationController;
+        private CheckInCheckOutController checkInCheckOutController;
         private DataRowView selectedRoom;
         private Random random;
         private Boolean registerEnabled;
@@ -31,6 +32,7 @@ namespace HotelManagementSystem
         {
             InitializeComponent();
             reservationController = new ReservationController();
+            checkInCheckOutController = new CheckInCheckOutController();
         }
 
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -135,6 +137,12 @@ namespace HotelManagementSystem
             CreditCardNoTextBox.IsEnabled = enabled;
             PhoneCountryCodeTextBox.IsEnabled = enabled;
             PhoneNoTextBox.IsEnabled = enabled;
+        }
+
+        private void searchCheckInByReservationNoButton_Click(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine(searchCheckInTextBox.Text);
+            checkInDataGrid.ItemsSource = checkInCheckOutController.FindReservationByReservationNo(searchCheckInTextBox.Text);
         }
     }
 }
