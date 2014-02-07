@@ -89,7 +89,12 @@ namespace HotelManagementSystem
                     FromDateDatepicker.SelectedDate.Value, ToDateDatepicker.SelectedDate.Value, false, false);
                 Console.WriteLine("Kan registrera bookning");
             }
+
+        
+        
+        
         }
+
                 
 
         private void BackReciept_Click(object sender, RoutedEventArgs e)
