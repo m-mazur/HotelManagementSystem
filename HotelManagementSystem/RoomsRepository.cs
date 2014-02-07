@@ -77,14 +77,14 @@ namespace HotelManagementSystem
             }
         }
 
-        public DataSetHotel.roomsRow GetRoomByRoomNo(string roomNo)
+        public Room GetRoomByRoomNo(string roomNo)
         {
             try
             {
                 roomsTableAdapter = new DataSetHotelTableAdapters.roomsTableAdapter();
                 roomsTableAdapter.Fill(dataSetHotel.rooms);
                 DataSetHotel.roomsRow roomRow = dataSetHotel.rooms.FindByroom_no(roomNo);
-                return roomRow;
+                return new Room(roomRow.room_no, roomRow.max_persons, roomRow.price_per_day, roomRow.room_type);
             }
             catch (Exception e)
             {

@@ -12,7 +12,6 @@ namespace HotelManagementSystem
         private Customer customer;
         private CustomersRepository customerRepository;
         private ReservationsRepository reservationRepository;
-        
 
         public ReservationController()
         {
@@ -53,6 +52,16 @@ namespace HotelManagementSystem
         public Reservation GetSingleReservation(string reservationNo)
         {
             return reservationRepository.GetSingleReservation(reservationNo);
+        }
+
+        public Room GetRoom(string roomNo)
+        {
+            return new RoomsRepository().GetRoomByRoomNo(roomNo);
+        }
+
+        public String GetTotalOrderValue(string roomPrice, string totalDays)
+        {
+            return new CalculateTotalOrderValue().TotalOrderValue(roomPrice, totalDays);
         }
     }
 }
