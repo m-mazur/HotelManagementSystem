@@ -58,6 +58,12 @@ namespace HotelManagementSystem
             PhoneNoTextBox.Text = reservationController.GetCustomer(EmailTextbox.Text).PhoneNo;
         }
 
+        private void Button_Click_RegisterCustomer(object sender, RoutedEventArgs e)
+        {
+            reservationController.AddCustomer(EmailTextbox.Text, PhoneNoTextBox.Text, PhoneCountryCodeTextBox.Text,
+                CreditCardNoTextBox.Text, FirstNameTextBox.Text, LastnameTextbox.Text);
+        }
+
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             BookingTab.SelectedIndex = 0;

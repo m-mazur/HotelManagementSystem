@@ -42,5 +42,12 @@ namespace HotelManagementSystem
         {
             return new RoomsRepository().GetAvailableRooms(roomType, startDate, endDate);
         }
+
+        public void AddCustomer(string eMail, string phoneNo, string phoneCountryCode,
+            string creditCardNo, string firstName, string lastName)
+        {
+            customerRepository.AddCustomer(new Customer(eMail, phoneNo, phoneCountryCode,
+                creditCardNo, firstName, lastName));
+        }
     }
 }
