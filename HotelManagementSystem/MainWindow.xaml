@@ -5,19 +5,19 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:ViewModel="clr-namespace:HotelManagementSystem"
         xmlns:View="clr-namespace:HotelManagementSystem"
-        Title="MainWindow" Height="450" Width="600">
+        Title="MainWindow" Height="450" Width="800">
     <Grid Margin="0,0,-8,0">
-        <TabControl HorizontalAlignment="Left" Height="409" VerticalAlignment="Top" Width="590" SelectionChanged="TabControl_SelectionChanged">
+        <TabControl HorizontalAlignment="Left" Height="409" VerticalAlignment="Top" Width="790" SelectionChanged="TabControl_SelectionChanged">
             <TabItem x:Name="CustomerTab1" Header="Reservation" Width="130">
                 <Grid x:Name="CustomerTab" Background="#FFE5E5E5" Margin="0,5,0,-5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="493*"/>
                         <ColumnDefinition Width="91*"/>
                     </Grid.ColumnDefinitions>
-                    <TabControl x:Name="BookingTab" HorizontalAlignment="Left" Width="584" Grid.ColumnSpan="2">
+                    <TabControl x:Name="BookingTab" HorizontalAlignment="Left" Width="784" Grid.ColumnSpan="2">
                         <TabItem x:Name="AvailabilityTab" Header="Availability" Width="150" IsEnabled="False">
                             <Grid Background="#FFE5E5E5">
-                                <Button x:Name="NextRegistrationButton" Content="Next" HorizontalAlignment="Left" Height ="23" Margin="493,320,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+                                <Button x:Name="NextRegistrationButton" Content="Next" HorizontalAlignment="Left" Height ="23" Margin="693,320,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
                                 <Label x:Name="RoomtypeLabelReservation" Content="Roomtype" HorizontalAlignment="Left" Margin="5,41,0,0" VerticalAlignment="Top"/>
                                 <ComboBox x:Name="ComboBoxReservation" HorizontalAlignment="Left" Margin="75,45,0,0" VerticalAlignment="Top" Width="120">
                                     <ComboBoxItem Content="Double Room"/>
@@ -26,9 +26,9 @@
                                 <Label x:Name="FromDateLabel" Content="From Date:" HorizontalAlignment="Left" Margin="0,115,0,0" VerticalAlignment="Top" Width="70"/>
                                 <Label x:Name="ToDateLabel" Content="To Date:" HorizontalAlignment="Left" Margin="0,146,0,0" VerticalAlignment="Top" Width="70"/>
                                 <DatePicker x:Name="FromDateDatepicker" HorizontalAlignment="Left" Margin="75,115,0,0" VerticalAlignment="Top" FirstDayOfWeek="Monday" Width="120"/>
-                                <DatePicker x:Name="ToDateDatepicker" HorizontalAlignment="Right" Margin="0,144,383,0" VerticalAlignment="Top" FirstDayOfWeek="Monday" Width="120"/>
+                                <DatePicker x:Name="ToDateDatepicker" HorizontalAlignment="Right" Margin="0,144,583,0" VerticalAlignment="Top" FirstDayOfWeek="Monday" Width="120"/>
                                 <Label x:Name="AvalibleRoomsLabel" Content="Avalible Rooms" HorizontalAlignment="Left" Margin="200,14,0,0" VerticalAlignment="Top" Width="146"/>
-                                <DataGrid x:Name="RoomInfoGrid" HorizontalAlignment="Left" Margin="200,45,0,0" VerticalAlignment="Top" Height="224" Width="368"/>
+                                <DataGrid x:Name="RoomInfoGrid" HorizontalAlignment="Left" Margin="200,45,0,0" VerticalAlignment="Top" Height="224" Width="568"/>
                                 <Button x:Name="CheckAvailabilityButton" Content="Check Availability" HorizontalAlignment="Left" Margin="75,173,0,0" VerticalAlignment="Top" Width="120" Click="CheckAvailabilityButton_Click" Height="21"/>
                             </Grid>
                         </TabItem>
@@ -64,12 +64,12 @@
             </TabItem>
             <TabItem x:Name="ReservationTab1" Header="Check in / Check out" Width="130">
                 <Grid Background="#FFE5E5E5">
-                    <Button x:Name="searchCheckInByReservationNoButton" Content="Search by Res.No" HorizontalAlignment="Left" Margin="20,100,0,0" VerticalAlignment="Top" Width="130" Click="searchCheckInByReservationNoButton_Click"/>
+                    <Button x:Name="searchCheckInByReservationNoButton" Content="Search by Res.No" HorizontalAlignment="Left" Margin="20,90,0,0" VerticalAlignment="Top" Width="130" Click="searchCheckInByReservationNoButton_Click"/>
                     <Button x:Name="checkInCheckInButton" Content="Check In" HorizontalAlignment="Left" Margin="20,180,0,0" VerticalAlignment="Top" Width="130" Click="checkInCheckInButton_Click"/>
-                    <Button x:Name="checkOutCheckInButton" Content="Check Out" HorizontalAlignment="Left" Margin="20,220,0,0" VerticalAlignment="Top" Width="130" Click="checkOutCheckInButton_Click"/>
-                    <DataGrid x:Name="checkInDataGrid" HorizontalAlignment="Left" Margin="170,60,0,0" VerticalAlignment="Top" Width="378" Height="213"/>
-                    <TextBox x:Name="searchCheckInTextBox" HorizontalAlignment="Left" Height="23" Margin="20,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130"/>
-                    <Button x:Name="searchCheckInByEmailButton" Content="Search by Email" HorizontalAlignment="Left" Margin="20,140,0,0" VerticalAlignment="Top" Width="130" Click="searchCheckInByEmailButton_Click"/>
+                    <Button x:Name="checkOutCheckInButton" Content="Check Out" HorizontalAlignment="Left" Margin="20,225,0,0" VerticalAlignment="Top" Width="130" Click="checkOutCheckInButton_Click"/>
+                    <DataGrid x:Name="checkInDataGrid" HorizontalAlignment="Left" Margin="155,45,0,0" VerticalAlignment="Top" Width="605" Height="215"/>
+                    <TextBox x:Name="searchCheckInTextBox" HorizontalAlignment="Left" Height="23" Margin="20,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130"/>
+                    <Button x:Name="searchCheckInByEmailButton" Content="Search by Email" HorizontalAlignment="Left" Margin="20,135,0,0" VerticalAlignment="Top" Width="130" Click="searchCheckInByEmailButton_Click"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="RoomTab" Header="Room" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="130">
