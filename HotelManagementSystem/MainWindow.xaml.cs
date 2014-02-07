@@ -182,6 +182,11 @@ namespace HotelManagementSystem
             checkInDataGrid.ItemsSource = checkInCheckOutController.FindReservationByEmail(searchCheckInTextBox.Text);
         }
 
+        private void showAllCustomersCustomerRegistryButton_Click(object sender, RoutedEventArgs e)
+        {
+            customerRegistryDataGrid.ItemsSource = new CustomerRegistryController().GetCustomerDataView();
+        }
+
 
     }
 }

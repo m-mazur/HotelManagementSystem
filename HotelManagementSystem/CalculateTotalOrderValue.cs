@@ -8,13 +8,8 @@ namespace HotelManagementSystem
 {
     public class CalculateTotalOrderValue
     {
-        private int roomPrice;
-        private int totalDays;
-
-        public string TotalOrderValue(string roomPriceString, string totalDaysString)
+        public string TotalOrderValue(double roomPrice, int totalDays)
         {
-            roomPrice = int.Parse(roomPriceString);
-            totalDays = int.Parse(totalDaysString);
             return (roomPrice * totalDays).ToString();
         }
     }

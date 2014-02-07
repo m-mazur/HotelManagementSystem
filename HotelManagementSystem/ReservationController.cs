@@ -59,7 +59,7 @@ namespace HotelManagementSystem
             return new RoomsRepository().GetRoomByRoomNo(roomNo);
         }
 
-        public String GetTotalOrderValue(string roomPrice, string totalDays)
+        public String GetTotalOrderValue(double roomPrice, int totalDays)
         {
             return new CalculateTotalOrderValue().TotalOrderValue(roomPrice, totalDays);
         }

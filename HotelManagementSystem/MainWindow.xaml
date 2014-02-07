@@ -118,11 +118,11 @@
             </TabItem>
             <TabItem x:Name="CustomerRegistryTab" Header="CustomerRegistry" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="130">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="CustomerRegistryDataGrid" HorizontalAlignment="Left" Margin="45,90,0,0" VerticalAlignment="Top" Height="235" Width="680"/>
+                    <DataGrid x:Name="customerRegistryDataGrid" HorizontalAlignment="Left" Margin="45,90,0,0" VerticalAlignment="Top" Height="235" Width="680"/>
                     <TextBox x:Name="emailCustomerRegistryTextBox" HorizontalAlignment="Left" Height="23" Margin="45,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                     <Button x:Name="searchCustomerRegistryButtton" Content="Search" HorizontalAlignment="Left" Margin="170,62,0,0" VerticalAlignment="Top" Width="75"/>
                     <Label x:Name="emailCustomerRegistryLabel" Content="Email" HorizontalAlignment="Left" Margin="45,31,0,0" VerticalAlignment="Top" Width="120"/>
-                    <Button x:Name="showAllCustomersCustomerRegistryButton" Content="Show all customers" HorizontalAlignment="Left" Margin="45,330,0,0" VerticalAlignment="Top" Width="105"/>
+                    <Button x:Name="showAllCustomersCustomerRegistryButton" Content="Show all customers" HorizontalAlignment="Left" Margin="45,330,0,0" VerticalAlignment="Top" Width="105" Click="showAllCustomersCustomerRegistryButton_Click"/>
                 </Grid>
             </TabItem>
         </TabControl>
