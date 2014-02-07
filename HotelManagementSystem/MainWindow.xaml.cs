@@ -108,7 +108,6 @@ namespace HotelManagementSystem
 
         private void checkBoxRegister_Checked(object sender, RoutedEventArgs e)
         {
-            registerCustomerBtn.IsEnabled = true;
             SearchCustomer.IsEnabled = false;
 
             EmailTextbox.Text = "";
@@ -124,7 +123,6 @@ namespace HotelManagementSystem
 
         private void checkBoxRegister_Unchecked(object sender, RoutedEventArgs e)
         {
-            registerCustomerBtn.IsEnabled = false;
             SearchCustomer.IsEnabled = true;
             EnableDisabletextBoxes(false);
             registerEnabled = false;
