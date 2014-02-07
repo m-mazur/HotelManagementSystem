@@ -25,6 +25,7 @@ namespace HotelManagementSystem
         private ReservationController reservationController;
         private DataRowView selectedRoom;
         private Random random;
+        private Boolean registerEnabled;
 
         public MainWindow()
         {
@@ -58,12 +59,6 @@ namespace HotelManagementSystem
             PhoneNoTextBox.Text = reservationController.GetCustomer(EmailTextbox.Text).PhoneNo;
         }
 
-        private void Button_Click_RegisterCustomer(object sender, RoutedEventArgs e)
-        {
-            reservationController.AddCustomer(EmailTextbox.Text, PhoneNoTextBox.Text, PhoneCountryCodeTextBox.Text,
-                CreditCardNoTextBox.Text, FirstNameTextBox.Text, LastnameTextbox.Text);
-        }
-
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             BookingTab.SelectedIndex = 0;
@@ -75,9 +70,25 @@ namespace HotelManagementSystem
             random = new Random();
             int randomNo = random.Next(000000, 999999);
 
-            reservationController.AddReservation(randomNo.ToString(), EmailTextbox.Text, selectedRoom[0].ToString(),
+            if (registerEnabled)
+            {
+               reservationController.AddCustomer(EmailTextbox.Text, PhoneNoTextBox.Text, PhoneCountryCodeTextBox.Text,
+               CreditCardNoTextBox.Text, FirstNameTextBox.Text, LastnameTextbox.Text);
+                Console.WriteLine("Kan registrer kund");
+
+                reservationController.AddReservation(randomNo.ToString(), EmailTextbox.Text, selectedRoom[0].ToString(),
                 FromDateDatepicker.SelectedDate.Value, ToDateDatepicker.SelectedDate.Value, false, false);
+                Console.WriteLine("ur code works u are great"); 
+            }
+            else
+            {
+
+                reservationController.AddReservation(randomNo.ToString(), EmailTextbox.Text, selectedRoom[0].ToString(), 
+                FromDateDatepicker.SelectedDate.Value, ToDateDatepicker.SelectedDate.Value, false, false);
+                Console.WriteLine("Kan registrera bookning");
+            }
         }
+                
 
         private void BackReciept_Click(object sender, RoutedEventArgs e)
         {
@@ -86,7 +97,7 @@ namespace HotelManagementSystem
 
         private void RoomTypeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+
         }
 
         private void CheckAvailabilityButton_Click(object sender, RoutedEventArgs e)
@@ -108,6 +119,7 @@ namespace HotelManagementSystem
             PhoneNoTextBox.Text = "";
 
             EnableDisabletextBoxes(true);
+            registerEnabled = true;
         }
 
         private void checkBoxRegister_Unchecked(object sender, RoutedEventArgs e)
@@ -115,6 +127,7 @@ namespace HotelManagementSystem
             registerCustomerBtn.IsEnabled = false;
             SearchCustomer.IsEnabled = true;
             EnableDisabletextBoxes(false);
+            registerEnabled = false;
         }
 
         private void EnableDisabletextBoxes(bool enabled)
