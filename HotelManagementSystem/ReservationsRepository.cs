@@ -114,5 +114,21 @@ namespace HotelManagementSystem
                 return null;
             }
         }
+
+        public DataView GetReservationByEmail(string email)
+        {
+            try
+            {
+                reservationsTableAdapter = new DataSetHotelTableAdapters.reservationsTableAdapter();
+                reservationsTableAdapter.FillByReservationEmail(dataSetHotel.reservations, email);
+                DataView reservationDataView = new DataView(dataSetHotel.Tables["Reservations"]);
+                return reservationDataView;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return null;
+            }
+        }
     }
 }

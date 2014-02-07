@@ -141,14 +141,30 @@ namespace HotelManagementSystem
 
         private void searchCheckInByReservationNoButton_Click(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine(searchCheckInTextBox.Text);
             checkInDataGrid.ItemsSource = checkInCheckOutController.FindReservationByReservationNo(searchCheckInTextBox.Text);
         }
 
         private void checkInCheckInButton_Click(object sender, RoutedEventArgs e)
         {
             selectedReservation = checkInDataGrid.SelectedItem as DataRowView;
-            checkInCheckOutController.CheckInReservation(selectedReservation[0].ToString(), true);
+            string reservationNo = selectedReservation[0].ToString();
+            checkInCheckOutController.CheckInReservation(reservationNo, true);
+            checkInDataGrid.ItemsSource = checkInCheckOutController.FindReservationByReservationNo(reservationNo);
         }
+
+        private void checkOutCheckInButton_Click(object sender, RoutedEventArgs e)
+        {
+            selectedReservation = checkInDataGrid.SelectedItem as DataRowView;
+            string reservationNo = selectedReservation[0].ToString();
+            checkInCheckOutController.CheckOutReservation(reservationNo, true);
+            checkInDataGrid.ItemsSource = checkInCheckOutController.FindReservationByReservationNo(reservationNo);
+        }
+
+        private void searchCheckInByEmailButton_Click(object sender, RoutedEventArgs e)
+        {
+            checkInDataGrid.ItemsSource = checkInCheckOutController.FindReservationByEmail(searchCheckInTextBox.Text);
+        }
+
+
     }
 }
