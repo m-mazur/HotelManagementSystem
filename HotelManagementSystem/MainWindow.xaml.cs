@@ -89,22 +89,8 @@ namespace HotelManagementSystem
                     FromDateDatepicker.SelectedDate.Value, ToDateDatepicker.SelectedDate.Value, false, false);
                 Console.WriteLine("Kan registrera bookning");
             }
-            emailRecieptTextBox.Text = reservationController.GetSingleReservation(randomNo.ToString()).EMail;
-            reservationNumberRecieptTextBox.Text = reservationController.GetSingleReservation(randomNo.ToString()).ReservationNo;
-            roomNumberRecieptTextBox.Text = reservationController.GetSingleReservation(randomNo.ToString()).RoomNo;
-            checkInDateRecieptTextBox.Text = reservationController.GetSingleReservation(randomNo.ToString()).CheckInDate.ToString();
-            checkOutDateRecieptTextBox.Text = reservationController.GetSingleReservation(randomNo.ToString()).CheckOutDate.ToString();
-            
-            string customerEmail = reservationController.GetSingleReservation(randomNo.ToString()).EMail;
-            firstNameRecieptTextBox.Text = reservationController.GetCustomer(customerEmail).FirstName;
-            lastNameRecieptTextBox.Text = reservationController.GetCustomer(customerEmail).LastName;
-            creditCardNoRecieptTextBox.Text = reservationController.GetCustomer(customerEmail).CreditCardNo;
-            PhoneNoRecieptTextBox.Text = reservationController.GetCustomer(customerEmail).PhoneNo;
-            PhoneCountryCodeRecieptTextBox.Text = reservationController.GetCustomer(customerEmail).PhoneCountryCode;
 
-            string roomNo = reservationController.GetSingleReservation(randomNo.ToString()).RoomNo;
-            roomTypeRecieptTextBox.Text = reservationController.GetRoom(roomNo).RoomType;
-            pricePerDayRecieptTextBox.Text = reservationController.GetRoom(roomNo).PricePerDay.ToString();
+            ShowCustomerRecipt(randomNo.ToString());
         }
 
                 
@@ -187,6 +173,25 @@ namespace HotelManagementSystem
             customerRegistryDataGrid.ItemsSource = new CustomerRegistryController().GetCustomerDataView();
         }
 
+        private void ShowCustomerRecipt(string reservationNo)
+        {
+            emailRecieptTextBox.Text = reservationController.GetSingleReservation(reservationNo).EMail;
+            reservationNumberRecieptTextBox.Text = reservationController.GetSingleReservation(reservationNo).ReservationNo;
+            roomNumberRecieptTextBox.Text = reservationController.GetSingleReservation(reservationNo).RoomNo;
+            checkInDateRecieptTextBox.Text = reservationController.GetSingleReservation(reservationNo).CheckInDate.ToString();
+            checkOutDateRecieptTextBox.Text = reservationController.GetSingleReservation(reservationNo).CheckOutDate.ToString();
 
+            string customerEmail = reservationController.GetSingleReservation(reservationNo).EMail;
+            firstNameRecieptTextBox.Text = reservationController.GetCustomer(customerEmail).FirstName;
+            lastNameRecieptTextBox.Text = reservationController.GetCustomer(customerEmail).LastName;
+            creditCardNoRecieptTextBox.Text = reservationController.GetCustomer(customerEmail).CreditCardNo;
+            PhoneNoRecieptTextBox.Text = reservationController.GetCustomer(customerEmail).PhoneNo;
+            PhoneCountryCodeRecieptTextBox.Text = reservationController.GetCustomer(customerEmail).PhoneCountryCode;
+
+            string roomNo = reservationController.GetSingleReservation(reservationNo).RoomNo;
+            roomTypeRecieptTextBox.Text = reservationController.GetRoom(roomNo).RoomType;
+            pricePerDayRecieptTextBox.Text = reservationController.GetRoom(roomNo).PricePerDay.ToString();
+            totalPriceRecieptTextBox.Text = new CalculateTotalOrderValue().TotalOrderValue(reservationController.GetRoom(roomNo).PricePerDay, 3);
+        }
     }
 }
