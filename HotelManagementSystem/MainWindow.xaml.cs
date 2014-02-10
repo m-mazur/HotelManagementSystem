@@ -191,7 +191,8 @@ namespace HotelManagementSystem
             string roomNo = reservationController.GetSingleReservation(reservationNo).RoomNo;
             roomTypeRecieptTextBox.Text = reservationController.GetRoom(roomNo).RoomType;
             pricePerDayRecieptTextBox.Text = reservationController.GetRoom(roomNo).PricePerDay.ToString();
-            totalPriceRecieptTextBox.Text = new CalculateTotalOrderValue().TotalOrderValue(reservationController.GetRoom(roomNo).PricePerDay, 3);
+            nightsRecieptTextBox.Text = new OrderUtility().TotalNights(reservationNo).ToString();
+            totalPriceRecieptTextBox.Text = new OrderUtility().TotalOrderValue(reservationController.GetRoom(roomNo).PricePerDay, reservationNo);
         }
 
         private void showReservationsCustomerRegistryButton_Click(object sender, RoutedEventArgs e)
