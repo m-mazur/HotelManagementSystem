@@ -22,10 +22,11 @@ namespace HotelManagementSystem
             customerDataView = customerRepository.GetCustomers();
             return customerDataView;
         }
-
+       
         public Customer GetCustomer(string email)
         {
             return null;
+          
         }
     }
 }
