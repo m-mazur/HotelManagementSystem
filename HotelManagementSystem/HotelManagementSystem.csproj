@@ -68,13 +68,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="CalculateTotalOrderValue.cs" />
     <Compile Include="CheckInCheckOutController.cs" />
     <Compile Include="CustomerRegistryController.cs" />
     <Compile Include="DataSetHotel.cs">
       <DependentUpon>DataSetHotel.xsd</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="OrderUtility.cs" />
     <Compile Include="ReservationController.cs" />
     <Compile Include="CustomersRepository.cs" />
     <Compile Include="Reservation.cs" />

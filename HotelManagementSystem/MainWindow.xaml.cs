@@ -24,8 +24,10 @@ namespace HotelManagementSystem
     {
         private ReservationController reservationController;
         private CheckInCheckOutController checkInCheckOutController;
+        private CustomerRegistryController customerRegistryController;
         private DataRowView selectedRoom;
         private DataRowView selectedReservation;
+        private DataRowView selectedCustomer;
         private Random random;
         private Boolean registerEnabled;
 
@@ -34,6 +36,7 @@ namespace HotelManagementSystem
             InitializeComponent();
             reservationController = new ReservationController();
             checkInCheckOutController = new CheckInCheckOutController();
+            customerRegistryController = new CustomerRegistryController();
         }
 
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -95,10 +98,7 @@ namespace HotelManagementSystem
 
                 
 
-        private void BackReciept_Click(object sender, RoutedEventArgs e)
-        {
-            BookingTab.SelectedIndex = 0;
-        }
+   
 
         private void RoomTypeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -191,7 +191,31 @@ namespace HotelManagementSystem
             string roomNo = reservationController.GetSingleReservation(reservationNo).RoomNo;
             roomTypeRecieptTextBox.Text = reservationController.GetRoom(roomNo).RoomType;
             pricePerDayRecieptTextBox.Text = reservationController.GetRoom(roomNo).PricePerDay.ToString();
-            totalPriceRecieptTextBox.Text = new CalculateTotalOrderValue().TotalOrderValue(reservationController.GetRoom(roomNo).PricePerDay, 3);
+            nightsRecieptTextBox.Text = new OrderUtility().TotalNights(reservationNo).ToString();
+            totalPriceRecieptTextBox.Text = new OrderUtility().TotalOrderValue(reservationController.GetRoom(roomNo).PricePerDay, reservationNo);
+        }
+
+        private void showReservationsCustomerRegistryButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            selectedCustomer = customerRegistryDataGrid.SelectedItem as DataRowView;
+            string email = selectedCustomer[0].ToString();
+            customerRegistryDataGrid.ItemsSource = customerRegistryController.FindReservationByEmail(email);
+        }
+
+        private void showCustomerDetailsCustomerRegistryButton_Click(object sender, RoutedEventArgs e)
+        {
+            selectedCustomer = customerRegistryDataGrid.SelectedItem as DataRowView;
+        }
+
+        private void DoneReciept_Click(object sender, RoutedEventArgs e)
+        {
+            BookingTab.SelectedIndex = 0;
+        }
+
+        private void searchCustomerRegistryButtton_Click(object sender, RoutedEventArgs e)
+        {
+            customerRegistryDataGrid.ItemsSource = customerRegistryController.FindReservationByEmail(emailCustomerRegistryTextBox.Text);
         }
     }
 }
