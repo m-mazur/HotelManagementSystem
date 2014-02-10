@@ -57,12 +57,20 @@ namespace HotelManagementSystem
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             Console.WriteLine(EmailTextbox.Text);
-            EmailTextbox.Text = reservationController.GetCustomer(EmailTextbox.Text).EMail;
-            FirstNameTextBox.Text = reservationController.GetCustomer(EmailTextbox.Text).FirstName;
-            LastnameTextbox.Text = reservationController.GetCustomer(EmailTextbox.Text).LastName;
-            CreditCardNoTextBox.Text = reservationController.GetCustomer(EmailTextbox.Text).CreditCardNo;
-            PhoneCountryCodeTextBox.Text = reservationController.GetCustomer(EmailTextbox.Text).PhoneCountryCode;
-            PhoneNoTextBox.Text = reservationController.GetCustomer(EmailTextbox.Text).PhoneNo;
+
+            try
+            {
+                EmailTextbox.Text = reservationController.GetCustomer(EmailTextbox.Text).EMail;
+                FirstNameTextBox.Text = reservationController.GetCustomer(EmailTextbox.Text).FirstName;
+                LastnameTextbox.Text = reservationController.GetCustomer(EmailTextbox.Text).LastName;
+                CreditCardNoTextBox.Text = reservationController.GetCustomer(EmailTextbox.Text).CreditCardNo;
+                PhoneCountryCodeTextBox.Text = reservationController.GetCustomer(EmailTextbox.Text).PhoneCountryCode;
+                PhoneNoTextBox.Text = reservationController.GetCustomer(EmailTextbox.Text).PhoneNo;
+            }
+            catch (NullReferenceException)
+            {
+                //Felmeddelande
+            }
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
@@ -107,8 +115,15 @@ namespace HotelManagementSystem
 
         private void CheckAvailabilityButton_Click(object sender, RoutedEventArgs e)
         {
-            RoomInfoGrid.ItemsSource = reservationController.GetAvailableRooms("single room", FromDateDatepicker.SelectedDate.Value, ToDateDatepicker.SelectedDate.Value);
-            Console.WriteLine(FromDateDatepicker.SelectedDate.Value.ToString());
+            try
+            {
+                RoomInfoGrid.ItemsSource = reservationController.GetAvailableRooms("single room", FromDateDatepicker.SelectedDate.Value, ToDateDatepicker.SelectedDate.Value);
+                Console.WriteLine(FromDateDatepicker.SelectedDate.Value.ToString());
+            }
+            catch (InvalidOperationException)
+            {
+                //Felmeddelande
+            }
         }
 
         private void checkBoxRegister_Checked(object sender, RoutedEventArgs e)

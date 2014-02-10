@@ -75,18 +75,10 @@ namespace HotelManagementSystem
 
         public DataView GetNumberOfReservedDays(string reservationNo)
         {
-            try
-            {
                 reservationsTableAdapter = new DataSetHotelTableAdapters.reservationsTableAdapter();
                 reservationsTableAdapter.FillByReservedDays(dataSetHotel.reservations, reservationNo);
                 DataView reservationDataView = new DataView(dataSetHotel.Tables["Reservations"]);
                 return reservationDataView;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                return null;
-            }
         }
     }
 }
