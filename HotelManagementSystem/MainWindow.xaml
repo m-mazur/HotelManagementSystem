@@ -82,7 +82,7 @@
                                 <Label x:Name="totalPriceRecieptLabel" Content="Total price" HorizontalAlignment="Left" Margin="380,263,0,0" VerticalAlignment="Top" Width="100"/>
                                 <TextBox x:Name="nightsRecieptTextBox" HorizontalAlignment="Left" Height="23" Margin="485,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237" IsEnabled="False"/>
                                 <TextBox x:Name="pricePerDayRecieptTextBox" HorizontalAlignment="Left" Height="23" Margin="485,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237" IsEnabled="False"/>
-                                <TextBox x:Name="totalPriceRecieptTextBox" HorizontalAlignment="Left" Height="23" Margin="485,263,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237" IsEnabled="False" TextChanged="totalPriceRecieptTextBox_TextChanged"/>
+                                <TextBox x:Name="totalPriceRecieptTextBox" HorizontalAlignment="Left" Height="23" Margin="485,263,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237" IsEnabled="False"/>
                             </Grid>
                         </TabItem>
                     </TabControl>
