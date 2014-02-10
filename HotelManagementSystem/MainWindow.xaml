@@ -53,7 +53,7 @@
                         </TabItem>
                         <TabItem x:Name="RecieptTab" Header="Receipt" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="146" IsEnabled="False">
                             <Grid x:Name="phoneNumberLabel" Background="#FFE5E5E5">
-                                <Button x:Name="BackReciept" Content="Done" HorizontalAlignment="Left" Margin="666,308,0,0" VerticalAlignment="Top" Width="102" Click="BackReciept_Click" Height="27"/>
+                                <Button x:Name="DoneReciept" Content="Done" HorizontalAlignment="Left" Margin="666,308,0,0" VerticalAlignment="Top" Width="102" Click="DoneReciept_Click" Height="27"/>
                                 <Label x:Name="CustomerRecieptLabel" Content="Customer reciept" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="151"/>
                                 <Grid HorizontalAlignment="Left" Height="100" Margin="270,162,0,0" VerticalAlignment="Top" Width="100"/>
                                 <Label x:Name="emailRecieptLabel" Content="Email" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="100"/>
@@ -119,9 +119,11 @@
                 <Grid Background="#FFE5E5E5">
                     <DataGrid x:Name="customerRegistryDataGrid" HorizontalAlignment="Left" Margin="45,90,0,0" VerticalAlignment="Top" Height="235" Width="680"/>
                     <TextBox x:Name="emailCustomerRegistryTextBox" HorizontalAlignment="Left" Height="23" Margin="45,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                    <Button x:Name="searchCustomerRegistryButtton" Content="Search" HorizontalAlignment="Left" Margin="170,62,0,0" VerticalAlignment="Top" Width="75"/>
+                    <Button x:Name="searchCustomerRegistryButtton" Content="Search" HorizontalAlignment="Left" Margin="170,62,0,0" VerticalAlignment="Top" Width="75" Click="searchCustomerRegistryButtton_Click"/>
                     <Label x:Name="emailCustomerRegistryLabel" Content="Email" HorizontalAlignment="Left" Margin="45,31,0,0" VerticalAlignment="Top" Width="120"/>
                     <Button x:Name="showAllCustomersCustomerRegistryButton" Content="Show all customers" HorizontalAlignment="Left" Margin="45,330,0,0" VerticalAlignment="Top" Width="105" Click="showAllCustomersCustomerRegistryButton_Click"/>
+                    <Button x:Name="showCustomerDetailsCustomerRegistryButton" Content="Customer details" HorizontalAlignment="Left" Margin="265,330,0,0" VerticalAlignment="Top" Width="105" Click="showCustomerDetailsCustomerRegistryButton_Click"/>
+                    <Button x:Name="showReservationsCustomerRegistryButton" Content="Show reservations" HorizontalAlignment="Left" Margin="155,330,0,0" VerticalAlignment="Top" Width="105" Click="showReservationsCustomerRegistryButton_Click"/>
                 </Grid>
             </TabItem>
         </TabControl>

@@ -26,6 +26,7 @@ namespace HotelManagementSystem
         private CheckInCheckOutController checkInCheckOutController;
         private DataRowView selectedRoom;
         private DataRowView selectedReservation;
+        private DataRowView selectedCustomer;
         private Random random;
         private Boolean registerEnabled;
 
@@ -95,10 +96,7 @@ namespace HotelManagementSystem
 
                 
 
-        private void BackReciept_Click(object sender, RoutedEventArgs e)
-        {
-            BookingTab.SelectedIndex = 0;
-        }
+   
 
         private void RoomTypeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -192,6 +190,30 @@ namespace HotelManagementSystem
             roomTypeRecieptTextBox.Text = reservationController.GetRoom(roomNo).RoomType;
             pricePerDayRecieptTextBox.Text = reservationController.GetRoom(roomNo).PricePerDay.ToString();
             totalPriceRecieptTextBox.Text = new CalculateTotalOrderValue().TotalOrderValue(reservationController.GetRoom(roomNo).PricePerDay, 3);
+        }
+
+        private void showReservationsCustomerRegistryButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            selectedCustomer = customerRegistryDataGrid.SelectedItem as DataRowView;
+            string email = selectedCustomer[0].ToString();
+             customerRegistryDataGrid.ItemsSource = checkInCheckOutController.FindReservationByEmail(email);
+        }
+
+        private void showCustomerDetailsCustomerRegistryButton_Click(object sender, RoutedEventArgs e)
+        {
+            selectedCustomer = customerRegistryDataGrid.SelectedItem as DataRowView;
+        }
+
+        private void DoneReciept_Click(object sender, RoutedEventArgs e)
+        {
+            BookingTab.SelectedIndex = 0;
+        }
+
+        private void searchCustomerRegistryButtton_Click(object sender, RoutedEventArgs e)
+        {
+           // customerRegistryDataGrid.ItemsSource = checkInCheckOutController.FindReservationByEmail(emailCustomerRegistryTextBox.Text);
+            // har vi någon get singlecustomer?
         }
     }
 }
