@@ -28,5 +28,10 @@ namespace HotelManagementSystem
             return null;
           
         }
+
+        public DataView FindReservationByEmail(string email)
+        {
+            return new ReservationsRepository().GetReservationByEmail(email);
+        }
     }
 }

@@ -24,6 +24,7 @@ namespace HotelManagementSystem
     {
         private ReservationController reservationController;
         private CheckInCheckOutController checkInCheckOutController;
+        private CustomerRegistryController customerRegistryController;
         private DataRowView selectedRoom;
         private DataRowView selectedReservation;
         private DataRowView selectedCustomer;
@@ -35,6 +36,7 @@ namespace HotelManagementSystem
             InitializeComponent();
             reservationController = new ReservationController();
             checkInCheckOutController = new CheckInCheckOutController();
+            customerRegistryController = new CustomerRegistryController();
         }
 
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -197,7 +199,7 @@ namespace HotelManagementSystem
 
             selectedCustomer = customerRegistryDataGrid.SelectedItem as DataRowView;
             string email = selectedCustomer[0].ToString();
-             customerRegistryDataGrid.ItemsSource = checkInCheckOutController.FindReservationByEmail(email);
+            customerRegistryDataGrid.ItemsSource = customerRegistryController.FindReservationByEmail(email);
         }
 
         private void showCustomerDetailsCustomerRegistryButton_Click(object sender, RoutedEventArgs e)
@@ -212,8 +214,7 @@ namespace HotelManagementSystem
 
         private void searchCustomerRegistryButtton_Click(object sender, RoutedEventArgs e)
         {
-           // customerRegistryDataGrid.ItemsSource = checkInCheckOutController.FindReservationByEmail(emailCustomerRegistryTextBox.Text);
-            // har vi någon get singlecustomer?
+            customerRegistryDataGrid.ItemsSource = customerRegistryController.FindReservationByEmail(emailCustomerRegistryTextBox.Text);
         }
     }
 }

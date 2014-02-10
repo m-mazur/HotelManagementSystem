@@ -29,8 +29,10 @@ namespace HotelManagementSystem
 
         public void CheckInReservation(string reservationNo, bool checkIn)
         {
-            reservation = new Reservation(reservationRepository.GetSingleReservation(reservationNo).ReservationNo, reservationRepository.GetSingleReservation(reservationNo).EMail,
-                reservationRepository.GetSingleReservation(reservationNo).RoomNo, reservationRepository.GetSingleReservation(reservationNo).CheckInDate,
+            reservation = new Reservation(reservationRepository.GetSingleReservation(reservationNo).ReservationNo, 
+                reservationRepository.GetSingleReservation(reservationNo).EMail,
+                reservationRepository.GetSingleReservation(reservationNo).RoomNo, 
+                reservationRepository.GetSingleReservation(reservationNo).CheckInDate,
                 reservationRepository.GetSingleReservation(reservationNo).CheckOutDate, checkIn,
                 reservationRepository.GetSingleReservation(reservationNo).CheckOut);
 
@@ -39,10 +41,12 @@ namespace HotelManagementSystem
 
         public void CheckOutReservation(string reservationNo, bool checkOut)
         {
-            reservation = new Reservation(reservationRepository.GetSingleReservation(reservationNo).ReservationNo, reservationRepository.GetSingleReservation(reservationNo).EMail,
-                reservationRepository.GetSingleReservation(reservationNo).RoomNo, reservationRepository.GetSingleReservation(reservationNo).CheckInDate,
-                reservationRepository.GetSingleReservation(reservationNo).CheckOutDate, reservationRepository.GetSingleReservation(reservationNo).CheckIn,
-                checkOut);
+            reservation = new Reservation(reservationRepository.GetSingleReservation(reservationNo).ReservationNo, 
+                reservationRepository.GetSingleReservation(reservationNo).EMail, 
+                reservationRepository.GetSingleReservation(reservationNo).RoomNo, 
+                reservationRepository.GetSingleReservation(reservationNo).CheckInDate, 
+                reservationRepository.GetSingleReservation(reservationNo).CheckOutDate, 
+                reservationRepository.GetSingleReservation(reservationNo).CheckIn, checkOut);
 
             reservationRepository.UpdateReservation(reservation);
         }
