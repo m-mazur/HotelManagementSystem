@@ -50,12 +50,17 @@ namespace HotelManagementSystem
             return customerDataView;
         }
 
-        public DataSetHotel.customersRow GetCustomerByEmail(string email)
+        public Customer GetCustomerByEmail(string email)
         {
             customersTableAdapter = new DataSetHotelTableAdapters.customersTableAdapter();
             customersTableAdapter.Fill(dataSetHotel.customers);
             DataSetHotel.customersRow customerRow = dataSetHotel.customers.FindBye_mail(email);
-            return customerRow;
+            Customer customer = new Customer(customerRow.e_mail, 
+                customerRow.phone_no, 
+                customerRow.phone_country_code, 
+                customerRow.credit_card_no,
+                customerRow.first_name, customerRow.last_name);
+            return customer;
         }
     }
 }
