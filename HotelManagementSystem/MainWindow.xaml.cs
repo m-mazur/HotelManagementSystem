@@ -51,7 +51,14 @@ namespace HotelManagementSystem
         private void AvailabilityNextBtn_Click(object sender, RoutedEventArgs e)
         {
             selectedRoom = AvailabilityDataGrid.SelectedItem as DataRowView;
-            BookingTab.SelectedIndex = 1;
+            if (selectedRoom == null)
+            {
+                MessageBox.Show("You need to choose a room first!");
+            }
+            else
+            {
+                BookingTab.SelectedIndex = 1;
+            }
         }
 
         private void CustomerDetailsSearchBtn_Click(object sender, RoutedEventArgs e)
@@ -95,7 +102,7 @@ namespace HotelManagementSystem
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Felmeddelande här!");
+                    MessageBox.Show("You need to create or search a customer first!");
                 }
             }
             else
@@ -109,7 +116,7 @@ namespace HotelManagementSystem
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Felmeddelande här!");
+                    MessageBox.Show("You need to create or search a customer first!");
                 }
             }
         }
@@ -130,7 +137,7 @@ namespace HotelManagementSystem
             }
             catch (Exception)
             {
-                MessageBox.Show("Felmeddelande här!");
+                MessageBox.Show("You need to choose a room, check in date and check out date first!");
             }
         }
 
