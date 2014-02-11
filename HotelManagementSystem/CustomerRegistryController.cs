@@ -25,7 +25,13 @@ namespace HotelManagementSystem
        
         public Customer GetCustomer(string email)
         {
-            return new CustomersRepository().GetCustomerByEmail(email);
+            Customer customer = new Customer(customerRepository.GetCustomerByEmail(email).e_mail,
+                customerRepository.GetCustomerByEmail(email).phone_no,
+                customerRepository.GetCustomerByEmail(email).phone_country_code,
+                customerRepository.GetCustomerByEmail(email).credit_card_no,
+                customerRepository.GetCustomerByEmail(email).first_name,
+                customerRepository.GetCustomerByEmail(email).last_name);
+            return customer;
           
         }
 
