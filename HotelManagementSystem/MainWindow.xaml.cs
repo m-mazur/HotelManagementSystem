@@ -174,14 +174,8 @@ namespace HotelManagementSystem
 
         private void searchCheckInByReservationNoButton_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
             CheckInCheckOutDataGrid.ItemsSource = checkInCheckOutController.FindReservationByReservationNo(CheckInCheckOutSearchTbx.Text);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Felmeddelande här!");
-            }
+            //!!!Show empty reservation if search with a reservation number that doesn't exists!!!
         }
 
         private void checkInCheckInButton_Click(object sender, RoutedEventArgs e)
