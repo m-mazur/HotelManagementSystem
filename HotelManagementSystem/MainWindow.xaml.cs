@@ -34,14 +34,21 @@ namespace HotelManagementSystem
         public MainWindow()
         {
             InitializeComponent();
-            reservationController = new ReservationController();
-            checkInCheckOutController = new CheckInCheckOutController();
-            customerRegistryController = new CustomerRegistryController();
+            try
+            {
+                reservationController = new ReservationController();
+                checkInCheckOutController = new CheckInCheckOutController();
+                customerRegistryController = new CustomerRegistryController();
+            }
+            catch (Exception)
+            {
+                //Felmeddelande "Can't connect to database"
+                Close();
+            }
         }
 
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -57,7 +64,6 @@ namespace HotelManagementSystem
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             Console.WriteLine(EmailTextbox.Text);
-
             try
             {
                 EmailTextbox.Text = reservationController.GetCustomer(EmailTextbox.Text).EMail;
@@ -67,7 +73,7 @@ namespace HotelManagementSystem
                 PhoneCountryCodeTextBox.Text = reservationController.GetCustomer(EmailTextbox.Text).PhoneCountryCode;
                 PhoneNoTextBox.Text = reservationController.GetCustomer(EmailTextbox.Text).PhoneNo;
             }
-            catch (NullReferenceException)
+            catch (Exception)
             {
                 //Felmeddelande
             }
@@ -86,21 +92,41 @@ namespace HotelManagementSystem
 
             if (registerEnabled)
             {
-               reservationController.AddCustomer(EmailTextbox.Text, PhoneNoTextBox.Text, PhoneCountryCodeTextBox.Text, 
-                   CreditCardNoTextBox.Text, FirstNameTextBox.Text, LastnameTextbox.Text);
-                Console.WriteLine("Kan registrer kund");
+                try
+                {
+                    reservationController.AddCustomer(EmailTextbox.Text, PhoneNoTextBox.Text, PhoneCountryCodeTextBox.Text,
+                        CreditCardNoTextBox.Text, FirstNameTextBox.Text, LastnameTextbox.Text);
+                    Console.WriteLine("Kan registrer kund");
+                }
+                catch (Exception)
+                {
+                    //Felmeddelande
+                }
 
+                try 
+                {
                 reservationController.AddReservation(randomNo.ToString(), EmailTextbox.Text, selectedRoom[0].ToString(),
                     FromDateDatepicker.SelectedDate.Value, ToDateDatepicker.SelectedDate.Value, false, false);
-                Console.WriteLine("ur code works u are great"); 
+                Console.WriteLine("ur code works u are great");
+                }
+                catch (Exception)
+                {
+                    //Felmeddelande
+                }
             }
             else
             {
+                try
+                {
                 reservationController.AddReservation(randomNo.ToString(), EmailTextbox.Text, selectedRoom[0].ToString(), 
                     FromDateDatepicker.SelectedDate.Value, ToDateDatepicker.SelectedDate.Value, false, false);
                 Console.WriteLine("Kan registrera bookning");
+                }
+                catch (Exception)
+                {
+                    //Felmeddelande
+                }
             }
-
             ShowCustomerRecipt(randomNo.ToString());
         }
 
@@ -110,7 +136,6 @@ namespace HotelManagementSystem
 
         private void RoomTypeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
         }
 
         private void CheckAvailabilityButton_Click(object sender, RoutedEventArgs e)
@@ -120,7 +145,7 @@ namespace HotelManagementSystem
                 RoomInfoGrid.ItemsSource = reservationController.GetAvailableRooms("single room", FromDateDatepicker.SelectedDate.Value, ToDateDatepicker.SelectedDate.Value);
                 Console.WriteLine(FromDateDatepicker.SelectedDate.Value.ToString());
             }
-            catch (InvalidOperationException)
+            catch (Exception)
             {
                 //Felmeddelande
             }
@@ -159,23 +184,44 @@ namespace HotelManagementSystem
 
         private void searchCheckInByReservationNoButton_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
             checkInDataGrid.ItemsSource = checkInCheckOutController.FindReservationByReservationNo(searchCheckInTextBox.Text);
+            }
+            catch (Exception)
+            {
+                //Felmeddelande
+            }
         }
 
         private void checkInCheckInButton_Click(object sender, RoutedEventArgs e)
         {
             selectedReservation = checkInDataGrid.SelectedItem as DataRowView;
             string reservationNo = selectedReservation[0].ToString();
+            try
+            {
             checkInCheckOutController.CheckInReservation(reservationNo, true);
             checkInDataGrid.ItemsSource = checkInCheckOutController.FindReservationByReservationNo(reservationNo);
+            }
+            catch (Exception)
+            {
+                //Felmeddelande
+            }
         }
 
         private void checkOutCheckInButton_Click(object sender, RoutedEventArgs e)
         {
             selectedReservation = checkInDataGrid.SelectedItem as DataRowView;
             string reservationNo = selectedReservation[0].ToString();
+            try 
+            {
             checkInCheckOutController.CheckOutReservation(reservationNo, true);
             checkInDataGrid.ItemsSource = checkInCheckOutController.FindReservationByReservationNo(reservationNo);
+            }
+            catch (Exception)
+            {
+                //Felmeddelande
+            }
         }
 
         private void searchCheckInByEmailButton_Click(object sender, RoutedEventArgs e)
