@@ -48,13 +48,13 @@ namespace HotelManagementSystem
         {
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void AvailabilityNextBtn_Click(object sender, RoutedEventArgs e)
         {
             BookingTab.SelectedIndex = 1;
             selectedRoom = AvailabilityDataGrid.SelectedItem as DataRowView;
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void CustomerDetailsSearchBtn_Click(object sender, RoutedEventArgs e)
         {
             Console.WriteLine(CustomerDetailsEmailTbx.Text);
             CustomerDetailsEmailTbx.Text = reservationController.GetCustomer(CustomerDetailsEmailTbx.Text).EMail;

@@ -17,7 +17,7 @@
                     <TabControl x:Name="BookingTab" HorizontalAlignment="Left" Width="784" Grid.ColumnSpan="2">
                         <TabItem x:Name="AvailabilityTab" Header="Availability" Width="150" IsEnabled="False" Height="29">
                             <Grid Background="#FFE5E5E5">
-                                <Button x:Name="NextRegistrationButton" Content="Next" HorizontalAlignment="Left" Height ="27" Margin="668,308,0,0" VerticalAlignment="Top" Width="100" Click="Button_Click"/>
+                                <Button x:Name="AvailabilityNextBtn" Content="Next" HorizontalAlignment="Left" Height ="27" Margin="668,308,0,0" VerticalAlignment="Top" Width="100" Click="AvailabilityNextBtn_Click"/>
                                 <Label x:Name="RoomtypeLabelReservation" Content="Roomtype" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top"/>
                                 <ComboBox x:Name="AvailabilityRoomTypeCbo" HorizontalAlignment="Left" Margin="80,10,0,0" VerticalAlignment="Top" Width="115">
                                     <ComboBoxItem Content="Double Room"/>
@@ -46,7 +46,7 @@
                                 <Label x:Name="CustomerDetailsPhoneNumberLbl" Content="PhoneNumber" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top" Width="90" RenderTransformOrigin="0.442,-1.286"/>
                                 <TextBox x:Name="CustomerDetailsPhoneCountryCodeTbx" HorizontalAlignment="Left" Height="23" Margin="100,133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" RenderTransformOrigin="1.552,1.937" IsEnabled="False"/>
                                 <TextBox x:Name="CustomerDetailsPhoneNoTbx" HorizontalAlignment="Left" Height="23" Margin="135,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" IsEnabled="False"/>
-                                <Button x:Name="CustomerDetailsSearchBtn" Content="Search" HorizontalAlignment="Left" Height="31" Margin="374,125,0,0" VerticalAlignment="Top" Width="202" Click="Button_Click_1" RenderTransformOrigin="0.958,0.391"/>
+                                <Button x:Name="CustomerDetailsSearchBtn" Content="Search" HorizontalAlignment="Left" Height="31" Margin="374,125,0,0" VerticalAlignment="Top" Width="202" Click="CustomerDetailsSearchBtn_Click" RenderTransformOrigin="0.958,0.391"/>
                                 <CheckBox x:Name="CustomerDetailsRegisterChx" Content="Register new customer" HorizontalAlignment="Left" Height="24" Margin="374,96,0,0" VerticalAlignment="Top" Width="202" Checked="checkBoxRegister_Checked" Unchecked="checkBoxRegister_Unchecked"/>
 
                             </Grid>
