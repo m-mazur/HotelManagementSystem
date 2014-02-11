@@ -55,7 +55,6 @@ namespace HotelManagementSystem
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine(EmailTextbox.Text);
             try
             {
                 EmailTextbox.Text = reservationController.GetCustomer(EmailTextbox.Text).EMail;
@@ -67,7 +66,7 @@ namespace HotelManagementSystem
             }
             catch (Exception)
             {
-                System.Windows.MessageBox.Show("Can't find customer in database. Try search with another e-mail!");
+                MessageBox.Show("Can't find customer in database. Try search with another e-mail!");
             }
         }
 
@@ -78,7 +77,6 @@ namespace HotelManagementSystem
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            BookingTab.SelectedIndex = 2;
             random = new Random();
             int randomNo = random.Next(000000, 999999);
 
@@ -88,22 +86,14 @@ namespace HotelManagementSystem
                 {
                     reservationController.AddCustomer(EmailTextbox.Text, PhoneNoTextBox.Text, PhoneCountryCodeTextBox.Text,
                         CreditCardNoTextBox.Text, FirstNameTextBox.Text, LastnameTextbox.Text);
-                    Console.WriteLine("Kan registrer kund");
+                    reservationController.AddReservation(randomNo.ToString(), EmailTextbox.Text, selectedRoom[0].ToString(),
+                        FromDateDatepicker.SelectedDate.Value, ToDateDatepicker.SelectedDate.Value, false, false);
+                    ShowCustomerRecipt(randomNo.ToString());
+                    BookingTab.SelectedIndex = 2;
                 }
                 catch (Exception)
                 {
-                    //Felmeddelande
-                }
-
-                try 
-                {
-                reservationController.AddReservation(randomNo.ToString(), EmailTextbox.Text, selectedRoom[0].ToString(),
-                    FromDateDatepicker.SelectedDate.Value, ToDateDatepicker.SelectedDate.Value, false, false);
-                Console.WriteLine("ur code works u are great");
-                }
-                catch (Exception)
-                {
-                    //Felmeddelande
+                    System.Windows.MessageBox.Show("!!!!!!!");
                 }
             }
             else
@@ -113,18 +103,15 @@ namespace HotelManagementSystem
                 reservationController.AddReservation(randomNo.ToString(), EmailTextbox.Text, selectedRoom[0].ToString(), 
                     FromDateDatepicker.SelectedDate.Value, ToDateDatepicker.SelectedDate.Value, false, false);
                 Console.WriteLine("Kan registrera bookning");
+                ShowCustomerRecipt(randomNo.ToString());
+                BookingTab.SelectedIndex = 2;
                 }
                 catch (Exception)
                 {
-                    //Felmeddelande
+                    System.Windows.MessageBox.Show("!!!");
                 }
             }
-            ShowCustomerRecipt(randomNo.ToString());
         }
-
-                
-
-   
 
         private void RoomTypeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
