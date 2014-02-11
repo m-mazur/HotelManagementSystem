@@ -196,10 +196,10 @@ namespace HotelManagementSystem
 
         private void checkInCheckInButton_Click(object sender, RoutedEventArgs e)
         {
-            selectedReservation = checkInDataGrid.SelectedItem as DataRowView;
-            string reservationNo = selectedReservation[0].ToString();
             try
             {
+            selectedReservation = checkInDataGrid.SelectedItem as DataRowView;
+            string reservationNo = selectedReservation[0].ToString();
             checkInCheckOutController.CheckInReservation(reservationNo, true);
             checkInDataGrid.ItemsSource = checkInCheckOutController.FindReservationByReservationNo(reservationNo);
             }
@@ -211,10 +211,10 @@ namespace HotelManagementSystem
 
         private void checkOutCheckInButton_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
             selectedReservation = checkInDataGrid.SelectedItem as DataRowView;
             string reservationNo = selectedReservation[0].ToString();
-            try 
-            {
             checkInCheckOutController.CheckOutReservation(reservationNo, true);
             checkInDataGrid.ItemsSource = checkInCheckOutController.FindReservationByReservationNo(reservationNo);
             }
@@ -226,16 +226,32 @@ namespace HotelManagementSystem
 
         private void searchCheckInByEmailButton_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
             checkInDataGrid.ItemsSource = checkInCheckOutController.FindReservationByEmail(searchCheckInTextBox.Text);
+            }
+            catch (Exception)
+            {
+                //Felmeddelande
+            }
         }
 
         private void showAllCustomersCustomerRegistryButton_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
             customerRegistryDataGrid.ItemsSource = new CustomerRegistryController().GetCustomerDataView();
+            }
+            catch (Exception)
+            {
+                //Felmeddelande
+            }
         }
 
         private void ShowCustomerRecipt(string reservationNo)
         {
+            try
+            {
             emailRecieptTextBox.Text = reservationController.GetSingleReservation(reservationNo).EMail;
             reservationNumberRecieptTextBox.Text = reservationController.GetSingleReservation(reservationNo).ReservationNo;
             roomNumberRecieptTextBox.Text = reservationController.GetSingleReservation(reservationNo).RoomNo;
@@ -254,6 +270,11 @@ namespace HotelManagementSystem
             pricePerDayRecieptTextBox.Text = reservationController.GetRoom(roomNo).PricePerDay.ToString();
             nightsRecieptTextBox.Text = new OrderUtility().TotalNights(reservationNo).ToString();
             totalPriceRecieptTextBox.Text = new OrderUtility().TotalOrderValue(reservationController.GetRoom(roomNo).PricePerDay, reservationNo);
+            }
+            catch (Exception)
+            {
+                //Felmeddelande
+            }
         }
 
         private void showReservationsCustomerRegistryButton_Click(object sender, RoutedEventArgs e)
@@ -261,7 +282,14 @@ namespace HotelManagementSystem
 
             selectedCustomer = customerRegistryDataGrid.SelectedItem as DataRowView;
             string email = selectedCustomer[0].ToString();
+            try
+            {
             customerRegistryDataGrid.ItemsSource = customerRegistryController.FindReservationByEmail(email);
+            }
+            catch (Exception)
+            {
+                //Felmeddelande
+            }
         }
 
         private void showCustomerDetailsCustomerRegistryButton_Click(object sender, RoutedEventArgs e)
@@ -276,7 +304,14 @@ namespace HotelManagementSystem
 
         private void searchCustomerRegistryButtton_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
             customerRegistryDataGrid.ItemsSource = customerRegistryController.FindReservationByEmail(emailCustomerRegistryTextBox.Text);
+            }
+            catch (Exception)
+            {
+                //Felmeddelande
+            }
         }
     }
 }
