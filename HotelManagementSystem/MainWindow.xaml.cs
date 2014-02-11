@@ -34,17 +34,9 @@ namespace HotelManagementSystem
         public MainWindow()
         {
             InitializeComponent();
-            try
-            {
-                reservationController = new ReservationController();
-                checkInCheckOutController = new CheckInCheckOutController();
-                customerRegistryController = new CustomerRegistryController();
-            }
-            catch (Exception)
-            {
-                //Felmeddelande "Can't connect to database"
-                Close();
-            }
+            reservationController = new ReservationController();
+            checkInCheckOutController = new CheckInCheckOutController();
+            customerRegistryController = new CustomerRegistryController();
         }
 
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -75,7 +67,7 @@ namespace HotelManagementSystem
             }
             catch (Exception)
             {
-                //Felmeddelande
+                System.Windows.MessageBox.Show("Can't find customer in database. Try search with another e-mail!");
             }
         }
 
