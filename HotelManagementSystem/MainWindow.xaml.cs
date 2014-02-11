@@ -65,7 +65,7 @@ namespace HotelManagementSystem
             CustomerDetailsPhoneNoTbx.Text = reservationController.GetCustomer(CustomerDetailsEmailTbx.Text).PhoneNo;
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void CustomerDetailsBackBtn_Click(object sender, RoutedEventArgs e)
         {
             BookingTab.SelectedIndex = 0;
         }

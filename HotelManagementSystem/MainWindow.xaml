@@ -33,7 +33,7 @@
                         </TabItem>
                         <TabItem x:Name="ReservationTab" Header="Customer Details" Width="150" IsEnabled="False" HorizontalAlignment="Left" Margin="0,-2,0,0" Height="29">
                             <Grid Background="#FFE5E5E5" Margin="0,2,0,-1">
-                                <Button x:Name="CustomerDetailsBackBtn" Content="Back" HorizontalAlignment="Left" Margin="10,305,0,0" VerticalAlignment="Top" Width="100" Click="Button_Click_2" Height="29"/>
+                                <Button x:Name="CustomerDetailsBackBtn" Content="Back" HorizontalAlignment="Left" Margin="10,305,0,0" VerticalAlignment="Top" Width="100" Click="CustomerDetailsBackBtn_Click" Height="29"/>
                                 <Button x:Name="CustomerDetailsBookBtn" Content="Book" HorizontalAlignment="Left" Margin="668,305,0,0" VerticalAlignment="Top" Width="100" Click="CustomerDetailsBookBtn_Click" Height="29"/>
                                 <TextBox x:Name="CustomerDetailsEmailTbx" HorizontalAlignment="Left" Height="23" Margin="100,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238"/>
                                 <Label x:Name="emailReservationLabel" Content="Email" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.55,2.188" Width="90"/>
