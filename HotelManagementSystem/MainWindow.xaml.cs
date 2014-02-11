@@ -121,10 +121,6 @@ namespace HotelManagementSystem
             }
         }
 
-                
-
-   
-
         private void RoomTypeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
         }
@@ -189,7 +185,7 @@ namespace HotelManagementSystem
             }
             catch (Exception)
             {
-                MessageBox.Show("Felmeddelande här!");
+                MessageBox.Show("You need to search and choose a reservation first!");
             }
         }
 
@@ -204,20 +200,14 @@ namespace HotelManagementSystem
             }
             catch (Exception)
             {
-                MessageBox.Show("Felmeddelande här!");
+                MessageBox.Show("You need to search and choose a reservation first!");
             }
         }
 
         private void searchCheckInByEmailButton_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
             CheckInCheckOutDataGrid.ItemsSource = checkInCheckOutController.FindReservationByEmail(CheckInCheckOutSearchTbx.Text);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Felmeddelande här!");
-            }
+             //!!!Show empty reservation if search with a email that doesn't exists!!!
         }
 
         private void showAllCustomersCustomerRegistryButton_Click(object sender, RoutedEventArgs e)
