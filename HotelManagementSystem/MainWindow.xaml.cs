@@ -50,8 +50,8 @@ namespace HotelManagementSystem
 
         private void AvailabilityNextBtn_Click(object sender, RoutedEventArgs e)
         {
-            BookingTab.SelectedIndex = 1;
             selectedRoom = AvailabilityDataGrid.SelectedItem as DataRowView;
+            BookingTab.SelectedIndex = 1;
         }
 
         private void CustomerDetailsSearchBtn_Click(object sender, RoutedEventArgs e)
