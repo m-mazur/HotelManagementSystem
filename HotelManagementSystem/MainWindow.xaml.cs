@@ -56,13 +56,19 @@ namespace HotelManagementSystem
 
         private void CustomerDetailsSearchBtn_Click(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine(CustomerDetailsEmailTbx.Text);
-            CustomerDetailsEmailTbx.Text = reservationController.GetCustomer(CustomerDetailsEmailTbx.Text).EMail;
-            CustomerDetailsFirstNameTbx.Text = reservationController.GetCustomer(CustomerDetailsEmailTbx.Text).FirstName;
-            CustomerDetailsLastnameTbx.Text = reservationController.GetCustomer(CustomerDetailsEmailTbx.Text).LastName;
-            CustomerDetailsCreditCardNoTbx.Text = reservationController.GetCustomer(CustomerDetailsEmailTbx.Text).CreditCardNo;
-            CustomerDetailsPhoneCountryCodeTbx.Text = reservationController.GetCustomer(CustomerDetailsEmailTbx.Text).PhoneCountryCode;
-            CustomerDetailsPhoneNoTbx.Text = reservationController.GetCustomer(CustomerDetailsEmailTbx.Text).PhoneNo;
+            try
+            {
+                CustomerDetailsEmailTbx.Text = reservationController.GetCustomer(CustomerDetailsEmailTbx.Text).EMail;
+                CustomerDetailsFirstNameTbx.Text = reservationController.GetCustomer(CustomerDetailsEmailTbx.Text).FirstName;
+                CustomerDetailsLastnameTbx.Text = reservationController.GetCustomer(CustomerDetailsEmailTbx.Text).LastName;
+                CustomerDetailsCreditCardNoTbx.Text = reservationController.GetCustomer(CustomerDetailsEmailTbx.Text).CreditCardNo;
+                CustomerDetailsPhoneCountryCodeTbx.Text = reservationController.GetCustomer(CustomerDetailsEmailTbx.Text).PhoneCountryCode;
+                CustomerDetailsPhoneNoTbx.Text = reservationController.GetCustomer(CustomerDetailsEmailTbx.Text).PhoneNo;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Can't find customer. Try search with another e-mail!");
+            }
         }
 
         private void CustomerDetailsBackBtn_Click(object sender, RoutedEventArgs e)
@@ -72,28 +78,40 @@ namespace HotelManagementSystem
 
         private void CustomerDetailsBookBtn_Click(object sender, RoutedEventArgs e)
         {
-            BookingTab.SelectedIndex = 2;
             random = new Random();
             int randomNo = random.Next(000000, 999999);
 
             if (registerEnabled)
             {
+                try
+                {
                 reservationController.AddCustomer(CustomerDetailsEmailTbx.Text, CustomerDetailsPhoneNoTbx.Text, CustomerDetailsPhoneCountryCodeTbx.Text,
                    CustomerDetailsCreditCardNoTbx.Text, CustomerDetailsFirstNameTbx.Text, CustomerDetailsLastnameTbx.Text);
-                Console.WriteLine("Kan registrer kund");
 
                 reservationController.AddReservation(randomNo.ToString(), CustomerDetailsEmailTbx.Text, selectedRoom[0].ToString(),
                     AvailabilityFromDateDpr.SelectedDate.Value, AvailabilityToDateDpr.SelectedDate.Value, false, false);
-                Console.WriteLine("ur code works u are great"); 
+                ShowCustomerRecipt(randomNo.ToString());
+                BookingTab.SelectedIndex = 2;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Felmeddelande här!");
+                }
             }
             else
             {
+                try
+                {
                 reservationController.AddReservation(randomNo.ToString(), CustomerDetailsEmailTbx.Text, selectedRoom[0].ToString(),
                     AvailabilityFromDateDpr.SelectedDate.Value, AvailabilityToDateDpr.SelectedDate.Value, false, false);
-                Console.WriteLine("Kan registrera bookning");
+                ShowCustomerRecipt(randomNo.ToString());
+                BookingTab.SelectedIndex = 2;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Felmeddelande här!");
+                }
             }
-
-            ShowCustomerRecipt(randomNo.ToString());
         }
 
                 
@@ -102,13 +120,18 @@ namespace HotelManagementSystem
 
         private void RoomTypeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
         }
 
         private void CheckAvailabilityButton_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
             AvailabilityDataGrid.ItemsSource = reservationController.GetAvailableRooms("single room", AvailabilityFromDateDpr.SelectedDate.Value, AvailabilityToDateDpr.SelectedDate.Value);
-            Console.WriteLine(AvailabilityFromDateDpr.SelectedDate.Value.ToString());
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Felmeddelande här!");
+            }
         }
 
         private void checkBoxRegister_Checked(object sender, RoutedEventArgs e)
@@ -144,33 +167,68 @@ namespace HotelManagementSystem
 
         private void searchCheckInByReservationNoButton_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
             CheckInCheckOutDataGrid.ItemsSource = checkInCheckOutController.FindReservationByReservationNo(CheckInCheckOutSearchTbx.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Felmeddelande här!");
+            }
         }
 
         private void checkInCheckInButton_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
             selectedReservation = CheckInCheckOutDataGrid.SelectedItem as DataRowView;
             string reservationNo = selectedReservation[0].ToString();
             checkInCheckOutController.CheckInReservation(reservationNo, true);
             CheckInCheckOutDataGrid.ItemsSource = checkInCheckOutController.FindReservationByReservationNo(reservationNo);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Felmeddelande här!");
+            }
         }
 
         private void checkOutCheckInButton_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
             selectedReservation = CheckInCheckOutDataGrid.SelectedItem as DataRowView;
             string reservationNo = selectedReservation[0].ToString();
             checkInCheckOutController.CheckOutReservation(reservationNo, true);
             CheckInCheckOutDataGrid.ItemsSource = checkInCheckOutController.FindReservationByReservationNo(reservationNo);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Felmeddelande här!");
+            }
         }
 
         private void searchCheckInByEmailButton_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
             CheckInCheckOutDataGrid.ItemsSource = checkInCheckOutController.FindReservationByEmail(CheckInCheckOutSearchTbx.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Felmeddelande här!");
+            }
         }
 
         private void showAllCustomersCustomerRegistryButton_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
             CustomerRegistryDataGrid.ItemsSource = new CustomerRegistryController().GetCustomerDataView();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Felmeddelande här!");
+            }
         }
 
         private void ShowCustomerRecipt(string reservationNo)
@@ -197,15 +255,28 @@ namespace HotelManagementSystem
 
         private void showReservationsCustomerRegistryButton_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
             selectedCustomer = CustomerRegistryDataGrid.SelectedItem as DataRowView;
             string email = selectedCustomer[0].ToString();
             CustomerRegistryDataGrid.ItemsSource = customerRegistryController.FindReservationByEmail(email);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Felmeddelande här!");
+            }
         }
 
         private void showCustomerDetailsCustomerRegistryButton_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
             selectedCustomer = CustomerRegistryDataGrid.SelectedItem as DataRowView;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Felmeddelande här!");
+            }
         }
 
         private void RecieptDoneBtn_Click(object sender, RoutedEventArgs e)
@@ -215,7 +286,14 @@ namespace HotelManagementSystem
 
         private void searchCustomerRegistryButtton_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
             CustomerRegistryDataGrid.ItemsSource = customerRegistryController.FindReservationByEmail(CustomerRegistryEmailTbx.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Felmeddelande här!");
+            }
         }
     }
 }
