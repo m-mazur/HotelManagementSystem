@@ -92,13 +92,22 @@ namespace HotelManagementSystem
             {
                 try
                 {
-                reservationController.AddCustomer(CustomerDetailsEmailTbx.Text, CustomerDetailsPhoneNoTbx.Text, CustomerDetailsPhoneCountryCodeTbx.Text,
-                   CustomerDetailsCreditCardNoTbx.Text, CustomerDetailsFirstNameTbx.Text, CustomerDetailsLastnameTbx.Text);
+                    if (Validate.ValidateRegisterCustomer(CustomerDetailsEmailTbx.Text, CustomerDetailsPhoneNoTbx.Text, CustomerDetailsPhoneCountryCodeTbx.Text,
+                   CustomerDetailsCreditCardNoTbx.Text, CustomerDetailsFirstNameTbx.Text, CustomerDetailsLastnameTbx.Text))
+                    {
+                        reservationController.AddCustomer(CustomerDetailsEmailTbx.Text, CustomerDetailsPhoneNoTbx.Text, CustomerDetailsPhoneCountryCodeTbx.Text, 
+                            CustomerDetailsCreditCardNoTbx.Text, CustomerDetailsFirstNameTbx.Text, CustomerDetailsLastnameTbx.Text);
 
-                reservationController.AddReservation(randomNo.ToString(), CustomerDetailsEmailTbx.Text, selectedRoom[0].ToString(),
-                    AvailabilityFromDateDpr.SelectedDate.Value, AvailabilityToDateDpr.SelectedDate.Value, false, false);
-                ShowCustomerRecipt(randomNo.ToString());
-                BookingTab.SelectedIndex = 2;
+                        reservationController.AddReservation(randomNo.ToString(), CustomerDetailsEmailTbx.Text, selectedRoom[0].ToString(),
+                            AvailabilityFromDateDpr.SelectedDate.Value, AvailabilityToDateDpr.SelectedDate.Value, false, false);
+                        ShowCustomerRecipt(randomNo.ToString());
+
+                        BookingTab.SelectedIndex = 2;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Fill in all textboxes!");
+                    }
                 }
                 catch (Exception)
                 {
