@@ -51,18 +51,18 @@ namespace HotelManagementSystem
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             BookingTab.SelectedIndex = 1;
-            selectedRoom = RoomInfoGrid.SelectedItem as DataRowView;
+            selectedRoom = AvailabilityRoominfoDataGrid.SelectedItem as DataRowView;
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine(EmailTextbox.Text);
-            EmailTextbox.Text = reservationController.GetCustomer(EmailTextbox.Text).EMail;
-            FirstNameTextBox.Text = reservationController.GetCustomer(EmailTextbox.Text).FirstName;
-            LastnameTextbox.Text = reservationController.GetCustomer(EmailTextbox.Text).LastName;
-            CreditCardNoTextBox.Text = reservationController.GetCustomer(EmailTextbox.Text).CreditCardNo;
-            PhoneCountryCodeTextBox.Text = reservationController.GetCustomer(EmailTextbox.Text).PhoneCountryCode;
-            PhoneNoTextBox.Text = reservationController.GetCustomer(EmailTextbox.Text).PhoneNo;
+            Console.WriteLine(CustomerDetailsEmailTbx.Text);
+            CustomerDetailsEmailTbx.Text = reservationController.GetCustomer(CustomerDetailsEmailTbx.Text).EMail;
+            CustomerDetailsFirstNameTbx.Text = reservationController.GetCustomer(CustomerDetailsEmailTbx.Text).FirstName;
+            CustomerDetailsLastnameTbx.Text = reservationController.GetCustomer(CustomerDetailsEmailTbx.Text).LastName;
+            CustomerDetailsCreditCardNoTbx.Text = reservationController.GetCustomer(CustomerDetailsEmailTbx.Text).CreditCardNo;
+            CustomerDetailsPhoneCountryCodeTbx.Text = reservationController.GetCustomer(CustomerDetailsEmailTbx.Text).PhoneCountryCode;
+            CustomerDetailsPhoneNoTbx.Text = reservationController.GetCustomer(CustomerDetailsEmailTbx.Text).PhoneNo;
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
@@ -70,7 +70,7 @@ namespace HotelManagementSystem
             BookingTab.SelectedIndex = 0;
         }
 
-        private void Button_Click_3(object sender, RoutedEventArgs e)
+        private void CustomerDetailsBookBtn_Click(object sender, RoutedEventArgs e)
         {
             BookingTab.SelectedIndex = 2;
             random = new Random();
@@ -78,17 +78,17 @@ namespace HotelManagementSystem
 
             if (registerEnabled)
             {
-               reservationController.AddCustomer(EmailTextbox.Text, PhoneNoTextBox.Text, PhoneCountryCodeTextBox.Text, 
-                   CreditCardNoTextBox.Text, FirstNameTextBox.Text, LastnameTextbox.Text);
+                reservationController.AddCustomer(CustomerDetailsEmailTbx.Text, CustomerDetailsPhoneNoTbx.Text, CustomerDetailsPhoneCountryCodeTbx.Text,
+                   CustomerDetailsCreditCardNoTbx.Text, CustomerDetailsFirstNameTbx.Text, CustomerDetailsLastnameTbx.Text);
                 Console.WriteLine("Kan registrer kund");
 
-                reservationController.AddReservation(randomNo.ToString(), EmailTextbox.Text, selectedRoom[0].ToString(),
+                reservationController.AddReservation(randomNo.ToString(), CustomerDetailsEmailTbx.Text, selectedRoom[0].ToString(),
                     FromDateDatepicker.SelectedDate.Value, ToDateDatepicker.SelectedDate.Value, false, false);
                 Console.WriteLine("ur code works u are great"); 
             }
             else
             {
-                reservationController.AddReservation(randomNo.ToString(), EmailTextbox.Text, selectedRoom[0].ToString(), 
+                reservationController.AddReservation(randomNo.ToString(), CustomerDetailsEmailTbx.Text, selectedRoom[0].ToString(), 
                     FromDateDatepicker.SelectedDate.Value, ToDateDatepicker.SelectedDate.Value, false, false);
                 Console.WriteLine("Kan registrera bookning");
             }
@@ -107,20 +107,20 @@ namespace HotelManagementSystem
 
         private void CheckAvailabilityButton_Click(object sender, RoutedEventArgs e)
         {
-            RoomInfoGrid.ItemsSource = reservationController.GetAvailableRooms("single room", FromDateDatepicker.SelectedDate.Value, ToDateDatepicker.SelectedDate.Value);
+            AvailabilityRoominfoDataGrid.ItemsSource = reservationController.GetAvailableRooms("single room", FromDateDatepicker.SelectedDate.Value, ToDateDatepicker.SelectedDate.Value);
             Console.WriteLine(FromDateDatepicker.SelectedDate.Value.ToString());
         }
 
         private void checkBoxRegister_Checked(object sender, RoutedEventArgs e)
         {
-            SearchCustomer.IsEnabled = false;
+            CustomerDetailsSearchBtn.IsEnabled = false;
 
-            EmailTextbox.Text = "";
-            FirstNameTextBox.Text = "";
-            LastnameTextbox.Text = "";
-            CreditCardNoTextBox.Text = "";
-            PhoneCountryCodeTextBox.Text = "";
-            PhoneNoTextBox.Text = "";
+            CustomerDetailsEmailTbx.Text = "";
+            CustomerDetailsFirstNameTbx.Text = "";
+            CustomerDetailsLastnameTbx.Text = "";
+            CustomerDetailsCreditCardNoTbx.Text = "";
+            CustomerDetailsPhoneCountryCodeTbx.Text = "";
+            CustomerDetailsPhoneNoTbx.Text = "";
 
             EnableDisabletextBoxes(true);
             registerEnabled = true;
@@ -128,18 +128,18 @@ namespace HotelManagementSystem
 
         private void checkBoxRegister_Unchecked(object sender, RoutedEventArgs e)
         {
-            SearchCustomer.IsEnabled = true;
+            CustomerDetailsSearchBtn.IsEnabled = true;
             EnableDisabletextBoxes(false);
             registerEnabled = false;
         }
 
         private void EnableDisabletextBoxes(bool enabled)
         {
-            FirstNameTextBox.IsEnabled = enabled;
-            LastnameTextbox.IsEnabled = enabled;
-            CreditCardNoTextBox.IsEnabled = enabled;
-            PhoneCountryCodeTextBox.IsEnabled = enabled;
-            PhoneNoTextBox.IsEnabled = enabled;
+            CustomerDetailsFirstNameTbx.IsEnabled = enabled;
+            CustomerDetailsLastnameTbx.IsEnabled = enabled;
+            CustomerDetailsCreditCardNoTbx.IsEnabled = enabled;
+            CustomerDetailsPhoneCountryCodeTbx.IsEnabled = enabled;
+            CustomerDetailsPhoneNoTbx.IsEnabled = enabled;
         }
 
         private void searchCheckInByReservationNoButton_Click(object sender, RoutedEventArgs e)
