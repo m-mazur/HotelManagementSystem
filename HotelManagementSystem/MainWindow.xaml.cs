@@ -218,7 +218,7 @@ namespace HotelManagementSystem
             }
             catch (Exception)
             {
-                MessageBox.Show("Felmeddelande här!");
+                MessageBox.Show("There is a problem with the database. If problem occurs after restart, contact admin!");
             }
         }
 
@@ -246,28 +246,16 @@ namespace HotelManagementSystem
 
         private void showReservationsCustomerRegistryButton_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
+            //!!!Should maybe only show this button if a customer is selected??!!!
             selectedCustomer = CustomerRegistryDataGrid.SelectedItem as DataRowView;
             string email = selectedCustomer[0].ToString();
             CustomerRegistryDataGrid.ItemsSource = customerRegistryController.FindReservationByEmail(email);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Felmeddelande här!");
-            }
         }
 
         private void showCustomerDetailsCustomerRegistryButton_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
+            //!!!Doesn't work!!!
             selectedCustomer = CustomerRegistryDataGrid.SelectedItem as DataRowView;
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Felmeddelande här!");
-            }
         }
 
         private void RecieptDoneBtn_Click(object sender, RoutedEventArgs e)
@@ -277,6 +265,7 @@ namespace HotelManagementSystem
 
         private void searchCustomerRegistryButtton_Click(object sender, RoutedEventArgs e)
         {
+            //!!!Shows empty line even if search with an non existing email!!!
             try
             {
             CustomerRegistryDataGrid.ItemsSource = customerRegistryController.FindReservationByEmail(CustomerRegistryEmailTbx.Text);
