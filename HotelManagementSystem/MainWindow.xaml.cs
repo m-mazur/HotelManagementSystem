@@ -290,9 +290,7 @@ namespace HotelManagementSystem
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-        }
-        
-        ///Empty
+        }///Empty
 
     }
 }
