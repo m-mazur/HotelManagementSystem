@@ -42,8 +42,7 @@ namespace HotelManagementSystem
         //New Reservation Tab / Availibility
         private void RoomTypeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //!!!Doesn't work!!!
-        }
+        }//!!!Doesn't work!!!
 
         private void CheckAvailabilityButton_Click(object sender, RoutedEventArgs e)
         {
