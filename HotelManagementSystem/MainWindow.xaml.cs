@@ -242,9 +242,11 @@ namespace HotelManagementSystem
         //Customer Registry
         private void showReservationsCustomerRegistryButton_Click(object sender, RoutedEventArgs e)
         {
+            
             selectedCustomer = CustomerRegistryDataGrid.SelectedItem as DataRowView;
             string email = selectedCustomer[0].ToString();
-            CustomerRegistryDataGrid.ItemsSource = customerRegistryController.FindReservationByEmail(email);
+            ReservationRegistryDataGrid.ItemsSource = customerRegistryController.FindReservationByEmail(email);
+            RegistryTab.SelectedIndex = 1;
         }//!!!Should maybe only show this button if a customer is selected??!!!
 
         private void showCustomerDetailsCustomerRegistryButton_Click(object sender, RoutedEventArgs e)
@@ -290,6 +292,11 @@ namespace HotelManagementSystem
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+        }
+
+        private void ReservationRegistryShowReservationsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            RegistryTab.SelectedIndex = 0;
         }///Empty
 
     }
