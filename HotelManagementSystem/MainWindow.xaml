@@ -125,11 +125,10 @@
                     <Button x:Name="CustomerRegistryCustomerDetailsBtn" Content="Customer details" HorizontalAlignment="Left" Margin="265,330,0,0" VerticalAlignment="Top" Width="105" Click="showCustomerDetailsCustomerRegistryButton_Click"/>
                     <Button x:Name="CustomerRegistryShowReservationsBtn" Content="Show reservations" HorizontalAlignment="Left" Margin="155,330,0,0" VerticalAlignment="Top" Width="105" Click="showReservationsCustomerRegistryButton_Click"/>
                     <Label x:Name="CustomerRegistryFirstNameLbl" Content="Firstname" HorizontalAlignment="Left" Margin="265,31,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="CustomerRegistryLastnameLbl" Content="Lastname" HorizontalAlignment="Left" Margin="485,31,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="CustomerRegistryLastnameLbl" Content="Lastname" HorizontalAlignment="Left" Margin="390,31,0,0" VerticalAlignment="Top"/>
                     <TextBox x:Name="CustomerRegistryFirstNameTbx" HorizontalAlignment="Left" Height="23" Margin="265,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="485,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                    <Button x:Name="CustomerRegistryFirstNameSearchBtn" Content="Search" HorizontalAlignment="Left" Margin="390,62,0,0" VerticalAlignment="Top" Width="75"/>
-                    <Button x:Name="CustomerRegistryLastNameSearchBtn" Content="Search" HorizontalAlignment="Left" Margin="610,62,0,0" VerticalAlignment="Top" Width="75"/>
+                    <TextBox x:Name="CustomerRegistryLastNameTbx" HorizontalAlignment="Left" Height="23" Margin="390,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <Button x:Name="CustomerRegistryNameSearchBtn" Content="Search" HorizontalAlignment="Left" Margin="515,62,0,0" VerticalAlignment="Top" Width="75" Click="CustomerRegistryNameSearchBtn_Click"/>
                 </Grid>
             </TabItem>
         </TabControl>

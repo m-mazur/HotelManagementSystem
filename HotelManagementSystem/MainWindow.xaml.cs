@@ -276,7 +276,10 @@ namespace HotelManagementSystem
             }
         }
 
-
+        private void CustomerRegistryNameSearchBtn_Click(object sender, RoutedEventArgs e)
+        {
+            CustomerRegistryDataGrid.ItemsSource = new CustomerRegistryController().FindCustomersByName(CustomerRegistryFirstNameTbx.Text, CustomerRegistryLastNameTbx.Text);
+        }
 
         //Room Registry
         //Empty
@@ -287,7 +290,9 @@ namespace HotelManagementSystem
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-        }///Empty
+        }
+        
+        ///Empty
 
     }
 }
