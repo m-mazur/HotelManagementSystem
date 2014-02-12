@@ -256,7 +256,7 @@ namespace HotelManagementSystem
             selectedCustomer = CustomerRegistryDataGrid.SelectedItem as DataRowView;
         }
 
-        private void searchCustomerRegistryButtton_Click(object sender, RoutedEventArgs e)
+        private void CustomerRegistrySearchEmailBtn_Click(object sender, RoutedEventArgs e)
         {
             //!!!Shows empty line even if search with an non existing email!!!
             try
@@ -280,6 +280,8 @@ namespace HotelManagementSystem
                 MessageBox.Show("There is a problem with the database. If problem occurs after restart, contact admin!");
             }
         }
+
+
 
         //Room Registry
         //Empty
