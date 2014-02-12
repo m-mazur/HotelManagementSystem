@@ -39,13 +39,22 @@ namespace HotelManagementSystem
             customerRegistryController = new CustomerRegistryController();
         }
 
-        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //New Reservation Tab / Availibility
+        private void RoomTypeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            //!!!Doesn't work!!!
         }
 
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void CheckAvailabilityButton_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                AvailabilityDataGrid.ItemsSource = reservationController.GetAvailableRooms("single room", AvailabilityFromDateDpr.SelectedDate.Value, AvailabilityToDateDpr.SelectedDate.Value);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("You need to choose a room, check in date and check out date first!");
+            }
         }
 
         private void AvailabilityNextBtn_Click(object sender, RoutedEventArgs e)
@@ -61,6 +70,7 @@ namespace HotelManagementSystem
             }
         }
 
+        //New Reservation Tab / Customer Details
         private void CustomerDetailsSearchBtn_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -78,11 +88,6 @@ namespace HotelManagementSystem
             }
         }
 
-        private void CustomerDetailsBackBtn_Click(object sender, RoutedEventArgs e)
-        {
-            BookingTab.SelectedIndex = 0;
-        }
-
         private void CustomerDetailsBookBtn_Click(object sender, RoutedEventArgs e)
         {
             random = new Random();
@@ -95,7 +100,7 @@ namespace HotelManagementSystem
                     if (Validate.ValidateRegisterCustomer(CustomerDetailsEmailTbx.Text, CustomerDetailsPhoneNoTbx.Text, CustomerDetailsPhoneCountryCodeTbx.Text,
                    CustomerDetailsCreditCardNoTbx.Text, CustomerDetailsFirstNameTbx.Text, CustomerDetailsLastnameTbx.Text))
                     {
-                        reservationController.AddCustomer(CustomerDetailsEmailTbx.Text, CustomerDetailsPhoneNoTbx.Text, CustomerDetailsPhoneCountryCodeTbx.Text, 
+                        reservationController.AddCustomer(CustomerDetailsEmailTbx.Text, CustomerDetailsPhoneNoTbx.Text, CustomerDetailsPhoneCountryCodeTbx.Text,
                             CustomerDetailsCreditCardNoTbx.Text, CustomerDetailsFirstNameTbx.Text, CustomerDetailsLastnameTbx.Text);
 
                         reservationController.AddReservation(randomNo.ToString(), CustomerDetailsEmailTbx.Text, selectedRoom[0].ToString(),
@@ -118,10 +123,10 @@ namespace HotelManagementSystem
             {
                 try
                 {
-                reservationController.AddReservation(randomNo.ToString(), CustomerDetailsEmailTbx.Text, selectedRoom[0].ToString(),
-                    AvailabilityFromDateDpr.SelectedDate.Value, AvailabilityToDateDpr.SelectedDate.Value, false, false);
-                ShowCustomerRecipt(randomNo.ToString());
-                BookingTab.SelectedIndex = 2;
+                    reservationController.AddReservation(randomNo.ToString(), CustomerDetailsEmailTbx.Text, selectedRoom[0].ToString(),
+                        AvailabilityFromDateDpr.SelectedDate.Value, AvailabilityToDateDpr.SelectedDate.Value, false, false);
+                    ShowCustomerRecipt(randomNo.ToString());
+                    BookingTab.SelectedIndex = 2;
                 }
                 catch (Exception)
                 {
@@ -130,42 +135,9 @@ namespace HotelManagementSystem
             }
         }
 
-        private void RoomTypeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void CustomerDetailsBackBtn_Click(object sender, RoutedEventArgs e)
         {
-        }
-
-        private void CheckAvailabilityButton_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-            AvailabilityDataGrid.ItemsSource = reservationController.GetAvailableRooms("single room", AvailabilityFromDateDpr.SelectedDate.Value, AvailabilityToDateDpr.SelectedDate.Value);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("You need to choose a room, check in date and check out date first!");
-            }
-        }
-
-        private void checkBoxRegister_Checked(object sender, RoutedEventArgs e)
-        {
-            CustomerDetailsSearchBtn.IsEnabled = false;
-
-            CustomerDetailsEmailTbx.Text = "";
-            CustomerDetailsFirstNameTbx.Text = "";
-            CustomerDetailsLastnameTbx.Text = "";
-            CustomerDetailsCreditCardNoTbx.Text = "";
-            CustomerDetailsPhoneCountryCodeTbx.Text = "";
-            CustomerDetailsPhoneNoTbx.Text = "";
-
-            EnableDisabletextBoxes(true);
-            registerEnabled = true;
-        }
-
-        private void checkBoxRegister_Unchecked(object sender, RoutedEventArgs e)
-        {
-            CustomerDetailsSearchBtn.IsEnabled = true;
-            EnableDisabletextBoxes(false);
-            registerEnabled = false;
+            BookingTab.SelectedIndex = 0;
         }
 
         private void EnableDisabletextBoxes(bool enabled)
@@ -177,58 +149,10 @@ namespace HotelManagementSystem
             CustomerDetailsPhoneNoTbx.IsEnabled = enabled;
         }
 
-        private void searchCheckInByReservationNoButton_Click(object sender, RoutedEventArgs e)
+        //New Reservation Tab / Receipt
+        private void RecieptDoneBtn_Click(object sender, RoutedEventArgs e)
         {
-            CheckInCheckOutDataGrid.ItemsSource = checkInCheckOutController.FindReservationByReservationNo(CheckInCheckOutSearchTbx.Text);
-            //!!!Show empty reservation if search with a reservation number that doesn't exists!!!
-        }
-
-        private void checkInCheckInButton_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-            selectedReservation = CheckInCheckOutDataGrid.SelectedItem as DataRowView;
-            string reservationNo = selectedReservation[0].ToString();
-            checkInCheckOutController.CheckInReservation(reservationNo, true);
-            CheckInCheckOutDataGrid.ItemsSource = checkInCheckOutController.FindReservationByReservationNo(reservationNo);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("You need to search and choose a reservation first!");
-            }
-        }
-
-        private void checkOutCheckInButton_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-            selectedReservation = CheckInCheckOutDataGrid.SelectedItem as DataRowView;
-            string reservationNo = selectedReservation[0].ToString();
-            checkInCheckOutController.CheckOutReservation(reservationNo, true);
-            CheckInCheckOutDataGrid.ItemsSource = checkInCheckOutController.FindReservationByReservationNo(reservationNo);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("You need to search and choose a reservation first!");
-            }
-        }
-
-        private void searchCheckInByEmailButton_Click(object sender, RoutedEventArgs e)
-        {
-            CheckInCheckOutDataGrid.ItemsSource = checkInCheckOutController.FindReservationByEmail(CheckInCheckOutSearchTbx.Text);
-             //!!!Show empty reservation if search with a email that doesn't exists!!!
-        }
-
-        private void showAllCustomersCustomerRegistryButton_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-            CustomerRegistryDataGrid.ItemsSource = new CustomerRegistryController().GetCustomerDataView();
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("There is a problem with the database. If problem occurs after restart, contact admin!");
-            }
+            BookingTab.SelectedIndex = 0;
         }
 
         private void ShowCustomerRecipt(string reservationNo)
@@ -253,6 +177,72 @@ namespace HotelManagementSystem
             RecieptTotalPriceTbx.Text = new OrderUtility().TotalOrderValue(reservationController.GetRoom(roomNo).PricePerDay, reservationNo);
         }
 
+        //Check In/Check out Tab
+        private void checkInCheckInButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                selectedReservation = CheckInCheckOutDataGrid.SelectedItem as DataRowView;
+                string reservationNo = selectedReservation[0].ToString();
+                checkInCheckOutController.CheckInReservation(reservationNo, true);
+                CheckInCheckOutDataGrid.ItemsSource = checkInCheckOutController.FindReservationByReservationNo(reservationNo);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("You need to search and choose a reservation first!");
+            }
+        }
+
+        private void checkOutCheckInButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                selectedReservation = CheckInCheckOutDataGrid.SelectedItem as DataRowView;
+                string reservationNo = selectedReservation[0].ToString();
+                checkInCheckOutController.CheckOutReservation(reservationNo, true);
+                CheckInCheckOutDataGrid.ItemsSource = checkInCheckOutController.FindReservationByReservationNo(reservationNo);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("You need to search and choose a reservation first!");
+            }
+        }
+
+        private void searchCheckInByReservationNoButton_Click(object sender, RoutedEventArgs e)
+        {
+            CheckInCheckOutDataGrid.ItemsSource = checkInCheckOutController.FindReservationByReservationNo(CheckInCheckOutSearchTbx.Text);
+            //!!!Show empty reservation if search with a reservation number that doesn't exists!!!
+        }
+
+        private void searchCheckInByEmailButton_Click(object sender, RoutedEventArgs e)
+        {
+            CheckInCheckOutDataGrid.ItemsSource = checkInCheckOutController.FindReservationByEmail(CheckInCheckOutSearchTbx.Text);
+            //!!!Show empty reservation if search with a email that doesn't exists!!!
+        }
+
+        private void checkBoxRegister_Checked(object sender, RoutedEventArgs e)
+        {
+            CustomerDetailsSearchBtn.IsEnabled = false;
+
+            CustomerDetailsEmailTbx.Text = "";
+            CustomerDetailsFirstNameTbx.Text = "";
+            CustomerDetailsLastnameTbx.Text = "";
+            CustomerDetailsCreditCardNoTbx.Text = "";
+            CustomerDetailsPhoneCountryCodeTbx.Text = "";
+            CustomerDetailsPhoneNoTbx.Text = "";
+
+            EnableDisabletextBoxes(true);
+            registerEnabled = true;
+        }
+
+        private void checkBoxRegister_Unchecked(object sender, RoutedEventArgs e)
+        {
+            CustomerDetailsSearchBtn.IsEnabled = true;
+            EnableDisabletextBoxes(false);
+            registerEnabled = false;
+        }
+
+        //Customer Registry
         private void showReservationsCustomerRegistryButton_Click(object sender, RoutedEventArgs e)
         {
             //!!!Should maybe only show this button if a customer is selected??!!!
@@ -267,22 +257,41 @@ namespace HotelManagementSystem
             selectedCustomer = CustomerRegistryDataGrid.SelectedItem as DataRowView;
         }
 
-        private void RecieptDoneBtn_Click(object sender, RoutedEventArgs e)
-        {
-            BookingTab.SelectedIndex = 0;
-        }
-
         private void searchCustomerRegistryButtton_Click(object sender, RoutedEventArgs e)
         {
             //!!!Shows empty line even if search with an non existing email!!!
             try
             {
-            CustomerRegistryDataGrid.ItemsSource = customerRegistryController.FindReservationByEmail(CustomerRegistryEmailTbx.Text);
+                CustomerRegistryDataGrid.ItemsSource = customerRegistryController.FindReservationByEmail(CustomerRegistryEmailTbx.Text);
             }
             catch (Exception)
             {
                 MessageBox.Show("Felmeddelande här!");
             }
         }
+
+        private void showAllCustomersCustomerRegistryButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                CustomerRegistryDataGrid.ItemsSource = new CustomerRegistryController().GetCustomerDataView();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("There is a problem with the database. If problem occurs after restart, contact admin!");
+            }
+        }
+
+        //Room Registry
+        //Empty
+
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+        }
+
     }
 }
