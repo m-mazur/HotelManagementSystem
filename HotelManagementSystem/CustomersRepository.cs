@@ -58,7 +58,7 @@ namespace HotelManagementSystem
             return customerRow;
         }
 
-        public DataView GetCustomersByEmail(string email)
+        public DataView FindCustomersByEmail(string email)
         {
             customersTableAdapter = new DataSetHotelTableAdapters.customersTableAdapter();
             customersTableAdapter.FillByCustomerEmail(dataSetHotel.customers, email);
@@ -66,7 +66,7 @@ namespace HotelManagementSystem
             return customerDataView;
         }
 
-        public DataView GetCustomersByEmail(string firstName, string lastName)
+        public DataView FindCustomersByName(string firstName, string lastName)
         {
             customersTableAdapter = new DataSetHotelTableAdapters.customersTableAdapter();
             customersTableAdapter.FillByCustomerName(dataSetHotel.customers, firstName, lastName, firstName, lastName);

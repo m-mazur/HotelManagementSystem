@@ -261,7 +261,7 @@ namespace HotelManagementSystem
             //!!!Shows empty line even if search with an non existing email!!!
             try
             {
-                CustomerRegistryDataGrid.ItemsSource = customerRegistryController.FindReservationByEmail(CustomerRegistryEmailTbx.Text);
+                CustomerRegistryDataGrid.ItemsSource = customerRegistryController.FindCustomerByEmail(CustomerRegistryEmailTbx.Text);
             }
             catch (Exception)
             {
