@@ -232,33 +232,28 @@ namespace HotelManagementSystem
         private void searchCheckInByReservationNoButton_Click(object sender, RoutedEventArgs e)
         {
             CheckInCheckOutDataGrid.ItemsSource = checkInCheckOutController.FindReservationByReservationNo(CheckInCheckOutSearchTbx.Text);
-            //!!!Show empty reservation if search with a reservation number that doesn't exists!!!
-        }
+        }//!!!Show empty reservation if search with a reservation number that doesn't exists!!!
 
         private void searchCheckInByEmailButton_Click(object sender, RoutedEventArgs e)
         {
             CheckInCheckOutDataGrid.ItemsSource = checkInCheckOutController.FindReservationByEmail(CheckInCheckOutSearchTbx.Text);
-            //!!!Show empty reservation if search with a email that doesn't exists!!!
-        }
+        }//!!!Show empty reservation if search with a email that doesn't exists!!!
 
         //Customer Registry
         private void showReservationsCustomerRegistryButton_Click(object sender, RoutedEventArgs e)
         {
-            //!!!Should maybe only show this button if a customer is selected??!!!
             selectedCustomer = CustomerRegistryDataGrid.SelectedItem as DataRowView;
             string email = selectedCustomer[0].ToString();
             CustomerRegistryDataGrid.ItemsSource = customerRegistryController.FindReservationByEmail(email);
-        }
+        }//!!!Should maybe only show this button if a customer is selected??!!!
 
         private void showCustomerDetailsCustomerRegistryButton_Click(object sender, RoutedEventArgs e)
         {
-            //!!!Doesn't work!!!
             selectedCustomer = CustomerRegistryDataGrid.SelectedItem as DataRowView;
-        }
+        }//!!!Doesn't work!!!
 
         private void searchCustomerRegistryButtton_Click(object sender, RoutedEventArgs e)
         {
-            //!!!Shows empty line even if search with an non existing email!!!
             try
             {
                 CustomerRegistryDataGrid.ItemsSource = customerRegistryController.FindCustomerByEmail(CustomerRegistryEmailTbx.Text);
@@ -267,7 +262,7 @@ namespace HotelManagementSystem
             {
                 MessageBox.Show("Felmeddelande här!");
             }
-        }
+        }//!!!Shows empty line even if search with an non existing email!!!
 
         private void showAllCustomersCustomerRegistryButton_Click(object sender, RoutedEventArgs e)
         {
@@ -286,11 +281,11 @@ namespace HotelManagementSystem
 
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-        }
+        }///Empty
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-        }
+        }///Empty
 
     }
 }
