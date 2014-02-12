@@ -44,5 +44,10 @@ namespace HotelManagementSystem
         {
             return new CustomersRepository().FindCustomersByEmail(email);
         }
+
+        public DataView FindCustomersByName(string firstName, string lastName)
+        {
+            return new CustomersRepository().FindCustomersByName(firstName, lastName);
+        }
     }
 }
