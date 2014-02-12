@@ -140,6 +140,28 @@ namespace HotelManagementSystem
             BookingTab.SelectedIndex = 0;
         }
 
+        private void checkBoxRegister_Checked(object sender, RoutedEventArgs e)
+        {
+            CustomerDetailsSearchBtn.IsEnabled = false;
+
+            CustomerDetailsEmailTbx.Text = "";
+            CustomerDetailsFirstNameTbx.Text = "";
+            CustomerDetailsLastnameTbx.Text = "";
+            CustomerDetailsCreditCardNoTbx.Text = "";
+            CustomerDetailsPhoneCountryCodeTbx.Text = "";
+            CustomerDetailsPhoneNoTbx.Text = "";
+
+            EnableDisabletextBoxes(true);
+            registerEnabled = true;
+        }
+
+        private void checkBoxRegister_Unchecked(object sender, RoutedEventArgs e)
+        {
+            CustomerDetailsSearchBtn.IsEnabled = true;
+            EnableDisabletextBoxes(false);
+            registerEnabled = false;
+        }
+
         private void EnableDisabletextBoxes(bool enabled)
         {
             CustomerDetailsFirstNameTbx.IsEnabled = enabled;
@@ -218,28 +240,6 @@ namespace HotelManagementSystem
         {
             CheckInCheckOutDataGrid.ItemsSource = checkInCheckOutController.FindReservationByEmail(CheckInCheckOutSearchTbx.Text);
             //!!!Show empty reservation if search with a email that doesn't exists!!!
-        }
-
-        private void checkBoxRegister_Checked(object sender, RoutedEventArgs e)
-        {
-            CustomerDetailsSearchBtn.IsEnabled = false;
-
-            CustomerDetailsEmailTbx.Text = "";
-            CustomerDetailsFirstNameTbx.Text = "";
-            CustomerDetailsLastnameTbx.Text = "";
-            CustomerDetailsCreditCardNoTbx.Text = "";
-            CustomerDetailsPhoneCountryCodeTbx.Text = "";
-            CustomerDetailsPhoneNoTbx.Text = "";
-
-            EnableDisabletextBoxes(true);
-            registerEnabled = true;
-        }
-
-        private void checkBoxRegister_Unchecked(object sender, RoutedEventArgs e)
-        {
-            CustomerDetailsSearchBtn.IsEnabled = true;
-            EnableDisabletextBoxes(false);
-            registerEnabled = false;
         }
 
         //Customer Registry
