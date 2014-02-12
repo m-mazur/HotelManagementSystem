@@ -119,7 +119,7 @@
                 <Grid Background="#FFE5E5E5">
                     <DataGrid x:Name="CustomerRegistryDataGrid" HorizontalAlignment="Left" Margin="45,90,0,0" VerticalAlignment="Top" Height="235" Width="680"/>
                     <TextBox x:Name="CustomerRegistryEmailTbx" HorizontalAlignment="Left" Height="23" Margin="45,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                    <Button x:Name="CustomerRegistrySearchEmailBtn" Content="Search" HorizontalAlignment="Left" Margin="170,62,0,0" VerticalAlignment="Top" Width="75" Click="CustomerRegistrySearchEmailBtn"/>
+                    <Button x:Name="CustomerRegistrySearchEmailBtn" Content="Search" HorizontalAlignment="Left" Margin="170,62,0,0" VerticalAlignment="Top" Width="75" Click="CustomerRegistrySearchEmailBtn_Click"/>
                     <Label x:Name="EmailCustomerRegistryLabel" Content="Email" HorizontalAlignment="Left" Margin="45,31,0,0" VerticalAlignment="Top" Width="120"/>
                     <Button x:Name="CustomerRegistryShowAllCustomersBtn" Content="Show all customers" HorizontalAlignment="Left" Margin="45,330,0,0" VerticalAlignment="Top" Width="105" Click="showAllCustomersCustomerRegistryButton_Click"/>
                     <Button x:Name="CustomerRegistryCustomerDetailsBtn" Content="Customer details" HorizontalAlignment="Left" Margin="265,330,0,0" VerticalAlignment="Top" Width="105" Click="showCustomerDetailsCustomerRegistryButton_Click"/>
