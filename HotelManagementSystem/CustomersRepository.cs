@@ -57,5 +57,21 @@ namespace HotelManagementSystem
             DataSetHotel.customersRow customerRow = dataSetHotel.customers.FindBye_mail(email);
             return customerRow;
         }
+
+        public DataView GetCustomersByEmail(string email)
+        {
+            customersTableAdapter = new DataSetHotelTableAdapters.customersTableAdapter();
+            customersTableAdapter.FillByCustomerEmail(dataSetHotel.customers, email);
+            DataView customerDataView = new DataView(dataSetHotel.Tables["Customers"]);
+            return customerDataView;
+        }
+
+        public DataView GetCustomersByEmail(string firstName, string lastName)
+        {
+            customersTableAdapter = new DataSetHotelTableAdapters.customersTableAdapter();
+            customersTableAdapter.FillByCustomerName(dataSetHotel.customers, firstName, lastName, firstName, lastName);
+            DataView customerDataView = new DataView(dataSetHotel.Tables["Customers"]);
+            return customerDataView;
+        }
     }
 }
