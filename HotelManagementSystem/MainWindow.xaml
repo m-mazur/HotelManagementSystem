@@ -27,7 +27,7 @@
                                 <Label x:Name="ToDateLabel" Content="To Date:" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Width="70"/>
                                 <DatePicker x:Name="AvailabilityFromDateDpr" HorizontalAlignment="Left" Margin="80,41,0,0" VerticalAlignment="Top" FirstDayOfWeek="Monday" Width="115"/>
                                 <DatePicker x:Name="AvailabilityToDateDpr" HorizontalAlignment="Right" Margin="0,70,583,0" VerticalAlignment="Top" FirstDayOfWeek="Monday" Width="115"/>
-                                <DataGrid x:Name="AvailabilityDataGrid" HorizontalAlignment="Left" Margin="200,10,0,0" VerticalAlignment="Top" Height="284" Width="568"/>
+                                <DataGrid x:Name="AvailabilityDataGrid" HorizontalAlignment="Left" Margin="200,10,0,0" VerticalAlignment="Top" Height="284" Width="568" IsReadOnly="True"/>
                                 <Button x:Name="AvailabilityCheckBtn" Content="Check Availability" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top" Width="185" Click="CheckAvailabilityButton_Click" Height="27"/>
                             </Grid>
                         </TabItem>
@@ -93,7 +93,7 @@
                     <Button x:Name="CheckInCheckOutSearchByReservationNoBtn" Content="Search by Res.No" HorizontalAlignment="Left" Margin="325,41,0,0" VerticalAlignment="Top" Width="130" Click="searchCheckInByReservationNoButton_Click" Height="29"/>
                     <Button x:Name="CheckInCheckOutCheckInBtn" Content="Check In" HorizontalAlignment="Left" Margin="55,295,0,0" VerticalAlignment="Top" Width="130" Click="checkInCheckInButton_Click" Height="29" Background="#FF34DC09"/>
                     <Button x:Name="CheckInCheckOutCheckOutBtn" Content="Check Out" HorizontalAlignment="Left" Margin="190,295,0,0" VerticalAlignment="Top" Width="130" Click="checkOutCheckInButton_Click" Height="29" Background="#FFEF1717"/>
-                    <DataGrid x:Name="CheckInCheckOutDataGrid" HorizontalAlignment="Left" Margin="55,75,0,0" VerticalAlignment="Top" Width="667" Height="215"/>
+                    <DataGrid x:Name="CheckInCheckOutDataGrid" HorizontalAlignment="Left" Margin="55,75,0,0" VerticalAlignment="Top" Width="667" Height="215" IsReadOnly="True"/>
                     <TextBox x:Name="CheckInCheckOutSearchTbx" HorizontalAlignment="Left" Height="29" Margin="55,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130"/>
                     <Button x:Name="CheckInCheckOutSearchByEmailBtn" Content="Search by Email" HorizontalAlignment="Left" Margin="190,41,0,0" VerticalAlignment="Top" Width="130" Click="searchCheckInByEmailButton_Click" Height="29"/>
                     <Label x:Name="CheckInCheckOutCustomerLbl" Content="Customer" HorizontalAlignment="Left" Margin="55,10,0,0" VerticalAlignment="Top" Width="130"/>
@@ -105,7 +105,7 @@
                         <TabItem x:Name="CustomerRegistry" Header="Customer Registry" Width="150" IsEnabled="False" Height="29">
                             <Grid Background="#FFE5E5E5">
                                 <Label x:Name="EmailCustomerRegistryLbl" Content="Email" HorizontalAlignment="Left" Margin="45,10,0,0" VerticalAlignment="Top" Width="120"/>
-                                <DataGrid x:Name="CustomerRegistryDataGrid" HorizontalAlignment="Left" Margin="45,69,0,0" VerticalAlignment="Top" Height="235" Width="680"/>
+                                <DataGrid x:Name="CustomerRegistryDataGrid" HorizontalAlignment="Left" Margin="45,69,0,0" VerticalAlignment="Top" Height="235" Width="680" CanUserResizeRows="False" CanUserResizeColumns="False" IsReadOnly="True"/>
                                 <TextBox x:Name="CustomerRegistryEmailTbx" HorizontalAlignment="Left" Height="23" Margin="45,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                                 <Button x:Name="CustomerRegistrySearchEmailBtn" Content="Search" HorizontalAlignment="Left" Margin="170,41,0,0" VerticalAlignment="Top" Width="75" Click="CustomerRegistrySearchEmailBtn_Click"/>
                                 <Label x:Name="CustomerRegistryFirstNameLbl" Content="Firstname" HorizontalAlignment="Left" Margin="265,10,0,0" VerticalAlignment="Top"/>
@@ -119,7 +119,7 @@
                         </TabItem>
                         <TabItem x:Name="ReservationRegistryTab" Header="Reservation Registry" Width="150" IsEnabled="False" HorizontalAlignment="Left" Margin="0,-2,0,0" Height="29">
                             <Grid Background="#FFE5E5E5">
-                                <DataGrid x:Name="ReservationRegistryDataGrid" HorizontalAlignment="Left" Margin="45,69,0,0" VerticalAlignment="Top" Height="235" Width="680"/>
+                                <DataGrid x:Name="ReservationRegistryDataGrid" HorizontalAlignment="Left" Margin="45,69,0,0" VerticalAlignment="Top" Height="235" Width="680" IsReadOnly="True"/>
                                 <Label x:Name="ReservationRegistryEmailLbl" Content="Email" HorizontalAlignment="Left" Margin="45,10,0,0" VerticalAlignment="Top" Width="120"/>
                                 <TextBox x:Name="ReservationRegistryEmailTbx" HorizontalAlignment="Left" Height="23" Margin="45,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                                 <Button x:Name="ReservationRegistrySearchEmailBtn" Content="Search" HorizontalAlignment="Left" Margin="170,41,0,0" VerticalAlignment="Top" Width="75"/>
