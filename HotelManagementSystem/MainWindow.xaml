@@ -98,20 +98,30 @@
                     <Button x:Name="CheckInCheckOutSearchByEmailBtn" Content="Search by Email" HorizontalAlignment="Left" Margin="20,135,0,0" VerticalAlignment="Top" Width="130" Click="searchCheckInByEmailButton_Click" Height="29"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="CustomerRegistryTab" Header="Customer Registry" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="130" Margin="-3,0,0,0" RenderTransformOrigin="0.49,0.522">
+            <TabItem x:Name="ReservationTab" Header="Registry" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="130">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="CustomerRegistryDataGrid" HorizontalAlignment="Left" Margin="45,90,0,0" VerticalAlignment="Top" Height="235" Width="680"/>
-                    <TextBox x:Name="CustomerRegistryEmailTbx" HorizontalAlignment="Left" Height="23" Margin="45,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                    <Button x:Name="CustomerRegistrySearchEmailBtn" Content="Search" HorizontalAlignment="Left" Margin="170,62,0,0" VerticalAlignment="Top" Width="75" Click="CustomerRegistrySearchEmailBtn_Click"/>
-                    <Label x:Name="EmailCustomerRegistryLabel" Content="Email" HorizontalAlignment="Left" Margin="45,31,0,0" VerticalAlignment="Top" Width="120"/>
-                    <Button x:Name="CustomerRegistryShowAllCustomersBtn" Content="Show all customers" HorizontalAlignment="Left" Margin="45,330,0,0" VerticalAlignment="Top" Width="105" Click="showAllCustomersCustomerRegistryButton_Click"/>
-                    <Button x:Name="CustomerRegistryCustomerDetailsBtn" Content="Customer details" HorizontalAlignment="Left" Margin="265,330,0,0" VerticalAlignment="Top" Width="105" Click="showCustomerDetailsCustomerRegistryButton_Click"/>
-                    <Button x:Name="CustomerRegistryShowReservationsBtn" Content="Show reservations" HorizontalAlignment="Left" Margin="155,330,0,0" VerticalAlignment="Top" Width="105" Click="showReservationsCustomerRegistryButton_Click"/>
-                    <Label x:Name="CustomerRegistryFirstNameLbl" Content="Firstname" HorizontalAlignment="Left" Margin="265,31,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="CustomerRegistryLastnameLbl" Content="Lastname" HorizontalAlignment="Left" Margin="390,31,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="CustomerRegistryFirstNameTbx" HorizontalAlignment="Left" Height="23" Margin="265,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                    <TextBox x:Name="CustomerRegistryLastNameTbx" HorizontalAlignment="Left" Height="23" Margin="390,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                    <Button x:Name="CustomerRegistryNameSearchBtn" Content="Search" HorizontalAlignment="Left" Margin="515,62,0,0" VerticalAlignment="Top" Width="75" Click="CustomerRegistryNameSearchBtn_Click"/>
+                    <TabControl HorizontalAlignment="Left" Height="382" VerticalAlignment="Top" Width="784">
+                        <TabItem x:Name="CustomerRegistry" Header="Customer Registry" Width="150" IsEnabled="False" Height="29">
+                            <Grid Background="#FFE5E5E5">
+                                <Label x:Name="EmailCustomerRegistryLbl" Content="Email" HorizontalAlignment="Left" Margin="45,10,0,0" VerticalAlignment="Top" Width="120"/>
+                                <DataGrid x:Name="CustomerRegistryDataGrid" HorizontalAlignment="Left" Margin="45,69,0,0" VerticalAlignment="Top" Height="235" Width="680"/>
+                                <TextBox x:Name="CustomerRegistryEmailTbx" HorizontalAlignment="Left" Height="23" Margin="45,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                                <Button x:Name="CustomerRegistrySearchEmailBtn" Content="Search" HorizontalAlignment="Left" Margin="170,41,0,0" VerticalAlignment="Top" Width="75" Click="CustomerRegistrySearchEmailBtn_Click"/>
+                                <Label x:Name="CustomerRegistryFirstNameLbl" Content="Firstname" HorizontalAlignment="Left" Margin="265,10,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="CustomerRegistryFirstNameTbx" HorizontalAlignment="Left" Height="23" Margin="265,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                                <Label x:Name="CustomerRegistryLastnameLbl" Content="Lastname" HorizontalAlignment="Left" Margin="390,10,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="CustomerRegistryLastNameTbx" HorizontalAlignment="Left" Height="23" Margin="390,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                                <Button x:Name="CustomerRegistryNameSearchBtn" Content="Search" HorizontalAlignment="Left" Margin="515,41,0,0" VerticalAlignment="Top" Width="75" Click="CustomerRegistryNameSearchBtn_Click"/>
+                                <Button x:Name="CustomerRegistryShowAllCustomersBtn" Content="Show all customers" HorizontalAlignment="Left" Margin="620,41,0,0" VerticalAlignment="Top" Width="105" Click="showAllCustomersCustomerRegistryButton_Click"/>
+                                <Button x:Name="CustomerRegistryShowReservationsBtn" Content="Show reservations" HorizontalAlignment="Left" Margin="620,309,0,0" VerticalAlignment="Top" Width="105" Click="showReservationsCustomerRegistryButton_Click"/>
+                            </Grid>
+                        </TabItem>
+                        <TabItem x:Name="ReservationRegistryTab" Header="Reservation Registry" Width="150" IsEnabled="False" HorizontalAlignment="Left" Margin="0,-2,0,0" Height="29">
+                            <Grid Background="#FFE5E5E5">
+                                <DataGrid HorizontalAlignment="Left" Margin="198,89,0,0" VerticalAlignment="Top" Height="138" Width="486"/>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
                 </Grid>
             </TabItem>
         </TabControl>
