@@ -46,13 +46,21 @@ namespace HotelManagementSystem
 
         private void CheckAvailabilityButton_Click(object sender, RoutedEventArgs e)
         {
-            try
+            
+            if (AvailabilityFromDateDpr.SelectedDate.Value > AvailabilityToDateDpr.SelectedDate.Value)
             {
-                AvailabilityDataGrid.ItemsSource = reservationController.GetAvailableRooms("single room", AvailabilityFromDateDpr.SelectedDate.Value, AvailabilityToDateDpr.SelectedDate.Value);
+                MessageBox.Show("Please select a check in date before the checkout date");
             }
-            catch (Exception)
+            else
             {
-                MessageBox.Show("You need to choose a room, check in date and check out date first!");
+                try
+                {
+                    AvailabilityDataGrid.ItemsSource = reservationController.GetAvailableRooms("single room", AvailabilityFromDateDpr.SelectedDate.Value, AvailabilityToDateDpr.SelectedDate.Value);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("You need to choose a room, check in date and check out date first!");
+                }
             }
         }
 
