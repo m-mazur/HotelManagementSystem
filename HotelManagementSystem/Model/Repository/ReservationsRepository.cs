@@ -1,10 +1,11 @@
 ﻿using System.Data;
+using HotelManagementSystem.Model.Database;
 
 namespace HotelManagementSystem
 {
     class ReservationsRepository
     {
-        private DataSetHotelTableAdapters.reservationsTableAdapter reservationsTableAdapter;
+        private HotelManagementSystem.Model.Database.DataSetHotelTableAdapters.reservationsTableAdapter reservationsTableAdapter;
         private DataSetHotel dataSetHotel;
 
         public ReservationsRepository()
@@ -14,21 +15,21 @@ namespace HotelManagementSystem
 
         public void AddReservation(Reservation reservation)
         {
-            reservationsTableAdapter = new DataSetHotelTableAdapters.reservationsTableAdapter();
+            reservationsTableAdapter = new HotelManagementSystem.Model.Database.DataSetHotelTableAdapters.reservationsTableAdapter();
             reservationsTableAdapter.Insert(reservation.ReservationNo, reservation.EMail, reservation.RoomNo,
                 reservation.CheckInDate, reservation.CheckOutDate, reservation.CheckIn, reservation.CheckOut);
         }
 
         public void DeleteReservation(Reservation reservation)
         {
-            reservationsTableAdapter = new DataSetHotelTableAdapters.reservationsTableAdapter();
+            reservationsTableAdapter = new HotelManagementSystem.Model.Database.DataSetHotelTableAdapters.reservationsTableAdapter();
             reservationsTableAdapter.Delete(reservation.ReservationNo, reservation.EMail, reservation.RoomNo,
                 reservation.CheckInDate, reservation.CheckOutDate, reservation.CheckIn, reservation.CheckOut);
         }
 
         public void UpdateReservation(Reservation reservation)
         {
-            reservationsTableAdapter = new DataSetHotelTableAdapters.reservationsTableAdapter();
+            reservationsTableAdapter = new HotelManagementSystem.Model.Database.DataSetHotelTableAdapters.reservationsTableAdapter();
             reservationsTableAdapter.Fill(dataSetHotel.reservations);
             DataSetHotel.reservationsRow reservationsRow = dataSetHotel.reservations.FindByreservation_no(reservation.ReservationNo);
             reservationsRow.e_mail = reservation.EMail;
@@ -42,7 +43,7 @@ namespace HotelManagementSystem
 
         public DataView GetReservations()
         {
-            reservationsTableAdapter = new DataSetHotelTableAdapters.reservationsTableAdapter();
+            reservationsTableAdapter = new HotelManagementSystem.Model.Database.DataSetHotelTableAdapters.reservationsTableAdapter();
             reservationsTableAdapter.Fill(dataSetHotel.reservations);
             DataView reservationDataView = new DataView(dataSetHotel.Tables["Reservations"]);
             return reservationDataView;
@@ -50,7 +51,7 @@ namespace HotelManagementSystem
 
         public Reservation GetSingleReservation(string reservationNo)
         {
-            reservationsTableAdapter = new DataSetHotelTableAdapters.reservationsTableAdapter();
+            reservationsTableAdapter = new HotelManagementSystem.Model.Database.DataSetHotelTableAdapters.reservationsTableAdapter();
             reservationsTableAdapter.Fill(dataSetHotel.reservations);
             DataSetHotel.reservationsRow reservationRow = dataSetHotel.reservations.FindByreservation_no(reservationNo);
             return new Reservation(reservationRow.reservation_no, reservationRow.e_mail, reservationRow.room_no,
@@ -59,7 +60,7 @@ namespace HotelManagementSystem
 
         public DataView GetReservationByReservationNo(string reservationNo)
         {
-            reservationsTableAdapter = new DataSetHotelTableAdapters.reservationsTableAdapter();
+            reservationsTableAdapter = new HotelManagementSystem.Model.Database.DataSetHotelTableAdapters.reservationsTableAdapter();
             reservationsTableAdapter.FillByReservationNo(dataSetHotel.reservations, reservationNo);
             DataView reservationDataView = new DataView(dataSetHotel.Tables["Reservations"]);
             return reservationDataView;
@@ -67,7 +68,7 @@ namespace HotelManagementSystem
 
         public DataView GetReservationByEmail(string email)
         {
-            reservationsTableAdapter = new DataSetHotelTableAdapters.reservationsTableAdapter();
+            reservationsTableAdapter = new HotelManagementSystem.Model.Database.DataSetHotelTableAdapters.reservationsTableAdapter();
             reservationsTableAdapter.FillByReservationEmail(dataSetHotel.reservations, email);
             DataView reservationDataView = new DataView(dataSetHotel.Tables["Reservations"]);
             return reservationDataView;
@@ -75,7 +76,7 @@ namespace HotelManagementSystem
 
         public DataView GetNumberOfReservedDays(string reservationNo)
         {
-                reservationsTableAdapter = new DataSetHotelTableAdapters.reservationsTableAdapter();
+                reservationsTableAdapter = new HotelManagementSystem.Model.Database.DataSetHotelTableAdapters.reservationsTableAdapter();
                 reservationsTableAdapter.FillByReservedDays(dataSetHotel.reservations, reservationNo);
                 DataView reservationDataView = new DataView(dataSetHotel.Tables["Reservations"]);
                 return reservationDataView;

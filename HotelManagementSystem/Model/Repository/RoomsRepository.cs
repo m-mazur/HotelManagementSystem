@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using HotelManagementSystem.Model.Database;
 
 namespace HotelManagementSystem
 {
     class RoomsRepository
     {
-        private DataSetHotelTableAdapters.roomsTableAdapter roomsTableAdapter;
+        private HotelManagementSystem.Model.Database.DataSetHotelTableAdapters.roomsTableAdapter roomsTableAdapter;
         private DataSetHotel dataSetHotel;
 
         public RoomsRepository()
@@ -19,19 +20,19 @@ namespace HotelManagementSystem
 
         public void AddRoom(Room room)
         {
-            roomsTableAdapter = new DataSetHotelTableAdapters.roomsTableAdapter();
+            roomsTableAdapter = new HotelManagementSystem.Model.Database.DataSetHotelTableAdapters.roomsTableAdapter();
             roomsTableAdapter.Insert(room.RoomNo, room.MaxPersons, room.PricePerDay, room.RoomType);
         }
 
         public void DeleteRoom(Room room)
         {
-            roomsTableAdapter = new DataSetHotelTableAdapters.roomsTableAdapter();
+            roomsTableAdapter = new HotelManagementSystem.Model.Database.DataSetHotelTableAdapters.roomsTableAdapter();
             roomsTableAdapter.Delete(room.RoomNo, room.MaxPersons, room.PricePerDay, room.RoomType);
         }
 
         public void UpdateRoom(Room room)
         {
-            roomsTableAdapter = new DataSetHotelTableAdapters.roomsTableAdapter();
+            roomsTableAdapter = new HotelManagementSystem.Model.Database.DataSetHotelTableAdapters.roomsTableAdapter();
             roomsTableAdapter.Fill(dataSetHotel.rooms);
             DataSetHotel.roomsRow roomsRow = dataSetHotel.rooms.FindByroom_no(room.RoomNo);
             roomsRow.max_persons = room.MaxPersons;
@@ -42,7 +43,7 @@ namespace HotelManagementSystem
 
         public DataView GetRooms()
         {
-            roomsTableAdapter = new DataSetHotelTableAdapters.roomsTableAdapter();
+            roomsTableAdapter = new HotelManagementSystem.Model.Database.DataSetHotelTableAdapters.roomsTableAdapter();
             roomsTableAdapter.Fill(dataSetHotel.rooms);
             DataView roomDataView = new DataView(dataSetHotel.Tables["Rooms"]);
             return roomDataView;
@@ -50,7 +51,7 @@ namespace HotelManagementSystem
 
         public Room GetRoomByRoomNo(string roomNo)
         {
-            roomsTableAdapter = new DataSetHotelTableAdapters.roomsTableAdapter();
+            roomsTableAdapter = new HotelManagementSystem.Model.Database.DataSetHotelTableAdapters.roomsTableAdapter();
             roomsTableAdapter.Fill(dataSetHotel.rooms);
             DataSetHotel.roomsRow roomRow = dataSetHotel.rooms.FindByroom_no(roomNo);
             return new Room(roomRow.room_no, roomRow.max_persons, roomRow.price_per_day, roomRow.room_type);
@@ -58,7 +59,7 @@ namespace HotelManagementSystem
 
         public DataView GetAvailableRooms(string roomType, DateTime startDate, DateTime endDate)
         {
-            roomsTableAdapter = new DataSetHotelTableAdapters.roomsTableAdapter();
+            roomsTableAdapter = new HotelManagementSystem.Model.Database.DataSetHotelTableAdapters.roomsTableAdapter();
             roomsTableAdapter.FillByAvailableRooms(dataSetHotel.rooms, startDate, endDate, startDate, endDate);
             DataView roomDataView = new DataView(dataSetHotel.Tables["Rooms"]);
             return roomDataView;

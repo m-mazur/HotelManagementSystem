@@ -68,20 +68,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="CheckInCheckOutController.cs" />
-    <Compile Include="CustomerRegistryController.cs" />
-    <Compile Include="DataSetHotel.cs">
+    <Compile Include="Controller\CheckInCheckOutController.cs" />
+    <Compile Include="Controller\CustomerRegistryController.cs" />
+    <Compile Include="Model\Database\DataSetHotel.cs">
       <DependentUpon>DataSetHotel.xsd</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="OrderUtility.cs" />
-    <Compile Include="ReservationController.cs" />
-    <Compile Include="CustomersRepository.cs" />
-    <Compile Include="Reservation.cs" />
-    <Compile Include="ReservationsRepository.cs" />
-    <Compile Include="Room.cs" />
-    <Compile Include="RoomsRepository.cs" />
-    <Compile Include="Validate.cs" />
+    <Compile Include="Model\Utility\OrderUtility.cs" />
+    <Compile Include="Controller\ReservationController.cs" />
+    <Compile Include="Model\Repository\CustomersRepository.cs" />
+    <Compile Include="Model\Objects\Reservation.cs" />
+    <Compile Include="Model\Repository\ReservationsRepository.cs" />
+    <Compile Include="Model\Objects\Room.cs" />
+    <Compile Include="Model\Repository\RoomsRepository.cs" />
+    <Compile Include="Model\Utility\Validate.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -90,8 +90,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Customer.cs" />
-    <Compile Include="DataSetHotel.Designer.cs">
+    <Compile Include="Model\Objects\Customer.cs" />
+    <Compile Include="Model\Database\DataSetHotel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetHotel.xsd</DependentUpon>
@@ -120,15 +120,15 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
-    <None Include="DataSetHotel.xsc">
+    <None Include="Model\Database\DataSetHotel.xsc">
       <DependentUpon>DataSetHotel.xsd</DependentUpon>
     </None>
-    <None Include="DataSetHotel.xsd">
+    <None Include="Model\Database\DataSetHotel.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DataSetHotel.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="DataSetHotel.xss">
+    <None Include="Model\Database\DataSetHotel.xss">
       <DependentUpon>DataSetHotel.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
