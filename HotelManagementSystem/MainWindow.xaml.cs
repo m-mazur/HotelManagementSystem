@@ -67,6 +67,7 @@ namespace HotelManagementSystem
         private void AvailabilityNextBtn_Click(object sender, RoutedEventArgs e)
         {
             selectedRoom = AvailabilityDataGrid.SelectedItem as DataRowView;
+            
             if (selectedRoom == null)
             {
                 MessageBox.Show("You need to choose a room first!");
@@ -82,12 +83,13 @@ namespace HotelManagementSystem
         {
             try
             {
-                CustomerDetailsEmailTbx.Text = reservationController.GetCustomer(CustomerDetailsEmailTbx.Text).EMail;
-                CustomerDetailsFirstNameTbx.Text = reservationController.GetCustomer(CustomerDetailsEmailTbx.Text).FirstName;
-                CustomerDetailsLastnameTbx.Text = reservationController.GetCustomer(CustomerDetailsEmailTbx.Text).LastName;
-                CustomerDetailsCreditCardNoTbx.Text = reservationController.GetCustomer(CustomerDetailsEmailTbx.Text).CreditCardNo;
-                CustomerDetailsPhoneCountryCodeTbx.Text = reservationController.GetCustomer(CustomerDetailsEmailTbx.Text).PhoneCountryCode;
-                CustomerDetailsPhoneNoTbx.Text = reservationController.GetCustomer(CustomerDetailsEmailTbx.Text).PhoneNo;
+                var customer = reservationController.GetCustomer(CustomerDetailsEmailTbx.Text);
+                CustomerDetailsEmailTbx.Text = customer.EMail;
+                CustomerDetailsFirstNameTbx.Text = customer.FirstName;
+                CustomerDetailsLastnameTbx.Text = customer.LastName;
+                CustomerDetailsCreditCardNoTbx.Text = customer.CreditCardNo;
+                CustomerDetailsPhoneCountryCodeTbx.Text = customer.PhoneCountryCode;
+                CustomerDetailsPhoneNoTbx.Text = customer.PhoneNo;
             }
             catch (Exception)
             {
@@ -133,6 +135,7 @@ namespace HotelManagementSystem
                     reservationController.AddReservation(randomNo.ToString(), CustomerDetailsEmailTbx.Text, selectedRoom[0].ToString(),
                         AvailabilityFromDateDpr.SelectedDate.Value, AvailabilityToDateDpr.SelectedDate.Value, false, false);
                     ShowCustomerRecipt(randomNo.ToString());
+                    
                     BookingTab.SelectedIndex = 2;
                 }
                 catch (Exception)
@@ -186,24 +189,27 @@ namespace HotelManagementSystem
 
         private void ShowCustomerRecipt(string reservationNo)
         {
-            RecieptEmailTbx.Text = reservationController.GetSingleReservation(reservationNo).EMail;
-            RecieptReservationNumberTbx.Text = reservationController.GetSingleReservation(reservationNo).ReservationNo;
-            RecieptRoomNumberTbx.Text = reservationController.GetSingleReservation(reservationNo).RoomNo;
-            RecieptCheckInDateTbx.Text = reservationController.GetSingleReservation(reservationNo).CheckInDate.ToString();
-            RecieptCheckOutDateTbx.Text = reservationController.GetSingleReservation(reservationNo).CheckOutDate.ToString();
+            var reservation = reservationController.GetSingleReservation(reservationNo);
+            RecieptEmailTbx.Text = reservation.EMail;
+            RecieptReservationNumberTbx.Text = reservation.ReservationNo;
+            RecieptRoomNumberTbx.Text = reservation.RoomNo;
+            RecieptCheckInDateTbx.Text = reservation.CheckInDate.ToString();
+            RecieptCheckOutDateTbx.Text = reservation.CheckOutDate.ToString();
 
-            string customerEmail = reservationController.GetSingleReservation(reservationNo).EMail;
-            RecieptFirstNameTbx.Text = reservationController.GetCustomer(customerEmail).FirstName;
-            RecieptLastNameTbx.Text = reservationController.GetCustomer(customerEmail).LastName;
-            RecieptCreditCardNoTbx.Text = reservationController.GetCustomer(customerEmail).CreditCardNo;
-            RecieptPhoneNoTbx.Text = reservationController.GetCustomer(customerEmail).PhoneNo;
-            RecieptPhoneCountryCodeTbx.Text = reservationController.GetCustomer(customerEmail).PhoneCountryCode;
+            string customerEmail = reservation.EMail;
+            var customer = reservationController.GetCustomer(customerEmail);
+            RecieptFirstNameTbx.Text = customer.FirstName;
+            RecieptLastNameTbx.Text = customer.LastName;
+            RecieptCreditCardNoTbx.Text = customer.CreditCardNo;
+            RecieptPhoneNoTbx.Text = customer.PhoneNo;
+            RecieptPhoneCountryCodeTbx.Text = customer.PhoneCountryCode;
 
             string roomNo = reservationController.GetSingleReservation(reservationNo).RoomNo;
-            RecieptRoomTypeTbx.Text = reservationController.GetRoom(roomNo).RoomType;
-            RecieptPricePerDayTbx.Text = reservationController.GetRoom(roomNo).PricePerDay.ToString();
+            var room = reservationController.GetRoom(roomNo);
+            RecieptRoomTypeTbx.Text = room.RoomType;
+            RecieptPricePerDayTbx.Text = room.PricePerDay.ToString();
             RecieptNightsTbx.Text = new OrderUtility().TotalNights(reservationNo).ToString();
-            RecieptTotalPriceTbx.Text = new OrderUtility().TotalOrderValue(reservationController.GetRoom(roomNo).PricePerDay, reservationNo);
+            RecieptTotalPriceTbx.Text = new OrderUtility().TotalOrderValue(room.PricePerDay, reservationNo);
         }
 
         //Check In/Check out Tab
