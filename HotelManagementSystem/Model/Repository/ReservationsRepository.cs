@@ -53,7 +53,7 @@ namespace HotelManagementSystem
         {
             reservationsTableAdapter = new HotelManagementSystem.Model.Database.DataSetHotelTableAdapters.reservationsTableAdapter();
             reservationsTableAdapter.Fill(dataSetHotel.reservations);
-            DataSetHotel.reservationsRow reservationRow = dataSetHotel.reservations.FindByreservation_no(reservationNo);
+            DataSetHotel.reservationsRow reservationRow = dataSetHotel.reservations.FindByreservation_no(1);
             return new Reservation(reservationRow.reservation_no, reservationRow.e_mail, reservationRow.room_no,
                 reservationRow.check_in_date, reservationRow.check_out_date, reservationRow.check_in, reservationRow.check_out);
         }
