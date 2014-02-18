@@ -75,11 +75,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetHotel.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Model\Database\DataSetHotel1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSetHotel.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Model\Utility\OrderUtility.cs" />
     <Compile Include="Controller\ReservationController.cs" />
     <Compile Include="Model\Repository\CustomersRepository.cs" />
@@ -126,8 +121,8 @@
     </None>
     <None Include="Model\Database\DataSetHotel.xsd">
       <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetHotel.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
-      <LastGenOutput>DataSetHotel1.Designer.cs</LastGenOutput>
     </None>
     <None Include="Model\Database\DataSetHotel.xss">
       <DependentUpon>DataSetHotel.xsd</DependentUpon>
