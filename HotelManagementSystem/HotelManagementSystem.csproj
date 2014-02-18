@@ -70,9 +70,15 @@
     </ApplicationDefinition>
     <Compile Include="Controller\CheckInCheckOutController.cs" />
     <Compile Include="Controller\CustomerRegistryController.cs" />
-    <Compile Include="Model\Database\DataSetHotel.cs">
+    <Compile Include="Model\Database\DataSetHotel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
       <DependentUpon>DataSetHotel.xsd</DependentUpon>
-      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\Database\DataSetHotel1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetHotel.xsd</DependentUpon>
     </Compile>
     <Compile Include="Model\Utility\OrderUtility.cs" />
     <Compile Include="Controller\ReservationController.cs" />
@@ -91,11 +97,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Model\Objects\Customer.cs" />
-    <Compile Include="Model\Database\DataSetHotel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSetHotel.xsd</DependentUpon>
-    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -125,8 +126,8 @@
     </None>
     <None Include="Model\Database\DataSetHotel.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSetHotel.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>DataSetHotel1.Designer.cs</LastGenOutput>
     </None>
     <None Include="Model\Database\DataSetHotel.xss">
       <DependentUpon>DataSetHotel.xsd</DependentUpon>
@@ -157,6 +158,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

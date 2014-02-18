@@ -16,14 +16,14 @@ namespace HotelManagementSystem
         public void AddReservation(Reservation reservation)
         {
             reservationsTableAdapter = new HotelManagementSystem.Model.Database.DataSetHotelTableAdapters.reservationsTableAdapter();
-            reservationsTableAdapter.Insert(reservation.ReservationNo, reservation.EMail, reservation.RoomNo,
+            reservationsTableAdapter.Insert(reservation.EMail, reservation.RoomNo,
                 reservation.CheckInDate, reservation.CheckOutDate, reservation.CheckIn, reservation.CheckOut);
         }
 
         public void DeleteReservation(Reservation reservation)
         {
             reservationsTableAdapter = new HotelManagementSystem.Model.Database.DataSetHotelTableAdapters.reservationsTableAdapter();
-            reservationsTableAdapter.Delete(reservation.ReservationNo, reservation.EMail, reservation.RoomNo,
+            reservationsTableAdapter.Delete(int.Parse(reservation.ReservationNo), reservation.EMail, reservation.RoomNo,
                 reservation.CheckInDate, reservation.CheckOutDate, reservation.CheckIn, reservation.CheckOut);
         }
 
@@ -31,7 +31,7 @@ namespace HotelManagementSystem
         {
             reservationsTableAdapter = new HotelManagementSystem.Model.Database.DataSetHotelTableAdapters.reservationsTableAdapter();
             reservationsTableAdapter.Fill(dataSetHotel.reservations);
-            DataSetHotel.reservationsRow reservationsRow = dataSetHotel.reservations.FindByreservation_no(reservation.ReservationNo);
+            DataSetHotel.reservationsRow reservationsRow = dataSetHotel.reservations.FindByreservation_no(1);
             reservationsRow.e_mail = reservation.EMail;
             reservationsRow.room_no = reservation.RoomNo;
             reservationsRow.check_in_date = reservation.CheckInDate;
@@ -54,7 +54,7 @@ namespace HotelManagementSystem
             reservationsTableAdapter = new HotelManagementSystem.Model.Database.DataSetHotelTableAdapters.reservationsTableAdapter();
             reservationsTableAdapter.Fill(dataSetHotel.reservations);
             DataSetHotel.reservationsRow reservationRow = dataSetHotel.reservations.FindByreservation_no(1);
-            return new Reservation(reservationRow.reservation_no, reservationRow.e_mail, reservationRow.room_no,
+            return new Reservation("kuk", reservationRow.e_mail, reservationRow.room_no,
                 reservationRow.check_in_date, reservationRow.check_out_date, reservationRow.check_in, reservationRow.check_out);
         }
 
