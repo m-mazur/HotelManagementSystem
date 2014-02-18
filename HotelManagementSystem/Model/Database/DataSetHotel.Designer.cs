@@ -3512,12 +3512,32 @@ namespace HotelManagementSystem.Model.Database.DataSetHotelTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.Odbc.OdbcCommand[1];
+            this._commandCollection = new global::System.Data.Odbc.OdbcCommand[4];
             this._commandCollection[0] = new global::System.Data.Odbc.OdbcCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT \"reservation_no\", \"e_mail\", \"room_no\", \"check_in_date\", \"check_out_date\", " +
                 "\"check_in\", \"check_out\" FROM \"dbo\".\"reservations\"";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.Odbc.OdbcCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT reservation_no, e_mail, room_no, check_in_date, check_out_date, check_in, " +
+                "check_out\r\nFROM  dbo.reservations\r\nWHERE (e_mail = ?)\r\nORDER BY check_in_date";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("e_mail", global::System.Data.Odbc.OdbcType.VarChar, 1024, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "e_mail", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[2] = new global::System.Data.Odbc.OdbcCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT reservation_no, e_mail, room_no, check_in_date, check_out_date, check_in, " +
+                "check_out\r\nFROM  dbo.reservations\r\nWHERE (reservation_no = ?)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("reservation_no", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "reservation_no", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[3] = new global::System.Data.Odbc.OdbcCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "SELECT re.reservation_no, DATEDIFF(DD, re.check_in_date, re.check_out_date) AS no" +
+                "_of_days\r\nFROM  dbo.reservations re, dbo.rooms ro\r\nWHERE re.room_no = ro.room_no" +
+                " AND (re.reservation_no = ?)\r\nGROUP BY re.reservation_no, re.check_in_date, re.c" +
+                "heck_out_date";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("reservation_no", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "reservation_no", global::System.Data.DataRowVersion.Current, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3539,6 +3559,94 @@ namespace HotelManagementSystem.Model.Database.DataSetHotelTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual DataSetHotel.reservationsDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            DataSetHotel.reservationsDataTable dataTable = new DataSetHotel.reservationsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByReservationEmail(DataSetHotel.reservationsDataTable dataTable, string e_mail) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((e_mail == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(e_mail));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSetHotel.reservationsDataTable GetDataByReservationEmail(string e_mail) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((e_mail == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(e_mail));
+            }
+            DataSetHotel.reservationsDataTable dataTable = new DataSetHotel.reservationsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByReservationNo(DataSetHotel.reservationsDataTable dataTable, int reservation_no) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(reservation_no));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSetHotel.reservationsDataTable GetDataByReservationNo(int reservation_no) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(reservation_no));
+            DataSetHotel.reservationsDataTable dataTable = new DataSetHotel.reservationsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByReservedDays(DataSetHotel.reservationsDataTable dataTable, int reservation_no) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(reservation_no));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSetHotel.reservationsDataTable GetDataByReservedDays(int reservation_no) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(reservation_no));
             DataSetHotel.reservationsDataTable dataTable = new DataSetHotel.reservationsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -3891,11 +3999,25 @@ namespace HotelManagementSystem.Model.Database.DataSetHotelTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.Odbc.OdbcCommand[1];
+            this._commandCollection = new global::System.Data.Odbc.OdbcCommand[2];
             this._commandCollection[0] = new global::System.Data.Odbc.OdbcCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT \"room_no\", \"max_persons\", \"price_per_day\", \"room_type\" FROM \"dbo\".\"rooms\"";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.Odbc.OdbcCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"SELECT room_no, max_persons, price_per_day, room_type
+FROM  dbo.rooms
+WHERE (room_no NOT IN
+             (SELECT rooms_1.room_no
+            FROM  dbo.reservations, dbo.rooms rooms_1
+            WHERE dbo.reservations.room_no = rooms_1.room_no AND (dbo.reservations.check_in_date BETWEEN ? AND ?) AND (dbo.reservations.check_out_date BETWEEN ? AND ?)
+            GROUP BY rooms_1.room_no))";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Param1", global::System.Data.Odbc.OdbcType.DateTime, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Param2", global::System.Data.Odbc.OdbcType.DateTime, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Param3", global::System.Data.Odbc.OdbcType.DateTime, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Param4", global::System.Data.Odbc.OdbcType.DateTime, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "", global::System.Data.DataRowVersion.Current, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3917,6 +4039,78 @@ namespace HotelManagementSystem.Model.Database.DataSetHotelTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual DataSetHotel.roomsDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            DataSetHotel.roomsDataTable dataTable = new DataSetHotel.roomsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByAvailableRooms(DataSetHotel.roomsDataTable dataTable, global::System.Nullable<global::System.DateTime> Param1, global::System.Nullable<global::System.DateTime> Param2, global::System.Nullable<global::System.DateTime> Param3, global::System.Nullable<global::System.DateTime> Param4) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((Param1.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(Param1.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((Param2.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(Param2.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((Param3.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(Param3.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((Param4.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((System.DateTime)(Param4.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSetHotel.roomsDataTable GetDataByAvailableRooms(global::System.Nullable<global::System.DateTime> Param1, global::System.Nullable<global::System.DateTime> Param2, global::System.Nullable<global::System.DateTime> Param3, global::System.Nullable<global::System.DateTime> Param4) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((Param1.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(Param1.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((Param2.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(Param2.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((Param3.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(Param3.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((Param4.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((System.DateTime)(Param4.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
             DataSetHotel.roomsDataTable dataTable = new DataSetHotel.roomsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

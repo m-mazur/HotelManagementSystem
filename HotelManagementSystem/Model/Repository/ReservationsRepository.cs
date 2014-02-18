@@ -53,7 +53,7 @@ namespace HotelManagementSystem
         {
             reservationsTableAdapter = new HotelManagementSystem.Model.Database.DataSetHotelTableAdapters.reservationsTableAdapter();
             reservationsTableAdapter.Fill(dataSetHotel.reservations);
-            DataSetHotel.reservationsRow reservationRow = dataSetHotel.reservations.FindByreservation_no(1);
+            DataSetHotel.reservationsRow reservationRow = dataSetHotel.reservations.FindByreservation_no(int.Parse(reservationNo));
             return new Reservation("kuk", reservationRow.e_mail, reservationRow.room_no,
                 reservationRow.check_in_date, reservationRow.check_out_date, reservationRow.check_in, reservationRow.check_out);
         }
@@ -61,7 +61,7 @@ namespace HotelManagementSystem
         public DataView GetReservationByReservationNo(string reservationNo)
         {
             reservationsTableAdapter = new HotelManagementSystem.Model.Database.DataSetHotelTableAdapters.reservationsTableAdapter();
-            reservationsTableAdapter.FillByReservationNo(dataSetHotel.reservations, reservationNo);
+            reservationsTableAdapter.FillByReservationNo(dataSetHotel.reservations, int.Parse(reservationNo));
             DataView reservationDataView = new DataView(dataSetHotel.Tables["Reservations"]);
             return reservationDataView;
         }
@@ -77,7 +77,7 @@ namespace HotelManagementSystem
         public DataView GetNumberOfReservedDays(string reservationNo)
         {
                 reservationsTableAdapter = new HotelManagementSystem.Model.Database.DataSetHotelTableAdapters.reservationsTableAdapter();
-                reservationsTableAdapter.FillByReservedDays(dataSetHotel.reservations, reservationNo);
+                reservationsTableAdapter.FillByReservedDays(dataSetHotel.reservations, int.Parse(reservationNo));
                 DataView reservationDataView = new DataView(dataSetHotel.Tables["Reservations"]);
                 return reservationDataView;
         }
