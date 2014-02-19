@@ -59,6 +59,7 @@ namespace HotelManagementSystem
 
         public DataView GetAvailableRooms(string roomType, DateTime startDate, DateTime endDate)
         {
+            string room_type = "single room";
             roomsTableAdapter = new HotelManagementSystem.Model.Database.DataSetHotelTableAdapters.roomsTableAdapter();
             roomsTableAdapter.FillByAvailableRooms(dataSetHotel.rooms, startDate, endDate, startDate, endDate);
             DataView roomDataView = new DataView(dataSetHotel.Tables["Rooms"]);
