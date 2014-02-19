@@ -30,10 +30,10 @@ namespace HotelManagementSystem
             return customer;
         }
 
-        public void AddReservation(string reservationNo, string eMail, string roomNo,
+        public void AddReservation(string eMail, string roomNo,
             DateTime checkInDate, DateTime checkOutDate, Boolean checkIn, Boolean checkOut)
         {
-            reservationRepository.AddReservation(new Reservation(reservationNo, eMail, roomNo, 
+            reservationRepository.AddReservation(new Reservation(eMail, roomNo, 
                 checkInDate, checkOutDate, checkIn, checkOut));
         }
 
