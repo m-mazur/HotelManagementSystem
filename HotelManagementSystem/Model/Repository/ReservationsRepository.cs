@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using HotelManagementSystem.Model.Database;
+using System;
 
 namespace HotelManagementSystem
 {
@@ -11,6 +12,13 @@ namespace HotelManagementSystem
         public ReservationsRepository()
         {
             dataSetHotel = new DataSetHotel();
+        }
+
+        public int GetLatestReservationNo()
+        {
+            reservationsTableAdapter = new HotelManagementSystem.Model.Database.DataSetHotelTableAdapters.reservationsTableAdapter();
+            int getLatestReservationNo = Convert.ToInt32(reservationsTableAdapter.GetLatestReservationNo());
+            return getLatestReservationNo;
         }
 
         public void AddReservation(Reservation reservation)
