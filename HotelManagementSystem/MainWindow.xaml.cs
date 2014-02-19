@@ -311,7 +311,21 @@ namespace HotelManagementSystem
         private void ReservationRegistryShowReservationsBtn_Click(object sender, RoutedEventArgs e)
         {
             RegistryTab.SelectedIndex = 0;
-        }///Empty
+        }
+
+        private void ReservationRegistrySearchEmailBtn_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+            ReservationRegistryDataGrid.ItemsSource = customerRegistryController.FindCustomerByEmail(ReservationRegistryEmailTbx.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Felmeddelande här!");
+            }
+        
+            
+        }///shooows empty line
 
     }
 }
