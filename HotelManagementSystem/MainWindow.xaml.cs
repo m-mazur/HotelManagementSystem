@@ -28,7 +28,6 @@ namespace HotelManagementSystem
         private DataRowView selectedRoom;
         private DataRowView selectedReservation;
         private DataRowView selectedCustomer;
-        private Random random;
         private Boolean registerEnabled;
 
         public MainWindow()
@@ -99,9 +98,6 @@ namespace HotelManagementSystem
 
         private void CustomerDetailsBookBtn_Click(object sender, RoutedEventArgs e)
         {
-            random = new Random();
-            int randomNo = random.Next(000000, 999999);
-
             if (registerEnabled)
             {
                 try
@@ -114,7 +110,7 @@ namespace HotelManagementSystem
 
                         reservationController.AddReservation(CustomerDetailsEmailTbx.Text, selectedRoom[0].ToString(),
                             AvailabilityFromDateDpr.SelectedDate.Value, AvailabilityToDateDpr.SelectedDate.Value, false, false);
-                        ShowCustomerRecipt(randomNo.ToString());
+                        ShowCustomerRecipt(reservationController.GetLatestReservationNo().ToString());
 
                         BookingTab.SelectedIndex = 2;
                     }
@@ -134,7 +130,7 @@ namespace HotelManagementSystem
                 {
                     reservationController.AddReservation(CustomerDetailsEmailTbx.Text, selectedRoom[0].ToString(),
                         AvailabilityFromDateDpr.SelectedDate.Value, AvailabilityToDateDpr.SelectedDate.Value, false, false);
-                    ShowCustomerRecipt(randomNo.ToString());
+                    ShowCustomerRecipt(reservationController.GetLatestReservationNo().ToString());
                     
                     BookingTab.SelectedIndex = 2;
                 }

@@ -30,6 +30,11 @@ namespace HotelManagementSystem
             return customer;
         }
 
+        public int GetLatestReservationNo()
+        {
+            return reservationRepository.GetLatestReservationNo();
+        }
+
         public void AddReservation(string eMail, string roomNo,
             DateTime checkInDate, DateTime checkOutDate, Boolean checkIn, Boolean checkOut)
         {
