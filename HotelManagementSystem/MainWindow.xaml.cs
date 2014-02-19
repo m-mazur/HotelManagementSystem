@@ -148,16 +148,19 @@ namespace HotelManagementSystem
         private void checkBoxRegister_Checked(object sender, RoutedEventArgs e)
         {
             CustomerDetailsSearchBtn.IsEnabled = false;
+            ClearCustomerDetails();
+            EnableDisabletextBoxes(true);
+            registerEnabled = true;
+        }
 
+        private void ClearCustomerDetails()
+        {
             CustomerDetailsEmailTbx.Text = "";
             CustomerDetailsFirstNameTbx.Text = "";
             CustomerDetailsLastnameTbx.Text = "";
             CustomerDetailsCreditCardNoTbx.Text = "";
             CustomerDetailsPhoneCountryCodeTbx.Text = "";
             CustomerDetailsPhoneNoTbx.Text = "";
-
-            EnableDisabletextBoxes(true);
-            registerEnabled = true;
         }
 
         private void checkBoxRegister_Unchecked(object sender, RoutedEventArgs e)
@@ -180,6 +183,12 @@ namespace HotelManagementSystem
         private void RecieptDoneBtn_Click(object sender, RoutedEventArgs e)
         {
             BookingTab.SelectedIndex = 0;
+            ClearCustomerDetails();
+            //AvailabilityDataGrid.Clear();
+            AvailabilityDataGrid.Items.Refresh();
+            //AvailabilityFromDateDpr.ClearValue();
+            //AvailabilityToDateDpr.ClearValue();
+
         }
 
         private void ShowCustomerRecipt(string reservationNo)
