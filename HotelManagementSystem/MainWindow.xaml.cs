@@ -322,9 +322,19 @@ namespace HotelManagementSystem
             catch (Exception)
             {
                 MessageBox.Show("Felmeddelande här!");
-            }
+            }// shows empty line if nothing clicked
         
             
+        }
+
+        private void ReservationRegistryNameSearchBtn_Click(object sender, RoutedEventArgs e)
+        {
+            ReservationRegistryDataGrid.ItemsSource = new CustomerRegistryController().FindCustomersByName(ReservationRegistryFirstNameTbx.Text, ReservationRegistryLastNameTbx.Text);
+        }
+
+        private void ReservationRegistryShowAllReservationsBtn_Click(object sender, RoutedEventArgs e)
+        {
+          //  ReservationRegistryDataGrid.ItemsSource = new CustomerRegistryController().GetReservationDataView();
         }///shooows empty line
 
     }
