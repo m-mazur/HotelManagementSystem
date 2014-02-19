@@ -46,7 +46,7 @@ namespace HotelManagementSystem
         private void CheckAvailabilityButton_Click(object sender, RoutedEventArgs e)
         {
             
-            if (AvailabilityFromDateDpr.SelectedDate.Value > AvailabilityToDateDpr.SelectedDate.Value)
+            if (AvailabilityFromDateDpr.SelectedDate.Value >= AvailabilityToDateDpr.SelectedDate.Value)
             {
                 MessageBox.Show("Please select a check in date before the checkout date");
             }
