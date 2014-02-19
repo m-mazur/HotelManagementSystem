@@ -10,7 +10,7 @@
         <TabControl HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="790" SelectionChanged="TabControl_SelectionChanged">
             <TabItem x:Name="NewReservationTab" Header="New Reservation" Width="130" Height="29">
                 <Grid x:Name="CustomerTab" Background="#FFE5E5E5" Margin="0,5,0,-5">
-                   <TabControl x:Name="BookingTab" HorizontalAlignment="Left" Width="784">
+                    <TabControl x:Name="BookingTab" HorizontalAlignment="Left" Width="784">
                         <TabItem x:Name="AvailabilityTab" Header="Availability" Width="150" IsEnabled="False" Height="29">
                             <Grid Background="#FFE5E5E5">
                                 <Button x:Name="AvailabilityNextBtn" Content="Next" HorizontalAlignment="Left" Height ="27" Margin="668,308,0,0" VerticalAlignment="Top" Width="100" Click="AvailabilityNextBtn_Click"/>
@@ -87,8 +87,8 @@
             <TabItem x:Name="CheckInCheckOutTab" Header="Check in / Check out" Width="130" Height="29">
                 <Grid Background="#FFE5E5E5">
                     <Button x:Name="CheckInCheckOutSearchByReservationNoBtn" Content="Search by Res.No" HorizontalAlignment="Left" Margin="325,41,0,0" VerticalAlignment="Top" Width="130" Click="searchCheckInByReservationNoButton_Click" Height="29"/>
-                    <Button x:Name="CheckInCheckOutCheckInBtn" Content="Check In" HorizontalAlignment="Left" Margin="55,295,0,0" VerticalAlignment="Top" Width="130" Click="checkInCheckInButton_Click" Height="29" Background="#FF34DC09"/>
-                    <Button x:Name="CheckInCheckOutCheckOutBtn" Content="Check Out" HorizontalAlignment="Left" Margin="190,295,0,0" VerticalAlignment="Top" Width="130" Click="checkOutCheckInButton_Click" Height="29" Background="#FFEF1717"/>
+                    <Button x:Name="CheckInCheckOutCheckInBtn" Content="Check In" HorizontalAlignment="Left" Margin="55,295,0,0" VerticalAlignment="Top" Width="130" Click="checkInCheckInButton_Click" Height="29" Background="#FF9CFF83"/>
+                    <Button x:Name="CheckInCheckOutCheckOutBtn" Content="Check Out" HorizontalAlignment="Left" Margin="190,295,0,0" VerticalAlignment="Top" Width="130" Click="checkOutCheckInButton_Click" Height="29" Background="#FFEA8080"/>
                     <DataGrid x:Name="CheckInCheckOutDataGrid" HorizontalAlignment="Left" Margin="55,75,0,0" VerticalAlignment="Top" Width="667" Height="215" IsReadOnly="True"/>
                     <TextBox x:Name="CheckInCheckOutSearchTbx" HorizontalAlignment="Left" Height="29" Margin="55,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130"/>
                     <Button x:Name="CheckInCheckOutSearchByEmailBtn" Content="Search by Email" HorizontalAlignment="Left" Margin="190,41,0,0" VerticalAlignment="Top" Width="130" Click="searchCheckInByEmailButton_Click" Height="29"/>
