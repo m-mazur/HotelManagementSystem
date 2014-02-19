@@ -31,7 +31,7 @@ namespace HotelManagementSystem
         {
             reservationsTableAdapter = new HotelManagementSystem.Model.Database.DataSetHotelTableAdapters.reservationsTableAdapter();
             reservationsTableAdapter.Fill(dataSetHotel.reservations);
-            DataSetHotel.reservationsRow reservationsRow = dataSetHotel.reservations.FindByreservation_no(1);
+            DataSetHotel.reservationsRow reservationsRow = dataSetHotel.reservations.FindByreservation_no(int.Parse(reservation.ReservationNo));
             reservationsRow.e_mail = reservation.EMail;
             reservationsRow.room_no = reservation.RoomNo;
             reservationsRow.check_in_date = reservation.CheckInDate;
@@ -54,7 +54,7 @@ namespace HotelManagementSystem
             reservationsTableAdapter = new HotelManagementSystem.Model.Database.DataSetHotelTableAdapters.reservationsTableAdapter();
             reservationsTableAdapter.Fill(dataSetHotel.reservations);
             DataSetHotel.reservationsRow reservationRow = dataSetHotel.reservations.FindByreservation_no(int.Parse(reservationNo));
-            return new Reservation("kuk", reservationRow.e_mail, reservationRow.room_no,
+            return new Reservation(reservationNo.ToString(), reservationRow.e_mail, reservationRow.room_no,
                 reservationRow.check_in_date, reservationRow.check_out_date, reservationRow.check_in, reservationRow.check_out);
         }
 

@@ -112,7 +112,7 @@ namespace HotelManagementSystem
                         reservationController.AddCustomer(CustomerDetailsEmailTbx.Text, CustomerDetailsPhoneNoTbx.Text, CustomerDetailsPhoneCountryCodeTbx.Text,
                             CustomerDetailsCreditCardNoTbx.Text, CustomerDetailsFirstNameTbx.Text, CustomerDetailsLastnameTbx.Text);
 
-                        reservationController.AddReservation(randomNo.ToString(), CustomerDetailsEmailTbx.Text, selectedRoom[0].ToString(),
+                        reservationController.AddReservation(CustomerDetailsEmailTbx.Text, selectedRoom[0].ToString(),
                             AvailabilityFromDateDpr.SelectedDate.Value, AvailabilityToDateDpr.SelectedDate.Value, false, false);
                         ShowCustomerRecipt(randomNo.ToString());
 
@@ -132,7 +132,7 @@ namespace HotelManagementSystem
             {
                 try
                 {
-                    reservationController.AddReservation(randomNo.ToString(), CustomerDetailsEmailTbx.Text, selectedRoom[0].ToString(),
+                    reservationController.AddReservation(CustomerDetailsEmailTbx.Text, selectedRoom[0].ToString(),
                         AvailabilityFromDateDpr.SelectedDate.Value, AvailabilityToDateDpr.SelectedDate.Value, false, false);
                     ShowCustomerRecipt(randomNo.ToString());
                     
