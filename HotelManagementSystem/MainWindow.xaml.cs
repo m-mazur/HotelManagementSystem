@@ -247,7 +247,7 @@ namespace HotelManagementSystem
             try
             {
                 selectedReservation = CheckInCheckOutDataGrid.SelectedItem as DataRowView;
-                if (selectedReservation[6].Equals(true))
+                if (selectedReservation[5].Equals(true))
                 {
                     string reservationNo = selectedReservation[0].ToString();
                     checkInCheckOutController.CheckOutReservation(reservationNo, true);
