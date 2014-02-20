@@ -301,12 +301,12 @@ namespace HotelManagementSystem
             string email = selectedCustomer[0].ToString();
             ReservationRegistryDataGrid.ItemsSource = customerRegistryController.FindReservationByEmail(email);
             RegistryTab.SelectedIndex = 1;
-        }//!!!Should maybe only show this button if a customer is selected??!!!
+        }
 
         private void showCustomerDetailsCustomerRegistryButton_Click(object sender, RoutedEventArgs e)
         {
             selectedCustomer = CustomerRegistryDataGrid.SelectedItem as DataRowView;
-        }//!!!Doesn't work!!!
+        }
 
         private void CustomerRegistrySearchEmailBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -318,7 +318,7 @@ namespace HotelManagementSystem
             {
                 MessageBox.Show("Felmeddelande här!");
             }
-        }//!!!Shows empty line even if search with an non existing email!!!
+        }
 
         private void showAllCustomersCustomerRegistryButton_Click(object sender, RoutedEventArgs e)
         {
