@@ -24,6 +24,16 @@ namespace HotelManagementSystem
 
         public DataView FindReservationByEmail(string email)
         {
+            return reservationRepository.GetActiveReservationsByEmail(email);
+        }
+
+        public DataView FindActiveReservationByReservationNo(string reservationNo)
+        {
+            return reservationRepository.GetActiveReservationsByNo(int.Parse(reservationNo));
+        }
+
+        public DataView FindActiveReservationByEmail(string email)
+        {
             return reservationRepository.GetReservationByEmail(email);
         }
 
