@@ -39,6 +39,7 @@ namespace HotelManagementSystem
             customerRegistryController = new CustomerRegistryController();
         }
 
+        //Center MainWindow
         private void CenterWindowOnScreen()
         {
             double screenWidth = System.Windows.SystemParameters.PrimaryScreenWidth;
@@ -49,8 +50,10 @@ namespace HotelManagementSystem
             this.Top = (screenHeight / 2) - (windowHeight / 2);
         }
 
+        //New Reservation Tab
+
         //New Reservation Tab / Availibility
-        private void CheckAvailabilityButton_Click(object sender, RoutedEventArgs e)
+        private void CheckAvailabilityBtn_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -73,7 +76,7 @@ namespace HotelManagementSystem
             }
         }
 
-        private void AvailabilityNextBtn_Click(object sender, RoutedEventArgs e)
+        private void GoToCustomerDetailsBtn_Click(object sender, RoutedEventArgs e)
         {
             selectedRoom = AvailabilityDataGrid.SelectedItem as DataRowView;
             
@@ -88,7 +91,7 @@ namespace HotelManagementSystem
         }
 
         //New Reservation Tab / Customer Details
-        private void CustomerDetailsSearchBtn_Click(object sender, RoutedEventArgs e)
+        private void SearchBtn_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -106,7 +109,7 @@ namespace HotelManagementSystem
             }
         }
 
-        private void CustomerDetailsBookBtn_Click(object sender, RoutedEventArgs e)
+        private void GoToReceiptBtn_Click(object sender, RoutedEventArgs e)
         {
             if (registerEnabled)
             {
@@ -151,12 +154,12 @@ namespace HotelManagementSystem
             }
         }
 
-        private void CustomerDetailsBackBtn_Click(object sender, RoutedEventArgs e)
+        private void BackToAvailibiltyBtn_Click(object sender, RoutedEventArgs e)
         {
             BookingTab.SelectedIndex = 0;
         }
 
-        private void checkBoxRegister_Checked(object sender, RoutedEventArgs e)
+        private void CheckBoxRegister_Checked(object sender, RoutedEventArgs e)
         {
             CustomerDetailsSearchBtn.IsEnabled = false;
             ClearCustomerDetails();
@@ -174,7 +177,7 @@ namespace HotelManagementSystem
             CustomerDetailsPhoneNoTbx.Text = "";
         }
 
-        private void checkBoxRegister_Unchecked(object sender, RoutedEventArgs e)
+        private void CheckBoxRegister_Unchecked(object sender, RoutedEventArgs e)
         {
             CustomerDetailsSearchBtn.IsEnabled = true;
             EnableDisabletextBoxes(false);
@@ -223,8 +226,8 @@ namespace HotelManagementSystem
             RecieptTotalPriceTbx.Text = new OrderUtility().TotalOrderValue(room.PricePerDay, reservationNo);
         }
 
-        //Check In/Check out Tab
-        private void checkInCheckInButton_Click(object sender, RoutedEventArgs e)
+        //Check In/Check Out Tab
+        private void CheckInBtn_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -239,7 +242,7 @@ namespace HotelManagementSystem
             }
         }
 
-        private void checkOutCheckInButton_Click(object sender, RoutedEventArgs e)
+        private void CheckOutBtn_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -254,7 +257,7 @@ namespace HotelManagementSystem
             }
         }
 
-        private void searchCheckInByReservationNoButton_Click(object sender, RoutedEventArgs e)
+        private void SearchByReservationNoBtn_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(CheckInCheckOutSearchTbx.Text))
             {
@@ -277,7 +280,7 @@ namespace HotelManagementSystem
             }
         }
 
-        private void searchCheckInByEmailButton_Click(object sender, RoutedEventArgs e)
+        private void SearchByEmailBtn_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(CheckInCheckOutSearchTbx.Text))
             {
@@ -300,8 +303,10 @@ namespace HotelManagementSystem
             }
         }
 
-        //Customer Registry
-        private void showReservationsCustomerRegistryButton_Click(object sender, RoutedEventArgs e)
+        //Registry Tab
+        
+        //Registry Tab / Customer Registry Tab
+        private void ShowSelectedCustomerReservationsBtn_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -320,19 +325,7 @@ namespace HotelManagementSystem
             }
         }
 
-        private void showCustomerDetailsCustomerRegistryButton_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                selectedCustomer = CustomerRegistryDataGrid.SelectedItem as DataRowView;
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("There is a problem with the database. If problem occurs after restart, contact admin!");
-            }
-        }
-
-        private void CustomerRegistrySearchEmailBtn_Click(object sender, RoutedEventArgs e)
+        private void SearchCustomerByEmailBtn_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(CustomerRegistryEmailTbx.Text))
             {
@@ -355,7 +348,7 @@ namespace HotelManagementSystem
             }
         }
 
-        private void showAllCustomersCustomerRegistryButton_Click(object sender, RoutedEventArgs e)
+        private void ShowAllCustomersBtn_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -367,7 +360,7 @@ namespace HotelManagementSystem
             }
         }
 
-        private void CustomerRegistryNameSearchBtn_Click(object sender, RoutedEventArgs e)
+        private void SearchCustomersByNameBtn_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(CustomerRegistryFirstNameTbx.Text) && string.IsNullOrWhiteSpace(CustomerRegistryLastNameTbx.Text))
             {
@@ -389,13 +382,14 @@ namespace HotelManagementSystem
                 }
             }
         }
+        //Registry Tab / Reservations Registry Tab
 
-        private void ReservationRegistryShowReservationsBtn_Click(object sender, RoutedEventArgs e)
+        private void ShowSelectedReservationCustomerBtn_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 selectedReservation = ReservationRegistryDataGrid.SelectedItem as DataRowView;
-                string email = selectedReservation[0].ToString();
+                string email = selectedReservation[1].ToString();
                 CustomerRegistryDataGrid.ItemsSource = customerRegistryController.FindCustomerByEmail(email);
                 RegistryTab.SelectedIndex = 0;
             }
@@ -405,7 +399,7 @@ namespace HotelManagementSystem
             }
         }
 
-        private void ReservationRegistrySearchEmailBtn_Click(object sender, RoutedEventArgs e)
+        private void SearchReservationsByEmailBtn_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(ReservationRegistryEmailTbx.Text))
             {
@@ -428,7 +422,7 @@ namespace HotelManagementSystem
             }
         }
 
-        private void ReservationRegistryReservationNoSearchBtn_Click(object sender, RoutedEventArgs e)
+        private void SearchReservationByReservationNoBtn_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(ReservationRegistryReservationNoTbx.Text))
             {
@@ -450,5 +444,17 @@ namespace HotelManagementSystem
                 }
             }
         }
+
+        private void ShowAllReservationsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                ReservationRegistryDataGrid.ItemsSource = new CustomerRegistryController().GetReservationDataView();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("There is a problem with the database. If problem occurs after restart, contact admin!");
+            }
+        }///Fixa getAllResvervations
     }
 }
