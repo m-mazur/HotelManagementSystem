@@ -398,10 +398,6 @@ namespace HotelManagementSystem
             }
         }
 
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-        }
-
         private void ReservationRegistryShowReservationsBtn_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -462,8 +458,5 @@ namespace HotelManagementSystem
                 }
             }
         }
-
-        ///Other
-
     }
 }
