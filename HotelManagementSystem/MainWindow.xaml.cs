@@ -50,10 +50,6 @@ namespace HotelManagementSystem
         }
 
         //New Reservation Tab / Availibility
-        private void RoomTypeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-        }//!!!Doesn't work!!!
-
         private void CheckAvailabilityButton_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -303,7 +299,7 @@ namespace HotelManagementSystem
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Something went wrong when collecting data from database!");
+                    MessageBox.Show("There is a problem with the database. If problem occurs after restart, contact admin!");
                 }
             }
         }

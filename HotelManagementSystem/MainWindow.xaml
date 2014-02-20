@@ -14,17 +14,12 @@
                         <TabItem x:Name="AvailabilityTab" Header="Availability" Width="150" IsEnabled="False" Height="29">
                             <Grid Background="#FFE5E5E5">
                                 <Button x:Name="AvailabilityNextBtn" Content="Next" HorizontalAlignment="Left" Height ="27" Margin="668,308,0,0" VerticalAlignment="Top" Width="100" Click="AvailabilityNextBtn_Click"/>
-                                <Label x:Name="RoomtypeLabelReservation" Content="Roomtype" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top"/>
-                                <ComboBox x:Name="AvailabilityRoomTypeCbo" HorizontalAlignment="Left" Margin="80,10,0,0" VerticalAlignment="Top" Width="115">
-                                    <ComboBoxItem Content="Double Room"/>
-                                    <ComboBoxItem Content="Single Room"/>
-                                </ComboBox>
-                                <Label x:Name="FromDateLabel" Content="From Date:" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="70"/>
-                                <Label x:Name="ToDateLabel" Content="To Date:" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Width="70"/>
-                                <DatePicker x:Name="AvailabilityFromDateDpr" HorizontalAlignment="Left" Margin="80,41,0,0" VerticalAlignment="Top" FirstDayOfWeek="Monday" Width="115"/>
-                                <DatePicker x:Name="AvailabilityToDateDpr" HorizontalAlignment="Right" Margin="0,70,583,0" VerticalAlignment="Top" FirstDayOfWeek="Monday" Width="115"/>
+                                <Label x:Name="FromDateLabel" Content="From Date:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="70"/>
+                                <Label x:Name="ToDateLabel" Content="To Date:" HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top" Width="70"/>
+                                <DatePicker x:Name="AvailabilityFromDateDpr" HorizontalAlignment="Left" Margin="80,10,0,0" VerticalAlignment="Top" FirstDayOfWeek="Monday" Width="115"/>
+                                <DatePicker x:Name="AvailabilityToDateDpr" HorizontalAlignment="Right" Margin="0,39,583,0" VerticalAlignment="Top" FirstDayOfWeek="Monday" Width="115"/>
                                 <DataGrid x:Name="AvailabilityDataGrid" HorizontalAlignment="Left" Margin="200,10,0,0" VerticalAlignment="Top" Height="284" Width="568" IsReadOnly="True"/>
-                                <Button x:Name="AvailabilityCheckBtn" Content="Check Availability" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top" Width="185" Click="CheckAvailabilityButton_Click" Height="27"/>
+                                <Button x:Name="AvailabilityCheckBtn" Content="Check Availability" HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top" Width="185" Click="CheckAvailabilityButton_Click" Height="27"/>
                             </Grid>
                         </TabItem>
                         <TabItem x:Name="CustomerDetailsTab" Header="Customer Details" Width="150" IsEnabled="False" HorizontalAlignment="Left" Margin="0,-2,0,0" Height="29">
