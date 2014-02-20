@@ -258,6 +258,10 @@ namespace HotelManagementSystem
                 try
                 {
                     CheckInCheckOutDataGrid.ItemsSource = checkInCheckOutController.FindReservationByReservationNo(CheckInCheckOutSearchTbx.Text);
+                    if (CheckInCheckOutDataGrid.Items.Count == 0)
+                    {
+                        MessageBox.Show("No reservation with that reservation number!");
+                    }
                 }
                 catch (Exception)
                 {
@@ -277,6 +281,10 @@ namespace HotelManagementSystem
                 try
                 {
                     CheckInCheckOutDataGrid.ItemsSource = checkInCheckOutController.FindReservationByEmail(CheckInCheckOutSearchTbx.Text);
+                    if (CheckInCheckOutDataGrid.Items.Count == 0)
+                    {
+                        MessageBox.Show("No reservation with that e-mail!");
+                    }
                 }
                 catch (Exception)
                 {
