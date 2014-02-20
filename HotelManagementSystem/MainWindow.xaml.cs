@@ -62,6 +62,10 @@ namespace HotelManagementSystem
                 {
                     MessageBox.Show("Please select a check in date before the checkout date");
                 }
+                else if (AvailabilityFromDateDpr.SelectedDate < DateTime.Today)
+                {
+                    MessageBox.Show("Please select a date after todays date");
+                }
                 else
                 {
                     AvailabilityDataGrid.ItemsSource = reservationController.GetAvailableRooms("single room", AvailabilityFromDateDpr.SelectedDate.Value, AvailabilityToDateDpr.SelectedDate.Value);
