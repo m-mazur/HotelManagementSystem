@@ -271,7 +271,7 @@ namespace HotelManagementSystem
                     CheckInCheckOutDataGrid.ItemsSource = checkInCheckOutController.FindReservationByReservationNo(CheckInCheckOutSearchTbx.Text);
                     if (CheckInCheckOutDataGrid.Items.Count == 0)
                     {
-                        MessageBox.Show("No reservation with that reservation number!");
+                        MessageBox.Show("Reservation number has to be digits only!");
                     }
                 }
                 catch (Exception)
@@ -357,9 +357,6 @@ namespace HotelManagementSystem
         {
             CustomerRegistryDataGrid.ItemsSource = new CustomerRegistryController().FindCustomersByName(CustomerRegistryFirstNameTbx.Text, CustomerRegistryLastNameTbx.Text);
         }
-
-        //Room Registry
-        //Empty
 
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
