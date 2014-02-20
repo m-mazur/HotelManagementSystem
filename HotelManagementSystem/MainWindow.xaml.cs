@@ -249,13 +249,41 @@ namespace HotelManagementSystem
 
         private void searchCheckInByReservationNoButton_Click(object sender, RoutedEventArgs e)
         {
-            CheckInCheckOutDataGrid.ItemsSource = checkInCheckOutController.FindReservationByReservationNo(CheckInCheckOutSearchTbx.Text);
-        }//!!!Show empty reservation if search with a reservation number that doesn't exists!!!
+            if (string.IsNullOrWhiteSpace(CheckInCheckOutSearchTbx.Text))
+            {
+                MessageBox.Show("You need to fill in a reservation number first!");
+            }
+            else
+            {
+                try
+                {
+                    CheckInCheckOutDataGrid.ItemsSource = checkInCheckOutController.FindReservationByReservationNo(CheckInCheckOutSearchTbx.Text);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Something went wrong when collecting data from database!");
+                }
+            }
+        }
 
         private void searchCheckInByEmailButton_Click(object sender, RoutedEventArgs e)
         {
-            CheckInCheckOutDataGrid.ItemsSource = checkInCheckOutController.FindReservationByEmail(CheckInCheckOutSearchTbx.Text);
-        }//!!!Show empty reservation if search with a email that doesn't exists!!!
+            if (string.IsNullOrWhiteSpace(CheckInCheckOutSearchTbx.Text))
+            {
+                MessageBox.Show("You need to fill in an E-mail first!");
+            }
+            else
+            {
+                try
+                {
+                    CheckInCheckOutDataGrid.ItemsSource = checkInCheckOutController.FindReservationByEmail(CheckInCheckOutSearchTbx.Text);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Something went wrong when collecting data from database!");
+                }
+            }
+        }
 
         //Customer Registry
         private void showReservationsCustomerRegistryButton_Click(object sender, RoutedEventArgs e)
