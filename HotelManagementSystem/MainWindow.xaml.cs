@@ -423,7 +423,7 @@ namespace HotelManagementSystem
             {
                 try
                 {
-                    ReservationRegistryDataGrid.ItemsSource = customerRegistryController.FindCustomerByEmail(ReservationRegistryEmailTbx.Text);
+                    ReservationRegistryDataGrid.ItemsSource = customerRegistryController.FindReservationByEmail(ReservationRegistryEmailTbx.Text);
                     if (ReservationRegistryDataGrid.Items.Count == 0)
                     {
                         MessageBox.Show("No reservation with that e-mail exsists!");
@@ -436,17 +436,17 @@ namespace HotelManagementSystem
             }
         }
 
-        private void ReservationRegistryNameSearchBtn_Click(object sender, RoutedEventArgs e)
+        private void ReservationRegistryReservationNoSearchBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(ReservationRegistryFirstNameTbx.Text) && string.IsNullOrWhiteSpace(ReservationRegistryLastNameTbx.Text))
+            if (string.IsNullOrWhiteSpace(ReservationRegistryReservationNoTbx.Text))
             {
-                MessageBox.Show("You need to fill in a name first!");
+                MessageBox.Show("You need to fill in a reservation number first!");
             }
             else
             {
                 try
                 {
-                    ReservationRegistryDataGrid.ItemsSource = new CustomerRegistryController().FindCustomersByName(ReservationRegistryFirstNameTbx.Text, ReservationRegistryLastNameTbx.Text);
+                    ReservationRegistryDataGrid.ItemsSource = checkInCheckOutController.FindReservationByReservationNo(ReservationRegistryReservationNoTbx.Text);
                     if (ReservationRegistryDataGrid.Items.Count == 0)
                     {
                         MessageBox.Show("No reservation with that name exsists!");

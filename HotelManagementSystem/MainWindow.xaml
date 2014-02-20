@@ -134,13 +134,11 @@
                                 <Label x:Name="ReservationRegistryEmailLbl" Content="Email" HorizontalAlignment="Left" Margin="0,15,0,304" Width="120" RenderTransformOrigin="0.9,0.423" Grid.Column="1"/>
                                 <TextBox x:Name="ReservationRegistryEmailTbx" HorizontalAlignment="Left" Height="23" Margin="0,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.825,0.391" Grid.Column="1"/>
                                 <Button x:Name="ReservationRegistrySearchEmailBtn" Content="Search" HorizontalAlignment="Left" Margin="125,41,0,0" VerticalAlignment="Top" Width="88" Click="ReservationRegistrySearchEmailBtn_Click" Height="23" Grid.Column="1"/>
-                                <Label x:Name="ReservationRegistryReservationNoLbl" Content="Firstname" HorizontalAlignment="Left" Margin="218,15,0,0" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="62"/>
-                                <TextBox x:Name="ReservationRegistryFirstNameTbx" HorizontalAlignment="Left" Height="23" Margin="218,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="115" Grid.Column="1" RenderTransformOrigin="0.461,0.522" Grid.ColumnSpan="2"/>
-                                <Button x:Name="ReservationRegistryNameSearchBtn" Content="Search" HorizontalAlignment="Left" Margin="147,41,0,0" VerticalAlignment="Top" Width="88" Click="ReservationRegistryNameSearchBtn_Click" Height="23" Grid.Column="2"/>
+                                <Label x:Name="ReservationRegistryReservationNoLbl" Content="Reservation No" HorizontalAlignment="Left" Margin="218,15,0,0" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="120" Grid.ColumnSpan="2"/>
+                                <TextBox x:Name="ReservationRegistryReservationNoTbx" HorizontalAlignment="Left" Height="23" Margin="218,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="115" Grid.Column="1" RenderTransformOrigin="0.461,0.522" Grid.ColumnSpan="2"/>
+                                <Button x:Name="ReservationRegistryNameSearchBtn" Content="Search" HorizontalAlignment="Left" Margin="27,41,0,0" VerticalAlignment="Top" Width="88" Click="ReservationRegistryReservationNoSearchBtn_Click" Height="23" Grid.Column="2" RenderTransformOrigin="0.636,0.348"/>
                                 <Button x:Name="ReservationRegistryShowAllReservationsBtn" Content="Show all reservations" HorizontalAlignment="Left" Margin="240,41,0,0" VerticalAlignment="Top" Width="117" Grid.Column="2" Height="23"/>
                                 <Button x:Name="ReservationRegistryShowReservationsBtn" Content="Show customer" HorizontalAlignment="Left" Margin="240,302,0,20" Width="117" Click="ReservationRegistryShowReservationsBtn_Click" Grid.Column="2"/>
-                                <TextBox x:Name="ReservationRegistryLastNameTbx" HorizontalAlignment="Left" Height="23" Margin="27,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="115" Grid.Column="2"/>
-                                <Label x:Name="ReservationRegistryLastnameLbl" Content="Lastname" HorizontalAlignment="Left" Margin="27,15,0,0" VerticalAlignment="Top" Grid.Column="2" Height="26" Width="60"/>
                             </Grid>
                         </TabItem>
                     </TabControl>
