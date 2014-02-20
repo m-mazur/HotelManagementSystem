@@ -7,7 +7,7 @@
         xmlns:View="clr-namespace:HotelManagementSystem"
         Title="MainWindow" Height="450" Width="800">
     <Grid Margin="0,0,-8,0">
-        <TabControl HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="790" SelectionChanged="TabControl_SelectionChanged">
+        <TabControl HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="790">
             <TabItem x:Name="NewReservationTab" Header="New Reservation" Width="130" Height="29">
                 <Grid x:Name="CustomerTab" Background="#FFE5E5E5" Margin="0,5,0,-5">
                     <TabControl x:Name="BookingTab" HorizontalAlignment="Left" Width="784">
