@@ -307,11 +307,17 @@ namespace HotelManagementSystem
         //Customer Registry
         private void showReservationsCustomerRegistryButton_Click(object sender, RoutedEventArgs e)
         {
-            
-            selectedCustomer = CustomerRegistryDataGrid.SelectedItem as DataRowView;
-            string email = selectedCustomer[0].ToString();
-            ReservationRegistryDataGrid.ItemsSource = customerRegistryController.FindReservationByEmail(email);
-            RegistryTab.SelectedIndex = 1;
+            try
+            {
+                selectedCustomer = CustomerRegistryDataGrid.SelectedItem as DataRowView;
+                string email = selectedCustomer[0].ToString();
+                ReservationRegistryDataGrid.ItemsSource = customerRegistryController.FindReservationByEmail(email);
+                RegistryTab.SelectedIndex = 1;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("You need to choose a customer first!");
+            }
         }
 
         private void showCustomerDetailsCustomerRegistryButton_Click(object sender, RoutedEventArgs e)
@@ -361,7 +367,17 @@ namespace HotelManagementSystem
 
         private void ReservationRegistryShowReservationsBtn_Click(object sender, RoutedEventArgs e)
         {
-            RegistryTab.SelectedIndex = 0;
+            try
+            {
+                selectedReservation = ReservationRegistryDataGrid.SelectedItem as DataRowView;
+                string email = selectedReservation[0].ToString();
+                CustomerRegistryDataGrid.ItemsSource = customerRegistryController.FindCustomerByEmail(email);
+                RegistryTab.SelectedIndex = 0;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("You need to choose a reservation first!");
+            }
         }
 
         private void ReservationRegistrySearchEmailBtn_Click(object sender, RoutedEventArgs e)
