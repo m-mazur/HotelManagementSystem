@@ -326,7 +326,14 @@ namespace HotelManagementSystem
 
         private void showCustomerDetailsCustomerRegistryButton_Click(object sender, RoutedEventArgs e)
         {
-            selectedCustomer = CustomerRegistryDataGrid.SelectedItem as DataRowView;
+            try
+            {
+                selectedCustomer = CustomerRegistryDataGrid.SelectedItem as DataRowView;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("There is a problem with the database. If problem occurs after restart, contact admin!");
+            }
         }
 
         private void CustomerRegistrySearchEmailBtn_Click(object sender, RoutedEventArgs e)
@@ -337,7 +344,7 @@ namespace HotelManagementSystem
             }
             catch (Exception)
             {
-                MessageBox.Show("Felmeddelande här!");
+                MessageBox.Show("There is a problem with the database. If problem occurs after restart, contact admin!");
             }
         }
 
@@ -355,12 +362,15 @@ namespace HotelManagementSystem
 
         private void CustomerRegistryNameSearchBtn_Click(object sender, RoutedEventArgs e)
         {
-            CustomerRegistryDataGrid.ItemsSource = new CustomerRegistryController().FindCustomersByName(CustomerRegistryFirstNameTbx.Text, CustomerRegistryLastNameTbx.Text);
+            try
+            {
+                CustomerRegistryDataGrid.ItemsSource = new CustomerRegistryController().FindCustomersByName(CustomerRegistryFirstNameTbx.Text, CustomerRegistryLastNameTbx.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("There is a problem with the database. If problem occurs after restart, contact admin!");
+            }
         }
-
-        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-        }///Empty
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -385,26 +395,30 @@ namespace HotelManagementSystem
         {
             try
             {
-            ReservationRegistryDataGrid.ItemsSource = customerRegistryController.FindCustomerByEmail(ReservationRegistryEmailTbx.Text);
+                ReservationRegistryDataGrid.ItemsSource = customerRegistryController.FindCustomerByEmail(ReservationRegistryEmailTbx.Text);
             }
             catch (Exception)
             {
-                MessageBox.Show("Felmeddelande här!");
-            }// shows empty line if nothing clicked
-        
-            
+                MessageBox.Show("There is a problem with the database. If problem occurs after restart, contact admin!");
+            }       
         }
 
         private void ReservationRegistryNameSearchBtn_Click(object sender, RoutedEventArgs e)
         {
-            ReservationRegistryDataGrid.ItemsSource = new CustomerRegistryController().FindCustomersByName(ReservationRegistryFirstNameTbx.Text, ReservationRegistryLastNameTbx.Text);
+            try
+            {
+                ReservationRegistryDataGrid.ItemsSource = new CustomerRegistryController().FindCustomersByName(ReservationRegistryFirstNameTbx.Text, ReservationRegistryLastNameTbx.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("There is a problem with the database. If problem occurs after restart, contact admin!");
+            }
         }
 
-        private void ReservationRegistryShowAllReservationsBtn_Click(object sender, RoutedEventArgs e)
+        ///Other
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-          //  ReservationRegistryDataGrid.ItemsSource = new CustomerRegistryController().GetReservationDataView();
-        }
-        ///shooows empty line
+        }///Empty
 
     }
 }
