@@ -195,11 +195,7 @@ namespace HotelManagementSystem
         {
             BookingTab.SelectedIndex = 0;
             ClearCustomerDetails();
-            //AvailabilityDataGrid.Clear();
-            AvailabilityDataGrid.Items.Refresh();
-            //AvailabilityFromDateDpr.ClearValue();
-            //AvailabilityToDateDpr.ClearValue();
-
+            AvailabilityDataGrid.ItemsSource = null;
         }
 
         private void ShowCustomerRecipt(string reservationNo)
