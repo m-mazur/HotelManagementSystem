@@ -313,6 +313,10 @@ namespace HotelManagementSystem
                 string email = selectedCustomer[0].ToString();
                 ReservationRegistryDataGrid.ItemsSource = customerRegistryController.FindReservationByEmail(email);
                 RegistryTab.SelectedIndex = 1;
+                if (ReservationRegistryDataGrid.Items.Count == 0)
+                {
+                    MessageBox.Show("Customer has no reservations!");
+                }
             }
             catch (Exception)
             {
