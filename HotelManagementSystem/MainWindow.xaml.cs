@@ -446,7 +446,7 @@ namespace HotelManagementSystem
             {
                 try
                 {
-                    ReservationRegistryDataGrid.ItemsSource = checkInCheckOutController.FindReservationByReservationNo(ReservationRegistryReservationNoTbx.Text);
+                    ReservationRegistryDataGrid.ItemsSource = customerRegistryController.FindReservationByNo(ReservationRegistryReservationNoTbx.Text);
                     if (ReservationRegistryDataGrid.Items.Count == 0)
                     {
                         MessageBox.Show("No reservation with that name exsists!");
