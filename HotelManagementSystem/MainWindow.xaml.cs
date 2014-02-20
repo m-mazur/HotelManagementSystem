@@ -247,9 +247,16 @@ namespace HotelManagementSystem
             try
             {
                 selectedReservation = CheckInCheckOutDataGrid.SelectedItem as DataRowView;
-                string reservationNo = selectedReservation[0].ToString();
-                checkInCheckOutController.CheckOutReservation(reservationNo, true);
-                CheckInCheckOutDataGrid.ItemsSource = checkInCheckOutController.FindReservationByReservationNo(reservationNo);
+                if (selectedReservation[6].Equals(true))
+                {
+                    string reservationNo = selectedReservation[0].ToString();
+                    checkInCheckOutController.CheckOutReservation(reservationNo, true);
+                    CheckInCheckOutDataGrid.ItemsSource = checkInCheckOutController.FindReservationByReservationNo(reservationNo);
+                }
+                else
+                {
+                    MessageBox.Show("Can't check out before check in.");
+                }
             }
             catch (Exception)
             {
