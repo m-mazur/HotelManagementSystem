@@ -449,7 +449,7 @@ namespace HotelManagementSystem
         {
             try
             {
-                ReservationRegistryDataGrid.ItemsSource = new CustomerRegistryController().GetReservationDataView();
+                ReservationRegistryDataGrid.ItemsSource = new ReservationController().GetReservations();
             }
             catch (Exception)
             {

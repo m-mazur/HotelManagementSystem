@@ -68,5 +68,10 @@ namespace HotelManagementSystem
         {
             return new OrderUtility().TotalOrderValue(roomPrice, reservationNo);
         }
+
+        public DataView GetReservations()
+        {
+            return new ReservationsRepository().GetReservations();
+        }
     }
 }
