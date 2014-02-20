@@ -375,7 +375,8 @@ namespace HotelManagementSystem
         private void ReservationRegistryShowAllReservationsBtn_Click(object sender, RoutedEventArgs e)
         {
           //  ReservationRegistryDataGrid.ItemsSource = new CustomerRegistryController().GetReservationDataView();
-        }///shooows empty line
+        }
+        ///shooows empty line
 
     }
 }
