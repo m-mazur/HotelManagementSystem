@@ -89,5 +89,21 @@ namespace HotelManagementSystem
                 DataView reservationDataView = new DataView(dataSetHotel.Tables["Reservations"]);
                 return reservationDataView;
         }
+
+        public DataView GetActiveReservationsByEmail(string email)
+        {
+            reservationsTableAdapter = new HotelManagementSystem.Model.Database.DataSetHotelTableAdapters.reservationsTableAdapter();
+            reservationsTableAdapter.FillByEmailActiveReservations(dataSetHotel.reservations, email, email);
+            DataView reservationDataView = new DataView(dataSetHotel.Tables["Reservations"]);
+            return reservationDataView;
+        }
+
+        public DataView GetActiveReservationsByNo(int reservationNo)
+        {
+            reservationsTableAdapter = new HotelManagementSystem.Model.Database.DataSetHotelTableAdapters.reservationsTableAdapter();
+            reservationsTableAdapter.FillByNoActiveReservations(dataSetHotel.reservations, reservationNo, reservationNo);
+            DataView reservationDataView = new DataView(dataSetHotel.Tables["Reservations"]);
+            return reservationDataView;
+        } 
     }
 }
