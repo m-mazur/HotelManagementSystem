@@ -268,7 +268,7 @@ namespace HotelManagementSystem
             {
                 try
                 {
-                    CheckInCheckOutDataGrid.ItemsSource = checkInCheckOutController.FindReservationByReservationNo(CheckInCheckOutSearchTbx.Text);
+                    CheckInCheckOutDataGrid.ItemsSource = checkInCheckOutController.FindActiveReservationByReservationNo(CheckInCheckOutSearchTbx.Text);
                     if (CheckInCheckOutDataGrid.Items.Count == 0)
                     {
                         MessageBox.Show("No reservation with that number exsists!");
@@ -291,7 +291,7 @@ namespace HotelManagementSystem
             {
                 try
                 {
-                    CheckInCheckOutDataGrid.ItemsSource = checkInCheckOutController.FindReservationByEmail(CheckInCheckOutSearchTbx.Text);
+                    CheckInCheckOutDataGrid.ItemsSource = checkInCheckOutController.FindActiveReservationByEmail(CheckInCheckOutSearchTbx.Text);
                     if (CheckInCheckOutDataGrid.Items.Count == 0)
                     {
                         MessageBox.Show("No reservation with that e-mail!");

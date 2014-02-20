@@ -24,7 +24,7 @@ namespace HotelManagementSystem
 
         public DataView FindReservationByEmail(string email)
         {
-            return reservationRepository.GetActiveReservationsByEmail(email);
+            return reservationRepository.GetReservationByEmail(email);
         }
 
         public DataView FindActiveReservationByReservationNo(string reservationNo)
@@ -34,7 +34,7 @@ namespace HotelManagementSystem
 
         public DataView FindActiveReservationByEmail(string email)
         {
-            return reservationRepository.GetReservationByEmail(email);
+            return reservationRepository.GetActiveReservationsByEmail(email);
         }
 
         public void CheckInReservation(string reservationNo, bool checkIn)
