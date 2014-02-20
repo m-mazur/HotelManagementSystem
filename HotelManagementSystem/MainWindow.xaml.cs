@@ -271,12 +271,12 @@ namespace HotelManagementSystem
                     CheckInCheckOutDataGrid.ItemsSource = checkInCheckOutController.FindReservationByReservationNo(CheckInCheckOutSearchTbx.Text);
                     if (CheckInCheckOutDataGrid.Items.Count == 0)
                     {
-                        MessageBox.Show("Reservation number has to be digits only!");
+                        MessageBox.Show("No reservation with that number exsists!");
                     }
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Something went wrong when collecting data from database!");
+                    MessageBox.Show("Reservation number has to be digits only!");
                 }
             }
         }
@@ -338,13 +338,24 @@ namespace HotelManagementSystem
 
         private void CustomerRegistrySearchEmailBtn_Click(object sender, RoutedEventArgs e)
         {
-            try
+            if (string.IsNullOrWhiteSpace(CustomerRegistryEmailTbx.Text))
             {
-                CustomerRegistryDataGrid.ItemsSource = customerRegistryController.FindCustomerByEmail(CustomerRegistryEmailTbx.Text);
+                MessageBox.Show("You need to fill in an e-mail first!");
             }
-            catch (Exception)
+            else
             {
-                MessageBox.Show("There is a problem with the database. If problem occurs after restart, contact admin!");
+                try
+                {
+                    CustomerRegistryDataGrid.ItemsSource = customerRegistryController.FindCustomerByEmail(CustomerRegistryEmailTbx.Text);
+                    if (CustomerRegistryDataGrid.Items.Count == 0)
+                    {
+                        MessageBox.Show("No customer with that e-mail exsists!");
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("There is a problem with the database. If problem occurs after restart, contact admin!");
+                }
             }
         }
 
@@ -362,13 +373,24 @@ namespace HotelManagementSystem
 
         private void CustomerRegistryNameSearchBtn_Click(object sender, RoutedEventArgs e)
         {
-            try
+            if (string.IsNullOrWhiteSpace(CustomerRegistryFirstNameTbx.Text) && string.IsNullOrWhiteSpace(CustomerRegistryLastNameTbx.Text))
             {
-                CustomerRegistryDataGrid.ItemsSource = new CustomerRegistryController().FindCustomersByName(CustomerRegistryFirstNameTbx.Text, CustomerRegistryLastNameTbx.Text);
+                MessageBox.Show("You need to fill in a first name or last name first!");
             }
-            catch (Exception)
+            else
             {
-                MessageBox.Show("There is a problem with the database. If problem occurs after restart, contact admin!");
+                try
+                {
+                    CustomerRegistryDataGrid.ItemsSource = new CustomerRegistryController().FindCustomersByName(CustomerRegistryFirstNameTbx.Text, CustomerRegistryLastNameTbx.Text);
+                    if (CustomerRegistryDataGrid.Items.Count == 0)
+                    {
+                        MessageBox.Show("No customer with that name exsists!");
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("There is a problem with the database. If problem occurs after restart, contact admin!");
+                }
             }
         }
 
@@ -393,25 +415,47 @@ namespace HotelManagementSystem
 
         private void ReservationRegistrySearchEmailBtn_Click(object sender, RoutedEventArgs e)
         {
-            try
+            if (string.IsNullOrWhiteSpace(ReservationRegistryEmailTbx.Text))
             {
-                ReservationRegistryDataGrid.ItemsSource = customerRegistryController.FindCustomerByEmail(ReservationRegistryEmailTbx.Text);
+                MessageBox.Show("You need to fill in an e-mail first!");
             }
-            catch (Exception)
+            else
             {
-                MessageBox.Show("There is a problem with the database. If problem occurs after restart, contact admin!");
-            }       
+                try
+                {
+                    ReservationRegistryDataGrid.ItemsSource = customerRegistryController.FindCustomerByEmail(ReservationRegistryEmailTbx.Text);
+                    if (ReservationRegistryDataGrid.Items.Count == 0)
+                    {
+                        MessageBox.Show("No reservation with that e-mail exsists!");
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("There is a problem with the database. If problem occurs after restart, contact admin!");
+                }
+            }
         }
 
         private void ReservationRegistryNameSearchBtn_Click(object sender, RoutedEventArgs e)
         {
-            try
+            if (string.IsNullOrWhiteSpace(ReservationRegistryFirstNameTbx.Text) && string.IsNullOrWhiteSpace(ReservationRegistryLastNameTbx.Text))
             {
-                ReservationRegistryDataGrid.ItemsSource = new CustomerRegistryController().FindCustomersByName(ReservationRegistryFirstNameTbx.Text, ReservationRegistryLastNameTbx.Text);
+                MessageBox.Show("You need to fill in a name first!");
             }
-            catch (Exception)
+            else
             {
-                MessageBox.Show("There is a problem with the database. If problem occurs after restart, contact admin!");
+                try
+                {
+                    ReservationRegistryDataGrid.ItemsSource = new CustomerRegistryController().FindCustomersByName(ReservationRegistryFirstNameTbx.Text, ReservationRegistryLastNameTbx.Text);
+                    if (ReservationRegistryDataGrid.Items.Count == 0)
+                    {
+                        MessageBox.Show("No reservation with that name exsists!");
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("There is a problem with the database. If problem occurs after restart, contact admin!");
+                }
             }
         }
 
