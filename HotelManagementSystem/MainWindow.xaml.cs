@@ -462,6 +462,6 @@ namespace HotelManagementSystem
             {
                 MessageBox.Show("There is a problem with the database. If problem occurs after restart, contact admin!");
             }
-        }///Fixa getAllResvervations
+        }
     }
 }
