@@ -32,11 +32,18 @@ namespace HotelManagementSystem
 
         public MainWindow()
         {
-            InitializeComponent();
-            CenterWindowOnScreen();
-            reservationController = new ReservationController();
-            checkInCheckOutController = new CheckInCheckOutController();
-            registryController = new RegistryController();
+            try
+            {
+                InitializeComponent();
+                CenterWindowOnScreen();
+                reservationController = new ReservationController();
+                checkInCheckOutController = new CheckInCheckOutController();
+                registryController = new RegistryController();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Couldn't connect to database. If problem occurs after restart. Contact admin!");
+            }
         }
 
         //Center MainWindow
