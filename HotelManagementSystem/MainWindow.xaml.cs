@@ -24,7 +24,7 @@ namespace HotelManagementSystem
     {
         private ReservationController reservationController;
         private CheckInCheckOutController checkInCheckOutController;
-        private CustomerRegistryController customerRegistryController;
+        private RegistryController registryController;
         private DataRowView selectedRoom;
         private DataRowView selectedReservation;
         private DataRowView selectedCustomer;
@@ -36,7 +36,7 @@ namespace HotelManagementSystem
             CenterWindowOnScreen();
             reservationController = new ReservationController();
             checkInCheckOutController = new CheckInCheckOutController();
-            customerRegistryController = new CustomerRegistryController();
+            registryController = new RegistryController();
         }
 
         //Center MainWindow
@@ -319,7 +319,7 @@ namespace HotelManagementSystem
             {
                 selectedCustomer = CustomerRegistryDataGrid.SelectedItem as DataRowView;
                 string email = selectedCustomer[0].ToString();
-                ReservationRegistryDataGrid.ItemsSource = customerRegistryController.FindReservationByEmail(email);
+                ReservationRegistryDataGrid.ItemsSource = registryController.FindReservationByEmail(email);
                 RegistryTab.SelectedIndex = 1;
                 if (ReservationRegistryDataGrid.Items.Count == 0)
                 {
@@ -342,7 +342,7 @@ namespace HotelManagementSystem
             {
                 try
                 {
-                    CustomerRegistryDataGrid.ItemsSource = customerRegistryController.FindCustomerByEmail(CustomerRegistryEmailTbx.Text);
+                    CustomerRegistryDataGrid.ItemsSource = registryController.FindCustomerByEmail(CustomerRegistryEmailTbx.Text);
                     if (CustomerRegistryDataGrid.Items.Count == 0)
                     {
                         MessageBox.Show("No customer with that e-mail exsists!");
@@ -359,7 +359,7 @@ namespace HotelManagementSystem
         {
             try
             {
-                CustomerRegistryDataGrid.ItemsSource = new CustomerRegistryController().GetCustomerDataView();
+                CustomerRegistryDataGrid.ItemsSource = new RegistryController().GetCustomerDataView();
             }
             catch (Exception)
             {
@@ -377,7 +377,7 @@ namespace HotelManagementSystem
             {
                 try
                 {
-                    CustomerRegistryDataGrid.ItemsSource = new CustomerRegistryController().FindCustomersByName(CustomerRegistryFirstNameTbx.Text, CustomerRegistryLastNameTbx.Text);
+                    CustomerRegistryDataGrid.ItemsSource = new RegistryController().FindCustomersByName(CustomerRegistryFirstNameTbx.Text, CustomerRegistryLastNameTbx.Text);
                     if (CustomerRegistryDataGrid.Items.Count == 0)
                     {
                         MessageBox.Show("No customer with that name exsists!");
@@ -397,7 +397,7 @@ namespace HotelManagementSystem
             {
                 selectedReservation = ReservationRegistryDataGrid.SelectedItem as DataRowView;
                 string email = selectedReservation[1].ToString();
-                CustomerRegistryDataGrid.ItemsSource = customerRegistryController.FindCustomerByEmail(email);
+                CustomerRegistryDataGrid.ItemsSource = registryController.FindCustomerByEmail(email);
                 RegistryTab.SelectedIndex = 0;
             }
             catch (Exception)
@@ -416,7 +416,7 @@ namespace HotelManagementSystem
             {
                 try
                 {
-                    ReservationRegistryDataGrid.ItemsSource = customerRegistryController.FindReservationByEmail(ReservationRegistryEmailTbx.Text);
+                    ReservationRegistryDataGrid.ItemsSource = registryController.FindReservationByEmail(ReservationRegistryEmailTbx.Text);
                     if (ReservationRegistryDataGrid.Items.Count == 0)
                     {
                         MessageBox.Show("No reservation with that e-mail exsists!");
@@ -439,7 +439,7 @@ namespace HotelManagementSystem
             {
                 try
                 {
-                    ReservationRegistryDataGrid.ItemsSource = customerRegistryController.FindReservationByNo(ReservationRegistryReservationNoTbx.Text);
+                    ReservationRegistryDataGrid.ItemsSource = registryController.FindReservationByNo(ReservationRegistryReservationNoTbx.Text);
                     if (ReservationRegistryDataGrid.Items.Count == 0)
                     {
                         MessageBox.Show("No reservation with that name exsists!");

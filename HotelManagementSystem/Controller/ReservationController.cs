@@ -12,11 +12,13 @@ namespace HotelManagementSystem
         private Customer customer;
         private CustomersRepository customerRepository;
         private ReservationsRepository reservationRepository;
+        private RoomsRepository roomRepository;
 
         public ReservationController()
         {
             customerRepository = new CustomersRepository();
             reservationRepository = new ReservationsRepository();
+            roomRepository = new RoomsRepository();
         }
 
         public Customer GetCustomer(string email)
@@ -44,7 +46,7 @@ namespace HotelManagementSystem
 
         public DataView GetAvailableRooms(string roomType, DateTime startDate, DateTime endDate)
         {
-            return new RoomsRepository().GetAvailableRooms(roomType, startDate, endDate);
+            return roomRepository.GetAvailableRooms(roomType, startDate, endDate);
         }
 
         public void AddCustomer(string eMail, string phoneNo, string phoneCountryCode,
@@ -56,12 +58,12 @@ namespace HotelManagementSystem
 
         public Reservation GetSingleReservation(string reservationNo)
         {
-            return reservationRepository.GetSingleReservation(reservationNo);
+            return reservationRepository.GetSingleReservation(int.Parse(reservationNo));
         }
 
         public Room GetRoom(string roomNo)
         {
-            return new RoomsRepository().GetRoomByRoomNo(roomNo);
+            return roomRepository.GetRoomByRoomNo(roomNo);
         }
 
         public String GetTotalOrderValue(double roomPrice, string reservationNo)
@@ -71,7 +73,7 @@ namespace HotelManagementSystem
 
         public DataView GetReservations()
         {
-            return new ReservationsRepository().GetReservations();
+            return reservationRepository.GetReservations();
         }
     }
 }

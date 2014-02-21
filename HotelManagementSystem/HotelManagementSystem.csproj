@@ -69,7 +69,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Controller\CheckInCheckOutController.cs" />
-    <Compile Include="Controller\CustomerRegistryController.cs" />
+    <Compile Include="Controller\RegistryController.cs" />
     <Compile Include="Model\Database\DataSetHotel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

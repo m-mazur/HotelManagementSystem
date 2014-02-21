@@ -57,11 +57,11 @@ namespace HotelManagementSystem
             return reservationDataView;
         }
 
-        public Reservation GetSingleReservation(string reservationNo)
+        public Reservation GetSingleReservation(int reservationNo)
         {
             reservationsTableAdapter = new HotelManagementSystem.Model.Database.DataSetHotelTableAdapters.reservationsTableAdapter();
             reservationsTableAdapter.Fill(dataSetHotel.reservations);
-            DataSetHotel.reservationsRow reservationRow = dataSetHotel.reservations.FindByreservation_no(int.Parse(reservationNo));
+            DataSetHotel.reservationsRow reservationRow = dataSetHotel.reservations.FindByreservation_no(reservationNo);
             return new Reservation(reservationNo.ToString(), reservationRow.e_mail, reservationRow.room_no,
                 reservationRow.check_in_date, reservationRow.check_out_date, reservationRow.check_in, reservationRow.check_out);
         }

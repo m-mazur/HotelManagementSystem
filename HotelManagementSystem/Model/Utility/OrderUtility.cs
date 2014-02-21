@@ -18,8 +18,8 @@ namespace HotelManagementSystem
         public int TotalNights(string reservationNo)
         {
             reservationReposistory = new ReservationsRepository();
-            TimeSpan timeSpan = reservationReposistory.GetSingleReservation(reservationNo).CheckOutDate -
-                reservationReposistory.GetSingleReservation(reservationNo).CheckInDate;
+            var tempReservation = reservationReposistory.GetSingleReservation(int.Parse(reservationNo));
+            TimeSpan timeSpan = tempReservation.CheckOutDate - tempReservation.CheckInDate;
             int totalDays = timeSpan.Days;
             return totalDays;
         }

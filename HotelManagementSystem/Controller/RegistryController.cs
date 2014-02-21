@@ -7,14 +7,17 @@ using System.Threading.Tasks;
 
 namespace HotelManagementSystem
 {
-    public class CustomerRegistryController
+    public class RegistryController
     {
         private CustomersRepository customerRepository;
+        private ReservationsRepository reservationRepository;
         private DataView customerDataView;
 
-        public CustomerRegistryController()
+        public RegistryController()
         {
             customerRepository = new CustomersRepository();
+            reservationRepository = new ReservationsRepository();
+
         }
 
         public DataView GetCustomerDataView()
@@ -37,22 +40,22 @@ namespace HotelManagementSystem
 
         public DataView FindReservationByEmail(string email)
         {
-            return new ReservationsRepository().GetReservationByEmail(email);
+            return reservationRepository.GetReservationByEmail(email);
         }
 
         public DataView FindReservationByNo(string reservationNo)
         {
-            return new ReservationsRepository().GetReservationByReservationNo(reservationNo);
+            return reservationRepository.GetReservationByReservationNo(reservationNo);
         }
 
         public DataView FindCustomerByEmail(string email)
         {
-            return new CustomersRepository().FindCustomersByEmail(email);
+            return customerRepository.FindCustomersByEmail(email);
         }
 
         public DataView FindCustomersByName(string firstName, string lastName)
         {
-            return new CustomersRepository().FindCustomersByName(firstName, lastName);
+            return customerRepository.FindCustomersByName(firstName, lastName);
         }
     }
 }
