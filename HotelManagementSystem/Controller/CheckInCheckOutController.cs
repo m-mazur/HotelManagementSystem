@@ -40,11 +40,18 @@ namespace HotelManagementSystem
         public void CheckInReservation(string reservationNo, bool checkIn)
         {
             var tempReservation = reservationRepository.GetSingleReservation(int.Parse(reservationNo));
-            reservation = new Reservation(tempReservation.ReservationNo, 
-                tempReservation.EMail, tempReservation.RoomNo, 
-                tempReservation.CheckInDate, tempReservation.CheckOutDate, 
-                checkIn, tempReservation.CheckOut);
-            reservationRepository.UpdateReservation(reservation);
+            if (tempReservation.CheckInDate == DateTime.Today)
+            {
+                reservation = new Reservation(tempReservation.ReservationNo,
+                    tempReservation.EMail, tempReservation.RoomNo,
+                    tempReservation.CheckInDate, tempReservation.CheckOutDate,
+                    checkIn, tempReservation.CheckOut);
+                reservationRepository.UpdateReservation(reservation);
+            }
+            else
+            {
+                throw new Exception("Fack");
+            }
         }
 
         public void CheckOutReservation(string reservationNo, bool checkOut)
