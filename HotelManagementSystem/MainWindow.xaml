@@ -23,22 +23,23 @@
                             </Grid>
                         </TabItem>
                         <TabItem x:Name="CustomerDetailsTab" Header="Customer Details" Width="150" IsEnabled="False" HorizontalAlignment="Left" Margin="0,-2,0,0" Height="29">
-                            <Grid Background="#FFE5E5E5" Margin="0,2,0,-1">
+                            <Grid Background="#FFE5E5E5" Margin="0,0,0,1">
                                 <Button x:Name="BackReservation" Content="Back" HorizontalAlignment="Left" Margin="10,305,0,0" VerticalAlignment="Top" Width="100" Click="BackToAvailibiltyBtn_Click" Height="29"/>
                                 <Button x:Name="NextReservationButton" Content="Book" HorizontalAlignment="Left" Margin="668,305,0,0" VerticalAlignment="Top" Width="100" Click="GoToReceiptBtn_Click" Height="29"/>
-                                <TextBox x:Name="CustomerDetailsEmailTbx" HorizontalAlignment="Left" Height="23" Margin="100,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238"/>
-                                <Label x:Name="CustomerDetailsEmailLbl" Content="Email" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.55,2.188" Width="90"/>
-                                <Label x:Name="CustomerDetailsFirstNameLbl" Content="Firstname" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="90"/>
-                                <TextBox x:Name="CustomerDetailsFirstNameTbx" HorizontalAlignment="Left" Height="23" Margin="100,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238" IsEnabled="False"/>
-                                <Label x:Name="CustomerDetailsLastNameLbl" Content="Lastname" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Width="90"/>
-                                <TextBox x:Name="CustomerDetailsLastnameTbx" HorizontalAlignment="Left" Height="23" Margin="100,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238" IsEnabled="False"/>
-                                <Label x:Name="CustomerDetailsCreditCardNoLbl" Content="CreditCard.No" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top" Width="90"/>
-                                <TextBox x:Name="CustomerDetailsCreditCardNoTbx" HorizontalAlignment="Left" Height="23" Margin="100,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238" RenderTransformOrigin="0.534,0.106" IsEnabled="False"/>
-                                <Label x:Name="CustomerDetailsPhoneNumberLbl" Content="PhoneNumber" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top" Width="90" RenderTransformOrigin="0.442,-1.286"/>
-                                <TextBox x:Name="CustomerDetailsPhoneCountryCodeTbx" HorizontalAlignment="Left" Height="23" Margin="100,133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" RenderTransformOrigin="1.552,1.937" IsEnabled="False"/>
-                                <TextBox x:Name="CustomerDetailsPhoneNoTbx" HorizontalAlignment="Left" Height="23" Margin="135,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" IsEnabled="False"/>
+                                <TextBox x:Name="CustomerDetailsEmailTbx" HorizontalAlignment="Left" Height="23" Margin="122,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238"/>
+                                <Label x:Name="CustomerDetailsEmailLbl" Content="Email" HorizontalAlignment="Left" Margin="79,16,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.55,2.188" Width="43"/>
+                                <Label x:Name="CustomerDetailsFirstNameLbl" Content="First Name" HorizontalAlignment="Left" Margin="52,44,0,0" VerticalAlignment="Top" Width="70"/>
+                                <TextBox x:Name="CustomerDetailsFirstNameTbx" HorizontalAlignment="Left" Height="23" Margin="122,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238" IsEnabled="False"/>
+                                <Label x:Name="CustomerDetailsLastNameLbl" Content="Last Name" HorizontalAlignment="Left" Margin="52,75,0,0" VerticalAlignment="Top" Width="65"/>
+                                <TextBox x:Name="CustomerDetailsLastnameTbx" HorizontalAlignment="Left" Height="23" Margin="122,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238" IsEnabled="False"/>
+                                <Label x:Name="CustomerDetailsCreditCardNoLbl" Content="Credit Card Number" HorizontalAlignment="Left" Margin="5,103,0,0" VerticalAlignment="Top" Width="117"/>
+                                <TextBox x:Name="CustomerDetailsCreditCardNoTbx" HorizontalAlignment="Left" Height="23" Margin="122,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238" RenderTransformOrigin="0.534,0.106" IsEnabled="False"/>
+                                <Label x:Name="CustomerDetailsPhoneNumberLbl" Content="Phone Number" HorizontalAlignment="Left" Margin="31,134,0,0" VerticalAlignment="Top" Width="91" RenderTransformOrigin="0.442,-1.286"/>
+                                <TextBox x:Name="CustomerDetailsPhoneCountryCodeTbx" HorizontalAlignment="Left" Height="23" Margin="122,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40" RenderTransformOrigin="1.552,1.937" IsEnabled="False"/>
+                                <TextBox x:Name="CustomerDetailsPhoneNoTbx" HorizontalAlignment="Left" Height="23" Margin="122,133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238" IsEnabled="False"/>
                                 <Button x:Name="CustomerDetailsSearchBtn" Content="Search" HorizontalAlignment="Left" Height="31" Margin="374,125,0,0" VerticalAlignment="Top" Width="202" Click="SearchBtn_Click" RenderTransformOrigin="0.958,0.391"/>
                                 <CheckBox x:Name="CustomerDetailsRegisterChx" Content="Register new customer" HorizontalAlignment="Left" Height="24" Margin="374,96,0,0" VerticalAlignment="Top" Width="202" Checked="CheckBoxRegister_Checked" Unchecked="CheckBoxRegister_Unchecked"/>
+                                <Label x:Name="CustomerDetailsPhoneNumberLbl_Copy" Content="Country Code(+xx)" HorizontalAlignment="Left" Margin="10,161,0,0" VerticalAlignment="Top" Width="112" RenderTransformOrigin="0.442,-1.286"/>
 
                             </Grid>
                         </TabItem>
